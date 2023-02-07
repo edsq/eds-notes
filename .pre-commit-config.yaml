@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: jupytext
         name: jupytext
-        entry: pdm run jupytext --sync --pipe black
+        entry: pdm run jupytext --sync
         language: system
         files: 'md_notebooks/.*\.md'
       - id: black
