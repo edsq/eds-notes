@@ -62,5 +62,18 @@ EOF
 ```
 
 ```bash
+# Create a virtual environment in the directory ./.venv
+python -m venv .venv
+```
+
+```bash
+pdm install
+```
+
+```bash
+pdm info
+```
+
+```bash
 
 ```
