@@ -1,0 +1,28 @@
+[project]
+name = "pwg_presentation_2023"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
+]
+dependencies = [
+    "jupyter>=1.0.0",
+    "jupytext>=1.14.4",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black[jupyter]>=23.1.0",
+    "pre-commit>=3.0.4",
+]
+
+[tool.jupytext]
+formats = "notebooks///ipynb,md_notebooks///md"

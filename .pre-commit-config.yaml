@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+      - id: jupytext
+        name: jupytext
+        entry: pdm run jupytext --sync --pipe black
+        language: system
+        files: 'md_notebooks/.*\.md'
+      - id: black
+        name: black
+        entry: pdm run black
+        language: system
+        types: [python]
