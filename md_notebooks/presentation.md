@@ -15,6 +15,13 @@ jupyter:
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Project Management and Publishing through PDM
 
+Requirements:
+
+- The ability to get python executables of different versions, such as with [pyenv](https://github.com/pyenv/pyenv) or [conda](https://docs.conda.io/en/latest/miniconda.html)
+- [PDM](https://pdm.fming.dev/latest/) available globally
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 First, create the project directory and `cd` into it:
 
 ```bash
@@ -112,18 +119,18 @@ cat pyproject.toml
 
 ```bash slideshow={"slide_type": "fragment"}
 mkdir src
-mkdir src/eeskew_pwg_test_project
-touch src/eeskew_pwg_test_project/__init__.py
+mkdir src/eeskew_pwg_test_000
+touch src/eeskew_pwg_test_000/__init__.py
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### Add a module
 
-Let's add some code in `src/eeskew_pwg_test_project/utils.py`:
+Let's add some code in `src/eeskew_pwg_test_000/utils.py`:
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_project/utils.py
+%%writefile src/eeskew_pwg_test_000/utils.py
 
 def sarcasm(s):
     """Convert string `s` to sArCaSm TeXt."""
@@ -149,7 +156,7 @@ Now we can import our package:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-pdm run python -c "from eeskew_pwg_test_project.utils import sarcasm; print(sarcasm('Hello world!'))"
+pdm run python -c "from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm('Hello world!'))"
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -192,7 +199,7 @@ Let's add a new function to `utils.py`:
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_project/utils.py
+%%writefile src/eeskew_pwg_test_000/utils.py
 import cowsay
 
 def sarcasm(s):
@@ -218,7 +225,7 @@ We can now run this new function:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-pdm run python -c "from eeskew_pwg_test_project.utils import sarcastic_cowsay; sarcastic_cowsay('mooo!')"
+pdm run python -c "from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay('mooo!')"
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -248,7 +255,7 @@ We can now run `black` within our environment.  Let's re-write our code with poo
 <!-- #endregion -->
 
 ```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_project/utils.py
+%%writefile src/eeskew_pwg_test_000/utils.py
 import cowsay
 
 def sarcasm(s):
@@ -278,7 +285,7 @@ pdm run black src/
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-cat src/eeskew_pwg_test_project/utils.py
+cat src/eeskew_pwg_test_000/utils.py
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -310,7 +317,7 @@ tree
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-We could install this project into a different python environment with `python -m pip install dist/eeskew-pwg-test-project-0.1.0.tar.gz` or `python -m pip install dist/eeskew_pwg_test_project-0.1.0-py3-none-any.whl` (the latter is faster).
+We could install this project into a different python environment with `python -m pip install dist/eeskew-pwg-test-000-0.1.0.tar.gz` or `python -m pip install dist/eeskew_pwg_test_000-0.1.0-py3-none-any.whl` (the latter is faster).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -348,4 +355,153 @@ pdm config repository.testpypi.password "<PASTE_YOUR_TOKEN_HERE>"
 ```bash
 pdm publish -r testpypi
 ```
+
+Note that you do not need to run `pdm build` first - PDM will build the distribution as part of `publish` anyway.
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Updating your project
+
+Let's add an entrypoint for our project in `pyproject.toml`.  First, add a new module and new function:
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "fragment"}
+%%writefile src/eeskew_pwg_test_000/cli.py
+import argparse
+
+from eeskew_pwg_test_000.utils import sarcastic_cowsay
+
+def main():
+    """Cowsay something sarcastically from the command line."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("speech")
+    args = parser.parse_args()
+    
+    s = args.speech
+    sarcastic_cowsay(s)
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Now let's add the script to `pyproject.toml`:
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "fragment"}
+%%writefile pyproject.toml
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.1.0",
+]
+
+[project]
+name = "eeskew-pwg-test-000"
+version = "0.1.0"
+description = "A test project for presentation to the WSU Python Working Group."
+authors = [
+    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
+]
+dependencies = [
+    "cowsay>=5.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.scripts]
+sarcasticow = "eeskew_pwg_test_000.cli:main"
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+```
+
+```bash slideshow={"slide_type": "subslide"}
+pdm install
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Now we can run our command from within the environment:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+pdm run sarcasticow "I'm a sarcastic cow"
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Updating README
+
+Let's update our README to show this usage:
+<!-- #endregion -->
+
+````python slideshow={"slide_type": "fragment"}
+%%writefile README.md
+# eeskew-pwg-test-000
+
+Command-line usage:
+
+```
+$ sarcasticow "I'm a sarcastic cow"
+
+  ___________________
+| i'm a sArCaStIc cOw |
+  ===================
+                   \
+                    \
+                      ^__^
+                      (oo)\_______
+                      (__)\       )\/\
+                          ||----w |
+                          ||     ||
+
+```
+````
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+Now we can bump the version and publish again to TestPyPI:
+<!-- #endregion -->
+
+```python slideshow={"slide_type": "fragment"}
+%%writefile pyproject.toml
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.1.0",
+]
+
+[project]
+name = "eeskew-pwg-test-000"
+version = "0.2.0"
+description = "A test project for presentation to the WSU Python Working Group."
+authors = [
+    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
+]
+dependencies = [
+    "cowsay>=5.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.scripts]
+sarcasticow = "eeskew_pwg_test_000.cli:main"
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+```bash
+pdm publish -r testpypi
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+# Conclusion
+
+And that's it!  We've gone through the basics of project management, packaging, and publishing on (Test)PyPI.  Any questions?
+<!-- #endregion -->
+
+```python
+
+```
