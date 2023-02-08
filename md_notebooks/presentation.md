@@ -66,7 +66,7 @@ Get python 3.11:
 
 ```bash
 conda create -y -p .conda_env python=3.11
-pdm init --python ./conda_env/bin/python
+pdm init --python .conda_env/bin/python
 ```
 <!-- #endregion -->
 
@@ -501,7 +501,3 @@ pdm publish -r testpypi
 
 And that's it!  We've gone through the basics of project management, packaging, and publishing on (Test)PyPI.  Any questions?
 <!-- #endregion -->
-
-```python
-
-```
