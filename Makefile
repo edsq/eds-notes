@@ -1,3 +1,9 @@
+
+PROJECT_DIR ?= "tst"
+
+all:
+	@make $(PROJECT_DIR)/mypyproject.toml
+
 init:
 	pdm install
 	pdm run python -m bash_kernel.install
@@ -11,9 +17,15 @@ notebook-server: .venv
 .venv:
 	@make init
 
+$(PROJECT_DIR):
+	mkdir -p $@
+
+$(PROJECT_DIR)/pyproject.toml: resources/skeleton/pyproject.toml $(PROJECT_DIR) 
+	sed 's/VAR/REP/g' $< > $@
+
 clean:
 	rm -rf notebooks
 	rm -rf .venv
 	rm -f .pdm.toml
 
-.PHONY: init clean notebook-server
+.PHONY: all init clean notebook-server
