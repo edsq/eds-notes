@@ -1,7 +1,7 @@
 [tool.pdm]
 
 [project]
-name = "eeskew-pwg-test-project"
+name = "eeskew-pwg-test-000"
 version = "0.1.0"
 description = "A test project for presentation to the WSU Python Working Group."
 authors = [

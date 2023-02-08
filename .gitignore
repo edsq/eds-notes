@@ -9,4 +9,4 @@ docs/_build
 *.ipynb-checkpoints/*
 *.swp
 .pdm.toml
-eeskew-pwg-test-project
+eeskew-pwg-test-*

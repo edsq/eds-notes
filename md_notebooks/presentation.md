@@ -18,9 +18,11 @@ jupyter:
 First, create the project directory and `cd` into it:
 
 ```bash
-mkdir eeskew_pwg_test_project
-cd eeskew_pwg_test_project
+mkdir eeskew-pwg-test-000
+cd eeskew-pwg-test-000
 ```
+
+Note - because this is a throwaway test project, it is important that you give your project a name that won't conflict with any other package on PyPI or TestPyPI.  Adding your name and some numbers is a good way to ensure this.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -69,9 +71,9 @@ The following commands will be equivalent to the above, but work when run from i
 
 ```bash slideshow={"slide_type": "skip"}
 cd ..
-rm -r eeskew-pwg-test-project  # remove the test project if it already exists
-mkdir eeskew-pwg-test-project
-cd eeskew-pwg-test-project
+rm -r eeskew-pwg-test-000  # remove the test project if it already exists
+mkdir eeskew-pwg-test-000
+cd eeskew-pwg-test-000
 cp -a ../resources/skeleton/ .
 pdm venv create python
 ```
@@ -79,7 +81,7 @@ pdm venv create python
 ```python slideshow={"slide_type": "skip"}
 # Change directory in python so that the python kernel remembers
 import os
-os.chdir(os.path.join('..', 'eeskew-pwg-test-project'))
+os.chdir(os.path.join('..', 'eeskew-pwg-test-000'))
 ```
 
 ```bash slideshow={"slide_type": "skip"}
@@ -278,3 +280,72 @@ pdm run black src/
 ```bash slideshow={"slide_type": "fragment"}
 cat src/eeskew_pwg_test_project/utils.py
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Packaging the project
+
+Let's review the project as it exists so far:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+tree
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+To create a [sdist](https://packaging.python.org/en/latest/specifications/source-distribution-format/) and [wheel](https://packaging.python.org/en/latest/specifications/binary-distribution-format/):
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+pdm build
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### What happened?
+
+We've created a new directory named `dist`, where these two distribution formats have been placed.
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+tree
+```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+We could install this project into a different python environment with `python -m pip install dist/eeskew-pwg-test-project-0.1.0.tar.gz` or `python -m pip install dist/eeskew_pwg_test_project-0.1.0-py3-none-any.whl` (the latter is faster).
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Publishing the project
+
+Now we'll publish the project on (Test)PyPI.
+
+0. First, make an account on [TestPyPI](https://test.pypi.org).
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+1. Navigate to your account settings, scroll down to "API tokens", and click "Add API token"
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+2. Give the token a descriptive name, set the scope to "Entire account (all projects)", and click "Add token".
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+3. Copy the token that appears - heeding the warning that it will appear only once!
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+4. Now we'll configure PDM with these credentials (replacing `<PASTE_YOUR_TOKEN_HERE>` with the token you've just copied:
+
+```bash
+pdm config repository.testpypi.username "__token__"
+pdm config repository.testpypi.password "<PASTE_YOUR_TOKEN_HERE>"
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+5. Finally, to publish on TestPyPI, just run
+
+```bash
+pdm publish -r testpypi
+```
+<!-- #endregion -->
