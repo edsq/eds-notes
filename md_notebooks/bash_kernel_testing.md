@@ -12,21 +12,29 @@ jupyter:
     name: bash
 ---
 
-# Creating a PDM project
-
-Creating an example PDM project.  Unfortunately, the interactive `pdm init` command does not work in a Jupyter notebook (and the defaults it chooses in non-interactive mode are not good), so we have to do this by hand.
-
-```bash
+```bash slideshow={"slide_type": "skip"}
 bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
 ```
 
-```bash
+<!-- #region slideshow={"slide_type": "slide"} -->
+# Creating a PDM project
+
+Creating an example PDM project.  Unfortunately, the interactive `pdm init` command does not work in a Jupyter notebook (and the defaults it chooses in non-interactive mode are not good), so we have to do this by hand.
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "slide"}
 mkdir test_pdm_project
 cd test_pdm_project
 touch README.md  # Create an empty README file
 ```
 
-```bash
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Creating the `pyproject.toml` file
+
+This file would typically be created automatically by the `pdm init` command.
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
 # Create the pyproject.toml file
 cat << EOF > pyproject.toml
 [project]
@@ -47,7 +55,13 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
-```bash
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Creating the `.pdm.toml` file
+
+This file would also be automatically created by the `pdm init` command.
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
 # Get the current working directory
 CWD=$(pwd)
 
@@ -61,16 +75,16 @@ path = "$CWD/.venv/bin/python"
 EOF
 ```
 
-```bash
+```bash slideshow={"slide_type": "slide"}
 # Create a virtual environment in the directory ./.venv
 python -m venv .venv
 ```
 
-```bash
+```bash slideshow={"slide_type": "slide"}
 pdm install
 ```
 
-```bash
+```bash slideshow={"slide_type": "slide"}
 pdm info
 ```
 
