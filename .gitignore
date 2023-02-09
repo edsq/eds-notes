@@ -10,3 +10,4 @@ docs/_build
 *.swp
 .pdm.toml
 eeskew-pwg-test-*
+!resources/**
