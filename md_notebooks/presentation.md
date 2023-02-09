@@ -12,7 +12,7 @@ jupyter:
     name: bash
 ---
 
-```bash slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
 bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
 ```
 
@@ -74,13 +74,9 @@ pdm init --python .conda_env/bin/python
 ```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "skip"} -->
-### Documentation implementation
-
-The following commands will be equivalent to the above, but work when run from inside the documentation.
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
+# Manually create the project
 cd ..
 rm -r eeskew-pwg-test-000  # remove the test project if it already exists
 mkdir eeskew-pwg-test-000
@@ -89,7 +85,9 @@ cp -a ../resources/skeleton/ .
 pdm venv create python
 ```
 
-```bash slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
+# Check that the environment and project are correct
 pdm info
 ```
 
@@ -127,7 +125,8 @@ touch src/eeskew_pwg_test_000/__init__.py
 Let's add some code in `src/eeskew_pwg_test_000/utils.py`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 def sarcasm(s):
     """Convert string `s` to sArCaSm TeXt."""
@@ -139,6 +138,10 @@ def sarcasm(s):
             out += c.upper()
     return out
 EOF
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat src/eeskew_pwg_test_000/utils.py
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -195,7 +198,8 @@ pdm run python -c 'import cowsay; cowsay.cow("moo!")'
 Let's add a new function to `utils.py`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
 
@@ -216,6 +220,10 @@ def sarcastic_cowsay(s):
     sarcastic_s = sarcasm(s)
     cowsay.cow(sarcastic_s)
 EOF
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat src/eeskew_pwg_test_000/utils.py
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -252,7 +260,8 @@ cat pyproject.toml
 We can now run `black` within our environment.  Let's re-write our code with poor formatting (note the spacing around the `==`, `%`, and `+=` operators), and then run `black` on it:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
 
@@ -273,6 +282,10 @@ def sarcastic_cowsay(s):
     sarcastic_s = sarcasm(s)
     cowsay.cow(sarcastic_s)
 EOF
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat src/eeskew_pwg_test_000/utils.py
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -364,7 +377,8 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 Let's add an entrypoint for our project in `pyproject.toml`.  First, add a new module and new function:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/cli.py
 import argparse
 
@@ -381,11 +395,16 @@ def main():
 EOF
 ```
 
+```bash slideshow={"slide_type": "fragment"}
+cat src/eeskew_pwg_test_000/cli.py
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 Now let's add the script to `pyproject.toml`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
 [tool.pdm]
 [tool.pdm.dev-dependencies]
@@ -416,6 +435,10 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
+```bash slideshow={"slide_type": "fragment"}
+cat pyproject.toml
+```
+
 ```bash slideshow={"slide_type": "subslide"}
 pdm install
 ```
@@ -434,7 +457,8 @@ pdm run sarcasticow "I'm a sarcastic cow"
 Let's update our README to show this usage:
 <!-- #endregion -->
 
-````bash slideshow={"slide_type": "fragment"}
+````bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > README.md
 # eeskew-pwg-test-000
 
@@ -458,11 +482,16 @@ $ sarcasticow "I'm a sarcastic cow"
 EOF
 ````
 
+```bash slideshow={"slide_type": "fragment"}
+cat README.md
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 Now we can bump the version and publish again to TestPyPI:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
 [tool.pdm]
 [tool.pdm.dev-dependencies]
@@ -493,6 +522,10 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
+```bash slideshow={"slide_type": "fragment"}
+cat pyproject.toml
+```
+
 <!-- #region slideshow={"slide_type": "fragment"} -->
 ```bash
 pdm publish -r testpypi
@@ -502,5 +535,5 @@ pdm publish -r testpypi
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conclusion
 
-And that's it!  We've gone through the basics of project management, packaging, and publishing on (Test)PyPI.  Any questions?
+And that's it!  We've gone through the basics of project management, packaging, and publishing on (Test)PyPI.
 <!-- #endregion -->
