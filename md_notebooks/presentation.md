@@ -13,7 +13,7 @@ jupyter:
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Project Management and Publishing through PDM
+# Project Management and Publishing with PDM
 
 Requirements:
 
@@ -497,7 +497,7 @@ pdm publish -r testpypi
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# Conclusion
+## Conclusion
 
 And that's it!  We've gone through the basics of project management, packaging, and publishing on (Test)PyPI.  Any questions?
 <!-- #endregion -->
