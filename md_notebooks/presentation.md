@@ -301,6 +301,91 @@ cat src/eeskew_pwg_test_000/utils.py
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Package version
+
+Right now, the package version (`"0.1.0"`) is stored in the `pyproject.toml` file (in the `project.version` keyword).  The best practice is to place this in a `__version__.py` file, and have that be the single source of truth for our package version.
+
+Create a `__version__.py` file in `src/eeskew_pwg_test_000`, and add the `__version__` variable to it.  The new file should look like:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# This cell hidden in presentation and docs
+echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_000/__version__.py
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat src/eeskew_pwg_test_000/__version__.py
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Now modify the `pyproject.toml` file so that the version is [dynamic metadata](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic):
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# This cell hidden in presentation and docs
+cat << EOF > pyproject.toml
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.1.0",
+]
+
+[project]
+name = "eeskew-pwg-test-000"
+description = "A test project for presentation to the WSU Python Working Group."
+authors = [
+    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
+]
+dependencies = [
+    "cowsay>=5.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+dynamic = ["version"]
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+EOF
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat pyproject.toml
+```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+Note the new `project.dynamic` array, the new `tool.pdm.version` table, and that the `project.version` key is gone.
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+pdm show --version
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+We should also add the `__version__` variable to our `__init__.py`:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# This cell hidden in presentation and docs
+echo 'from eeskew_pwg_test_000.__version__ import __version__' > src/eeskew_pwg_test_000/__init__.py
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat src/eeskew_pwg_test_000/__init__.py
+```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+This allows us to check the version from python in the conventional way:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)"
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Packaging the project
 
 Let's review the project as it exists so far:
@@ -407,6 +492,8 @@ Now let's add the script to `pyproject.toml`:
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
 [tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
 [tool.pdm.dev-dependencies]
 dev = [
     "black>=23.1.0",
@@ -414,7 +501,6 @@ dev = [
 
 [project]
 name = "eeskew-pwg-test-000"
-version = "0.1.0"
 description = "A test project for presentation to the WSU Python Working Group."
 authors = [
     {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
@@ -425,6 +511,7 @@ dependencies = [
 requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
+dynamic = ["version"]
 
 [project.scripts]
 sarcasticow = "eeskew_pwg_test_000.cli:main"
@@ -492,38 +579,11 @@ Now we can bump the version and publish again to TestPyPI:
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
 # This cell hidden in presentation and docs
-cat << "EOF" > pyproject.toml
-[tool.pdm]
-[tool.pdm.dev-dependencies]
-dev = [
-    "black>=23.1.0",
-]
-
-[project]
-name = "eeskew-pwg-test-000"
-version = "0.2.0"
-description = "A test project for presentation to the WSU Python Working Group."
-authors = [
-    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
-]
-dependencies = [
-    "cowsay>=5.0",
-]
-requires-python = ">=3.11"
-readme = "README.md"
-license = {text = "MIT"}
-
-[project.scripts]
-sarcasticow = "eeskew_pwg_test_000.cli:main"
-
-[build-system]
-requires = ["pdm-pep517>=1.0"]
-build-backend = "pdm.pep517.api"
-EOF
+echo '__version__ = "0.2.0"' > src/eeskew_pwg_test_000/__version__.py
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-cat pyproject.toml
+cat src/eeskew_pwg_test_000/__version__.py
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
