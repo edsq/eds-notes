@@ -25,6 +25,9 @@ dev = [
     "black[jupyter]>=23.1.0",
     "pre-commit>=3.0.4",
 ]
+docs = [
+    "jupyter-book>=0.13.2",
+]
 
 [tool.jupytext]
 formats = "notebooks///ipynb,md_notebooks///md"
