@@ -7,10 +7,14 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.14.4
   kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
+    display_name: Bash
+    language: bash
+    name: bash
 ---
+
+```bash slideshow={"slide_type": "skip"}
+bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Project Management and Publishing with PDM
@@ -85,12 +89,6 @@ cp -a ../resources/skeleton/ .
 pdm venv create python
 ```
 
-```python slideshow={"slide_type": "skip"}
-# Change directory in python so that the python kernel remembers
-import os
-os.chdir(os.path.join('..', 'eeskew-pwg-test-000'))
-```
-
 ```bash slideshow={"slide_type": "skip"}
 pdm info
 ```
@@ -129,9 +127,8 @@ touch src/eeskew_pwg_test_000/__init__.py
 Let's add some code in `src/eeskew_pwg_test_000/utils.py`:
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_000/utils.py
-
+```bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 def sarcasm(s):
     """Convert string `s` to sArCaSm TeXt."""
     out = ''
@@ -141,6 +138,7 @@ def sarcasm(s):
         else:
             out += c.upper()
     return out
+EOF
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -156,7 +154,7 @@ Now we can import our package:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-pdm run python -c "from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm('Hello world!'))"
+pdm run python -c 'from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm("Hello world!"))'
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -170,7 +168,6 @@ Let's add a dependency to our project:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-
 pdm add cowsay
 ```
 
@@ -189,7 +186,7 @@ We can now also import `cowsay`:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-pdm run python -c "import cowsay; cowsay.cow('moo!')"
+pdm run python -c 'import cowsay; cowsay.cow("moo!")'
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -198,8 +195,8 @@ pdm run python -c "import cowsay; cowsay.cow('moo!')"
 Let's add a new function to `utils.py`:
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
 
 def sarcasm(s):
@@ -218,6 +215,7 @@ def sarcastic_cowsay(s):
     """Cowsay `s`, sArCaStIcAlLy."""
     sarcastic_s = sarcasm(s)
     cowsay.cow(sarcastic_s)
+EOF
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -225,7 +223,7 @@ We can now run this new function:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-pdm run python -c "from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay('mooo!')"
+pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay("mooo!")'
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -254,8 +252,8 @@ cat pyproject.toml
 We can now run `black` within our environment.  Let's re-write our code with poor formatting (note the spacing around the `==`, `%`, and `+=` operators), and then run `black` on it:
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
 
 def sarcasm(s):
@@ -274,6 +272,7 @@ def sarcastic_cowsay(s):
     """Cowsay `s`, sArCaStIcAlLy."""
     sarcastic_s = sarcasm(s)
     cowsay.cow(sarcastic_s)
+EOF
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -365,8 +364,8 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 Let's add an entrypoint for our project in `pyproject.toml`.  First, add a new module and new function:
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%%writefile src/eeskew_pwg_test_000/cli.py
+```bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > src/eeskew_pwg_test_000/cli.py
 import argparse
 
 from eeskew_pwg_test_000.utils import sarcastic_cowsay
@@ -379,14 +378,15 @@ def main():
     
     s = args.speech
     sarcastic_cowsay(s)
+EOF
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 Now let's add the script to `pyproject.toml`:
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%%writefile pyproject.toml
+```bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > pyproject.toml
 [tool.pdm]
 [tool.pdm.dev-dependencies]
 dev = [
@@ -413,6 +413,7 @@ sarcasticow = "eeskew_pwg_test_000.cli:main"
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
+EOF
 ```
 
 ```bash slideshow={"slide_type": "subslide"}
@@ -433,8 +434,8 @@ pdm run sarcasticow "I'm a sarcastic cow"
 Let's update our README to show this usage:
 <!-- #endregion -->
 
-````python slideshow={"slide_type": "fragment"}
-%%writefile README.md
+````bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > README.md
 # eeskew-pwg-test-000
 
 Command-line usage:
@@ -454,14 +455,15 @@ $ sarcasticow "I'm a sarcastic cow"
                           ||     ||
 
 ```
+EOF
 ````
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 Now we can bump the version and publish again to TestPyPI:
 <!-- #endregion -->
 
-```python slideshow={"slide_type": "fragment"}
-%%writefile pyproject.toml
+```bash slideshow={"slide_type": "fragment"}
+cat << "EOF" > pyproject.toml
 [tool.pdm]
 [tool.pdm.dev-dependencies]
 dev = [
@@ -488,6 +490,7 @@ sarcasticow = "eeskew_pwg_test_000.cli:main"
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
+EOF
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
