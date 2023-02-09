@@ -30,3 +30,7 @@ latex:
 #html:
 #  use_issues_button: false
 #  use_repository_button: true
+
+sphinx:
+  config:
+    nb_merge_streams: true
