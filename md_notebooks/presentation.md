@@ -74,6 +74,19 @@ pdm init --python .conda_env/bin/python
 ```
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "slide"} -->
+## `pdm init` options
+
+For
+
+```
+Is the project a library that is installable?
+A few more questions will be asked to include a project name and build backend [y/n] (n):
+```
+
+select `y`.
+<!-- #endregion -->
+
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
 # This cell hidden in presentation and docs
 # Manually create the project
@@ -358,6 +371,8 @@ cat pyproject.toml
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Note the new `project.dynamic` array, the new `tool.pdm.version` table, and that the `project.version` key is gone.
+
+We can check our current version like so:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -460,15 +475,16 @@ We add a new script in the `tool.pdm.scripts` table of `pyproject.toml`:
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
 [tool.pdm]
-version = { source = "file", path = "src/eeskew_pwg_test_001/__version__.py" }
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
-test-publish.shell = """\
+test-publish.shell = '''\
 VERSION=$(pdm show --version)
-echo \"__version__ = \"$VERSION.dev$(date +%s)\"\" > src/eeskew_pwg_test_001/__version__.py
-pdm build
-echo \"__version__ = \"$VERSION\"\" > src/eeskew_pwg_test_001/__version__.py
-"""
+DEV_VERSION=$VERSION.dev$(date +%s)
+echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+pdm publish -r testpypi
+echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+'''
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -476,7 +492,7 @@ dev = [
 ]
 
 [project]
-name = "eeskew-pwg-test-001"
+name = "eeskew-pwg-test-000"
 description = "A test project for presentation to the WSU Python Working Group."
 authors = [
     {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
@@ -502,16 +518,18 @@ EOF
 cat pyproject.toml
 ```
 
+<!-- #region slideshow={"slide_type": "subslide"} -->
+When we run `pdm run test-publish`, this script:
+1. Gets the current version with `pdm show --version`
+2. Changes the package version to that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
+3. Publishes the package on TestPyPI
+4. Returns the package version to its original value
+
+Let's run it!
+<!-- #endregion -->
+
 ```bash
-pdm test-publish
-```
-
-```bash slideshow={"slide_type": "-"}
-cat src/eeskew_pwg_test_001/__version__.py
-```
-
-```bash slideshow={"slide_type": "-"}
-echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_001/__version__.py
+#pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -551,6 +569,15 @@ Now let's add the script to `pyproject.toml`:
 cat << "EOF" > pyproject.toml
 [tool.pdm]
 version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.scripts]
+test-publish.shell = '''\
+VERSION=$(pdm show --version)
+DEV_VERSION=$VERSION.dev$(date +%s)
+echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+pdm publish -r testpypi
+echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+'''
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -632,23 +659,12 @@ cat README.md
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-Now we can bump the version and publish again to TestPyPI:
+Finally, we publish again to TestPYPI:
 <!-- #endregion -->
-
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
-# This cell hidden in presentation and docs
-echo '__version__ = "0.2.0"' > src/eeskew_pwg_test_000/__version__.py
-```
 
 ```bash slideshow={"slide_type": "fragment"}
-cat src/eeskew_pwg_test_000/__version__.py
+#pdm run test-publish
 ```
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
-```bash
-pdm publish -r testpypi
-```
-<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conclusion
