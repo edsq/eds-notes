@@ -446,7 +446,7 @@ Now we'll publish the project on (Test)PyPI.
 1. Navigate to your account settings, scroll down to "API tokens", and click "Add API token"
 2. Give the token a descriptive name, set the scope to "Entire account (all projects)", and click "Add token".
 3. Copy the token that appears - heeding the warning that it will appear only once!
-4. Now we'll configure PDM with these credentials (replacing `<PASTE_YOUR_TOKEN_HERE>` with the token you've just copied:
+4. Now we'll configure PDM with these credentials (replacing `<PASTE_YOUR_TOKEN_HERE>` with the token you've just copied):
 
 ```bash
 pdm config repository.testpypi.username "__token__"
