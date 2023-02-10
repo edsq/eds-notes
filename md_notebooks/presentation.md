@@ -421,23 +421,15 @@ We could install this project into a different python environment with `python -
 ## Publishing the project
 
 Now we'll publish the project on (Test)PyPI.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+### Setting up PyPI credentials
 
 0. First, make an account on [TestPyPI](https://test.pypi.org).
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
 1. Navigate to your account settings, scroll down to "API tokens", and click "Add API token"
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
 2. Give the token a descriptive name, set the scope to "Entire account (all projects)", and click "Add token".
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
 3. Copy the token that appears - heeding the warning that it will appear only once!
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "fragment"} -->
 4. Now we'll configure PDM with these credentials (replacing `<PASTE_YOUR_TOKEN_HERE>` with the token you've just copied:
 
 ```bash
@@ -446,8 +438,10 @@ pdm config repository.testpypi.password "<PASTE_YOUR_TOKEN_HERE>"
 ```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
-5. Finally, to publish on TestPyPI, just run
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Setting up a test-publish script
+
+To publish on PyPI, we could now simply run:
 
 ```bash
 pdm publish -r testpypi
@@ -455,6 +449,70 @@ pdm publish -r testpypi
 
 Note that you do not need to run `pdm build` first - PDM will build the distribution as part of `publish` anyway.
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+However, TestPyPI won't let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let's set up a script to automate that.
+
+We add a new script in the `tool.pdm.scripts` table of `pyproject.toml`:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# This cell hidden in presentation and docs
+cat << "EOF" > pyproject.toml
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_001/__version__.py" }
+
+[tool.pdm.scripts]
+test-publish.shell = """\
+VERSION=$(pdm show --version)
+echo \"__version__ = \"$VERSION.dev$(date +%s)\"\" > src/eeskew_pwg_test_001/__version__.py
+pdm build
+echo \"__version__ = \"$VERSION\"\" > src/eeskew_pwg_test_001/__version__.py
+"""
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.1.0",
+]
+
+[project]
+name = "eeskew-pwg-test-001"
+description = "A test project for presentation to the WSU Python Working Group."
+authors = [
+    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
+]
+dependencies = [
+    "cowsay>=5.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+dynamic = ["version"]
+
+[project.scripts]
+sarcasticow = "eeskew_pwg_test_000.cli:main"
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+EOF
+```
+
+```bash
+cat pyproject.toml
+```
+
+```bash
+pdm test-publish
+```
+
+```bash slideshow={"slide_type": "-"}
+cat src/eeskew_pwg_test_001/__version__.py
+```
+
+```bash slideshow={"slide_type": "-"}
+echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_001/__version__.py
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Updating your project
