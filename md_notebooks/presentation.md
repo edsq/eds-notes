@@ -23,6 +23,7 @@ Requirements:
 
 - The ability to get python executables of different versions, such as with [pyenv](https://github.com/pyenv/pyenv) or [conda](https://docs.conda.io/en/latest/miniconda.html)
 - [PDM](https://pdm.fming.dev/latest/) available globally
+- The [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -468,6 +469,8 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 <!-- #region slideshow={"slide_type": "fragment"} -->
 However, TestPyPI won't let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let's set up a script to automate that.
 
+First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed.
+
 We add a new script in the `tool.pdm.scripts` table of `pyproject.toml`:
 <!-- #endregion -->
 
@@ -480,7 +483,8 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 [tool.pdm.scripts]
 test-publish.shell = '''\
 VERSION=$(pdm show --version)
-DEV_VERSION=$VERSION.dev$(date +%s)
+pdm bump patch > /dev/null
+DEV_VERSION=$(pdm show --version).dev$(date +%s)
 echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
 pdm publish -r testpypi
 echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
@@ -521,7 +525,7 @@ cat pyproject.toml
 <!-- #region slideshow={"slide_type": "subslide"} -->
 When we run `pdm run test-publish`, this script:
 1. Gets the current version with `pdm show --version`
-2. Changes the package version to that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
+2. Changes the package version to a patch bump of that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
 3. Publishes the package on TestPyPI
 4. Returns the package version to its original value
 
@@ -529,7 +533,7 @@ Let's run it!
 <!-- #endregion -->
 
 ```bash
-#pdm run test-publish
+pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -573,7 +577,8 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 [tool.pdm.scripts]
 test-publish.shell = '''\
 VERSION=$(pdm show --version)
-DEV_VERSION=$VERSION.dev$(date +%s)
+pdm bump patch > /dev/null
+DEV_VERSION=$(pdm show --version).dev$(date +%s)
 echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
 pdm publish -r testpypi
 echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
@@ -663,7 +668,7 @@ Finally, we publish again to TestPYPI:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-#pdm run test-publish
+pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
