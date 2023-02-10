@@ -455,7 +455,7 @@ pdm config repository.testpypi.password "<PASTE_YOUR_TOKEN_HERE>"
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### Setting up a test-publish script
+### Setting up a test-publish PDM script
 
 To publish on PyPI, we could now simply run:
 
@@ -467,11 +467,11 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-However, TestPyPI won't let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let's set up a script to automate that.
+However, TestPyPI won't let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let's set up a PDM script to automate that.
 
 First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed.
 
-We add a new script in the `tool.pdm.scripts` table of `pyproject.toml`:
+We add a new PDM script in the `tool.pdm.scripts` table of `pyproject.toml`:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
