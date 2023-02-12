@@ -218,7 +218,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff --color HEAD~ pyproject.toml | tail +5
+git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -266,7 +266,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | tail +5
+git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -300,7 +300,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-git diff --color HEAD~ pyproject.toml | tail +5
+git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -340,7 +340,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | tail +5
+git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -358,7 +358,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | tail +5
+git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -420,7 +420,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff --color HEAD~ pyproject.toml | tail +5
+git diff HEAD~ pyproject.toml | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -449,7 +449,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-git diff --color HEAD~ src/eeskew_pwg_test_000/__init__.py | tail +5
+git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -581,7 +581,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash tags=["remove-input"]
-git diff --color HEAD~ pyproject.toml | tail +5
+git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -687,7 +687,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff --color HEAD~ pyproject.toml | tail +5
+git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
 ```bash slideshow={"slide_type": "subslide"}
@@ -740,7 +740,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-git diff --color HEAD~ README.md | tail +5
+git diff HEAD~ README.md | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
