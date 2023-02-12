@@ -299,7 +299,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ### What happened?
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
 git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
@@ -339,7 +339,7 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
 ```
 
@@ -448,7 +448,7 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
 git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../scripts/diff-so-fancy
 ```
 
@@ -739,7 +739,7 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
 git diff HEAD~ README.md | ../scripts/diff-so-fancy
 ```
 
