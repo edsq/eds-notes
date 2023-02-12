@@ -217,8 +217,8 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 `cowsay` now appears as a dependency in `pyproject.toml`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
-cat pyproject.toml
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+git diff --color HEAD~ pyproject.toml | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -265,8 +265,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
-cat src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -300,7 +300,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
-cat pyproject.toml
+git diff --color HEAD~ pyproject.toml | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -340,7 +340,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-cat src/eeskew_pwg_test_000/utils.py
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | tail +5
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -357,8 +357,8 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ### What happened?
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
-cat src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -419,8 +419,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
-cat pyproject.toml
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+git diff --color HEAD~ pyproject.toml | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -449,7 +449,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-cat src/eeskew_pwg_test_000/__init__.py
+git diff --color HEAD~ src/eeskew_pwg_test_000/__init__.py | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -580,8 +580,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash
-cat pyproject.toml
+```bash tags=["remove-input"]
+git diff --color HEAD~ pyproject.toml | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -686,8 +686,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
-cat pyproject.toml
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+git diff --color HEAD~ pyproject.toml | tail +5
 ```
 
 ```bash slideshow={"slide_type": "subslide"}
@@ -740,7 +740,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
-cat README.md
+git diff --color HEAD~ README.md | tail +5
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
