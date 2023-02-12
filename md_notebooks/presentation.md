@@ -90,13 +90,10 @@ select `y`.
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
 # This cell hidden in presentation and docs
-# Manually create the project
-cd ..
-rm -r eeskew-pwg-test-000  # remove the test project if it already exists
-mkdir eeskew-pwg-test-000
-cd eeskew-pwg-test-000
-cp -a ../resources/skeleton/ .
-pdm venv create python
+cd ../eeskew-pwg-test-000
+git clean -dfx  # remove all untracked files (src, build, dist, .venv)
+git checkout $(git rev-list --topo-order main | tail -1)  # check out first commit
+pdm venv create --force python
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
@@ -133,6 +130,12 @@ mkdir src/eeskew_pwg_test_000
 touch src/eeskew_pwg_test_000/__init__.py
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### Add a module
 
@@ -144,14 +147,22 @@ Let's add some code in `src/eeskew_pwg_test_000/utils.py`:
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 def sarcasm(s):
     """Convert string `s` to sArCaSm TeXt."""
-    out = ''
+    out = ""
     for i, c in enumerate(s):
         if i % 2 == 0:
             out += c.lower()
+
         else:
             out += c.upper()
+
     return out
 EOF
+```
+
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -164,6 +175,12 @@ cat src/eeskew_pwg_test_000/utils.py
 
 ```bash slideshow={"slide_type": "fragment"}
 pdm install
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -186,6 +203,12 @@ Let's add a dependency to our project:
 
 ```bash slideshow={"slide_type": "fragment"}
 pdm add cowsay
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -236,6 +259,12 @@ def sarcastic_cowsay(s):
 EOF
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
+
 ```bash slideshow={"slide_type": "fragment"}
 cat src/eeskew_pwg_test_000/utils.py
 ```
@@ -258,6 +287,12 @@ Let's add `black`, a tool to automatically format our code:
 
 ```bash slideshow={"slide_type": "fragment"}
 pdm add -d black
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -298,12 +333,24 @@ def sarcastic_cowsay(s):
 EOF
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
+
 ```bash slideshow={"slide_type": "fragment"}
 cat src/eeskew_pwg_test_000/utils.py
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
 pdm run black src/
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -366,6 +413,12 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
+
 ```bash slideshow={"slide_type": "fragment"}
 cat pyproject.toml
 ```
@@ -387,6 +440,12 @@ We should also add the `__version__` variable to our `__init__.py`:
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
 # This cell hidden in presentation and docs
 echo 'from eeskew_pwg_test_000.__version__ import __version__' > src/eeskew_pwg_test_000/__init__.py
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -509,13 +568,16 @@ readme = "README.md"
 license = {text = "MIT"}
 dynamic = ["version"]
 
-[project.scripts]
-sarcasticow = "eeskew_pwg_test_000.cli:main"
-
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
 EOF
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 ```bash
@@ -558,6 +620,12 @@ def main():
     s = args.speech
     sarcastic_cowsay(s)
 EOF
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -612,6 +680,12 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
+
 ```bash slideshow={"slide_type": "fragment"}
 cat pyproject.toml
 ```
@@ -658,6 +732,12 @@ $ sarcasticow "I'm a sarcastic cow"
 ```
 EOF
 ````
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
 
 ```bash slideshow={"slide_type": "fragment"}
 cat README.md
