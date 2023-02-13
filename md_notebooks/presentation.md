@@ -420,7 +420,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ pyproject.toml | tail +5
+git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
