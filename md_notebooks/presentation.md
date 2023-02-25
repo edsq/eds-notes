@@ -85,7 +85,7 @@ Is the project a library that is installable?
 A few more questions will be asked to include a project name and build backend [y/n] (n):
 ```
 
-select `y`.
+select `y`.  Otherwise, all the default options should be good.
 <!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
@@ -112,6 +112,10 @@ Let's take a look at what we've created:
 ls -a
 ```
 
+<!-- #region slideshow={"slide_type": "notes"} -->
+The relevant files created are the `README.md`; `.pdm.toml`, which holds local configuration for this PDM project; and `pyproject.toml`, which holds project tool configuration and package metadata.
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## The `pyproject.toml` file
 <!-- #endregion -->
@@ -119,6 +123,16 @@ ls -a
 ```bash slideshow={"slide_type": "fragment"}
 cat pyproject.toml
 ```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+This file is written in `.toml` format, which stands for [Tom's Obvious Minimal Language](https://toml.io/en/).
+
+The `tool.pdm` table is empty, although we'll add things here later on.
+
+The `project` table contains the metadata needed to install our project.  Its values thus far were set by the options we chose while running `pdm init`.
+
+The `build-system` section tells the build frontend (e.g. `pip`) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we'll see later.  See [PEP 517](https://peps.python.org/pep-0517/) for more information.  Here, we're just using the default PDM backend.
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Adding code
@@ -169,8 +183,16 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 cat src/eeskew_pwg_test_000/utils.py
 ```
 
+<!-- #region slideshow={"slide_type": "notes"} -->
+The actual content of this code is not too important for the purposes of these notes, but for completeness, all it does is capitalize and lowercase alternating letters in a string.
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Install the project
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+To make our code available in the virtual environment, we have to install it:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -193,6 +215,26 @@ pdm run python -c 'from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm(
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Note we have to type `pdm run` before our command for it to be run within our project environment.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### The `pdm.lock` file
+
+Running `pdm install` also created a new file, `pdm.lock`:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+ls
+```
+
+```bash slideshow={"slide_type": "fragment"}
+cat pdm.lock
+```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+This is a lockfile, which will contain the exact versions of each project dependency we install.  It is useful for creating a perfect reproduction of the project virtual environment, which keeps our development reproducible over time and across different machines.
+
+Right now, we have not installed anything other than the project itself, so it is essentially empty.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -222,7 +264,15 @@ git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-We can now also import `cowsay`:
+We've also updated `pdm.lock` to include cowsay:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"}
+cat pdm.lock
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+We can now import `cowsay`:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -277,6 +327,10 @@ We can now run this new function:
 pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay("mooo!")'
 ```
 
+<!-- #region slideshow={"slide_type": "notes"} -->
+Note that we didn't have to re-run `pdm install` to use our new function - this is because PDM installs our `eeskew_pwg_test_000` package in "editable mode", which acts sort of like a symlink between the source code and the installed files in the `.venv` directory.
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Add a development dependency
 
@@ -302,6 +356,28 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
 git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+We've added a new `[dev-dependencies]` sub-table to the `[tool.pdm]` table.  When we run `pdm install`, by default, PDM will install dependencies from here in addition to the dependencies listed in `[project.dependencies]`.  A different tool like `pip`, however, will not.
+
+See the [PDM docs](https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies) for more information on development dependencies.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+The lockfile has also been updated:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"} tags=["hide-output"]
+cat pdm.lock
+```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+Many new packages now exist in the lockfile, not just `cowsay` and `black`.  This is because (unlike `cowsay`), `black` itself has dependencies that we needed to install to get it to work.  This lock file records exactly the versions of those sub-dependencies that we've now installed into our project virtual environment.
+
+When we run `pdm install`, if the lock file exists (and `pyproject.toml` hasn't been changed since the lockfile was last updated), PDM will install precisely the packages listed in the lockfile, so we'll always be working in the same virtual environment.  This is useful for developing and testing the code, so you should always include the lockfile in your project version control.
+
+However, we don't want to impose these restrictions on users of our library, or our project would rapidly become impossible to install due to other packages requiring different versions of the packages in the lockfile.  The only thing that we care about is that users have the right versions of the dependencies we directly use, which are listed in the `project.dependencies` array in `pyproject.toml`.  This is why `pip install` does not care about the existence of the lockfile.
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Using black
@@ -360,6 +436,10 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
 ```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+`black` has automatically re-formatted our code, fixing the poor formatting we introduced earlier.  See the [black documentation](https://black.readthedocs.io/en/stable/) for more information.
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Package version
