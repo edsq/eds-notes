@@ -624,7 +624,7 @@ However, TestPyPI won't let you overwrite an existing version of your package, s
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
-:::{caution}
+:::{attention}
 If you are publishing on PyPI (*not* TestPyPI), you probably don't want to use this script.  Publishing will be as simple as running `pdm bump {version}` to increment your package version number (for example, `pdm bump patch`), and then publishing with `pdm publish` (equivalent to `pdm publish -r pypyi`).
 :::
 <!-- #endregion -->
