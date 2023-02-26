@@ -140,6 +140,8 @@ The `build-system` section tells the build frontend (e.g. `pip`) what build back
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Adding code
+
+First we create our package directory in [src layout](https://hynek.me/articles/testing-packaging/), with an empty (for now) `__init__.py` file to indicate that it is a python package:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -813,7 +815,7 @@ Unlike the `test-publish` PDM script we wrote earlier, if we activated the envir
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Updating README
 
-Let's update our README to show this usage:
+Thus far, we've left our README as an empty file.  This is bad.  Let's update it to show our utility's usage:
 <!-- #endregion -->
 
 ````bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
@@ -858,6 +860,10 @@ Finally, we publish again to TestPYPI:
 ```bash slideshow={"slide_type": "fragment"}
 pdm run test-publish
 ```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+Our page on TestPyPI now shows the README, so users can see relevant package information before they install it.
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conclusion
