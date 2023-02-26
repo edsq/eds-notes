@@ -36,9 +36,9 @@ cd eeskew-pwg-test-000
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-```{important}
+:::{important}
 Because this is a throwaway test project, it is important that you give your project a name that won't conflict with any other package on PyPI or TestPyPI. Adding your name and some numbers is a good way to ensure this.
-```
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -332,9 +332,9 @@ pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarca
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-```{note}
+:::{note}
 We didn't have to re-run `pdm install` to use our new function - this is because PDM installs our `eeskew_pwg_test_000` package in "editable mode", which acts sort of like a symlink between the source code and the installed files in the `.venv` directory.
-```
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -585,9 +585,9 @@ Now we'll publish the project on (Test)PyPI.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
-```{note}
+:::{note}
 To publish on the actual index (PyPI, not TestPyPI), simply replace `testpypi` with `pypi` in the instructions that follow.  Try not to pollute PyPI with throwaway projects!
-```
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -622,9 +622,9 @@ However, TestPyPI won't let you overwrite an existing version of your package, s
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
-```{caution}
+:::{caution}
 If you are publishing on PyPI (*not* TestPyPI), you probably don't want to use this script.  Publishing will be as simple as running `pdm bump {version}` to increment your package version number (for example, `pdm bump patch`), and then publishing with `pdm publish` (equivalent to `pdm publish -r pypyi`).
-```
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -803,11 +803,11 @@ pdm run sarcasticow "I'm a sarcastic cow"
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-```{note}
+:::{note}
 Because we're using `pdm` for environment management, we still need to use `pdm run` to access the script installed into the virtual environment.
 
 Unlike the `test-publish` PDM script we wrote earlier, if we activated the environment with `source .venv/bin/activate`, we could simply use the `sarcasticow` command by itself, and users who install our package with `pip` into their own virtualenv or conda environment will also have access to `sarcasticow`.  Even better, users who install our package through [`pipx`](https://pypa.github.io/pipx/) will be able to use the `sarcasticow` command without activating a virtual environment.
-```
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
