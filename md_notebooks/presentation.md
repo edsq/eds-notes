@@ -33,8 +33,12 @@ First, create the project directory and `cd` into it:
 mkdir eeskew-pwg-test-000
 cd eeskew-pwg-test-000
 ```
+<!-- #endregion -->
 
-Note - because this is a throwaway test project, it is important that you give your project a name that won't conflict with any other package on PyPI or TestPyPI.  Adding your name and some numbers is a good way to ensure this.
+<!-- #region slideshow={"slide_type": "notes"} -->
+```{important}
+Because this is a throwaway test project, it is important that you give your project a name that won't conflict with any other package on PyPI or TestPyPI. Adding your name and some numbers is a good way to ensure this.
+```
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -62,7 +66,7 @@ pdm init --python python
 `pyenv local` creates a file `.python-version` which `pyenv` uses to redirect the command `python` to the `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 ### Using `conda`
 
 Here, we'll use `conda` to get a particular python version, but we won't activate the conda environment (except to get a path to the `python` executable).  Environment management will be handled by PDM.
@@ -75,8 +79,8 @@ pdm init --python .conda_env/bin/python
 ```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## `pdm init` options
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### `pdm init` options
 
 For
 
@@ -328,7 +332,9 @@ pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarca
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-Note that we didn't have to re-run `pdm install` to use our new function - this is because PDM installs our `eeskew_pwg_test_000` package in "editable mode", which acts sort of like a symlink between the source code and the installed files in the `.venv` directory.
+```{note}
+We didn't have to re-run `pdm install` to use our new function - this is because PDM installs our `eeskew_pwg_test_000` package in "editable mode", which acts sort of like a symlink between the source code and the installed files in the `.venv` directory.
+```
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -339,7 +345,7 @@ The dependencies listed in the `project.dependencies` section of `pyproject.toml
 Let's add `black`, a tool to automatically format our code:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} tags=["hide-output"]
 pdm add -d black
 ```
 
@@ -379,8 +385,8 @@ When we run `pdm install`, if the lock file exists (and `pyproject.toml` hasn't 
 However, we don't want to impose these restrictions on users of our library, or our project would rapidly become impossible to install due to other packages requiring different versions of the packages in the lockfile.  The only thing that we care about is that users have the right versions of the dependencies we directly use, which are listed in the `project.dependencies` array in `pyproject.toml`.  This is why `pip install` does not care about the existence of the lockfile.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Using black
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Using black
 
 We can now run `black` within our environment.  Let's re-write our code with poor formatting (note the spacing around the `==`, `%`, and `+=` operators), and then run `black` on it:
 <!-- #endregion -->
@@ -578,6 +584,12 @@ We could install this project into a different python environment with `python -
 Now we'll publish the project on (Test)PyPI.
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+```{note}
+To publish on the actual index (PyPI, not TestPyPI), simply replace `testpypi` with `pypi` in the instructions that follow.  Try not to pollute PyPI with throwaway projects!
+```
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "fragment"} -->
 ### Setting up PyPI credentials
 
@@ -607,7 +619,15 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 However, TestPyPI won't let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let's set up a PDM script to automate that.
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+```{caution}
+If you are publishing on PyPI (*not* TestPyPI), you probably don't want to use this script.  Publishing will be as simple as running `pdm bump {version}` to increment your package version number (for example, `pdm bump patch`), and then publishing with `pdm publish` (equivalent to `pdm publish -r pypyi`).
+```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
 First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed.
 
 We add a new PDM script in the `tool.pdm.scripts` table of `pyproject.toml`:
@@ -660,7 +680,7 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash tags=["remove-input"]
+```bash tags=["remove-input"] slideshow={"slide_type": "subslide"}
 git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
 ```
 
@@ -674,12 +694,12 @@ When we run `pdm run test-publish`, this script:
 Let's run it!
 <!-- #endregion -->
 
-```bash
+```bash slideshow={"slide_type": "fragment"}
 pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Updating your project
+## Add an entrypoint to the package
 
 Let's add an entrypoint for our project in `pyproject.toml`.  First, add a new module and new function:
 <!-- #endregion -->
