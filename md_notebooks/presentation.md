@@ -345,7 +345,7 @@ The dependencies listed in the `project.dependencies` section of `pyproject.toml
 Let's add `black`, a tool to automatically format our code:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["hide-output"]
+```bash slideshow={"slide_type": "fragment"} tags=["output_scroll"]
 pdm add -d black
 ```
 
@@ -373,7 +373,7 @@ See the [PDM docs](https://pdm.fming.dev/latest/usage/dependency/#add-developmen
 The lockfile has also been updated:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["hide-output"]
+```bash slideshow={"slide_type": "fragment"} tags=["output_scroll"]
 cat pdm.lock
 ```
 
