@@ -120,8 +120,8 @@ ls -a
 The relevant files created are the `README.md`; `.pdm.toml`, which holds local configuration for this PDM project; and `pyproject.toml`, which holds project tool configuration and package metadata.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## The `pyproject.toml` file
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### The `pyproject.toml` file
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -283,8 +283,8 @@ We can now import `cowsay`:
 pdm run python -c 'import cowsay; cowsay.cow("moo!")'
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Adding more code
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Adding more code
 
 Let's add a new function to `utils.py`:
 <!-- #endregion -->
