@@ -10,7 +10,6 @@ dependencies = [
     "jupytext>=1.14.4",
     "bash-kernel>=0.9.0",
     "RISE>=5.7.1",
-    "cowsay>=5.0",
 ]
 requires-python = ">=3.11"
 readme = "README.md"
@@ -28,6 +27,7 @@ dev = [
 ]
 docs = [
     "jupyter-book>=0.13.2",
+    "cowsay>=5.0",
 ]
 
 [tool.jupytext]
