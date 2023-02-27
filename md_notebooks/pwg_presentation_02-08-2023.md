@@ -34,8 +34,12 @@ Notes from talk given to the WSU Python Working Group on February 8, 2023.
 
 Here I show how to create a basic project with [PDM](https://pdm.fming.dev/latest/),
 add dependencies and development dependencies, and publish the package on (Test)PyPI.
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{note}
 A companion repository with the example project created in these notes is available [here](https://github.com/edsq/eeskew-pwg-test-000).
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -466,7 +470,13 @@ git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-`black` has automatically re-formatted our code, fixing the poor formatting we introduced earlier.  See the [black documentation](https://black.readthedocs.io/en/stable/) for more information.
+`black` has automatically re-formatted our code, fixing the poor formatting we introduced earlier.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [black documentation](https://black.readthedocs.io/en/stable/) for more information.
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
