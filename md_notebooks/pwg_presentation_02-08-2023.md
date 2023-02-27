@@ -848,6 +848,8 @@ Thus far, we've left our README as an empty file.  This is bad.  Let's update it
 cat << "EOF" > README.md
 # eeskew-pwg-test-000
 
+This is a companion repository to the presentation [Project Management and Publishing with PDM](https://edsq.github.io/eds-notes/pwg_presentation_02-08-2023.html).
+
 Command-line usage:
 
 ```
