@@ -1,7 +1,7 @@
 [project]
-name = "pwg_presentation_2023"
+name = "eds-notes"
 version = "0.1.0"
-description = ""
+description = "Notes on miscellaneous topics in physics, math, and python."
 authors = [
     {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
 ]

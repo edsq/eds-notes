@@ -1,9 +1,9 @@
-# Introduction
+# Ed's Notes on Physics, Math, and Python
 
-Notes from talk given to the WSU Python Working Group on February 8, 2023.
+This book will be a collection of notes on miscellaneous topics in physics, math, and
+python.
 
-Here we explain how to create a basic project with [PDM](https://pdm.fming.dev/latest/),
-add dependencies and development dependencies, and publish the package on (Test)PyPI.
+## Contents
 
 ```{tableofcontents}
 ```

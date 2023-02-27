@@ -3,5 +3,7 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: presentation
+parts:
+  - caption: Python Notes
+    chapters:
+    - file: presentation

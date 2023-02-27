@@ -19,6 +19,13 @@ bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, wh
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Project Management and Publishing with PDM
 
+Notes from talk given to the WSU Python Working Group on February 8, 2023.
+
+Here I show how to create a basic project with [PDM](https://pdm.fming.dev/latest/),
+add dependencies and development dependencies, and publish the package on (Test)PyPI.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Requirements:
 
 - The ability to get python executables of different versions, such as with [pyenv](https://github.com/pyenv/pyenv) or [conda](https://docs.conda.io/en/latest/miniconda.html)

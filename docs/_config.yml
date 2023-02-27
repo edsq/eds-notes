@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Project Management and Publishing with PDM
+title: "Ed's Notes: Physics, Math, and Python"
 author: Edward Eskew
   #logo: logo.png
 
@@ -27,7 +27,8 @@ latex:
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-#html:
+html:
+  home_page_in_navbar: false
 #  use_issues_button: false
 #  use_repository_button: true
 
