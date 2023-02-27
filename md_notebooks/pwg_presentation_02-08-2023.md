@@ -23,6 +23,8 @@ Notes from talk given to the WSU Python Working Group on February 8, 2023.
 
 Here I show how to create a basic project with [PDM](https://pdm.fming.dev/latest/),
 add dependencies and development dependencies, and publish the package on (Test)PyPI.
+
+A companion repository with the example project created in these notes is available [here](https://github.com/edsq/eeskew-pwg-test-000).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
