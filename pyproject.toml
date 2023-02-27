@@ -21,6 +21,7 @@ build-backend = "pdm.pep517.api"
 
 [tool.pdm]
 [tool.pdm.scripts]
+build-docs = "jupyter-book build docs"
 publish-docs = "ghp-import -n -p -f docs/_build/html"
 
 [tool.pdm.dev-dependencies]
