@@ -101,7 +101,7 @@ select `y`.  Otherwise, all the default options should be good.
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
 # This cell hidden in presentation and docs
-cd ../eeskew-pwg-test-000
+cd ../repos/eeskew-pwg-test-000
 git clean -dfx  # remove all untracked files (src, build, dist, .venv)
 git checkout $(git rev-list --topo-order main | tail -1)  # check out first commit
 pdm venv create --force python
@@ -273,7 +273,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
+git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -329,7 +329,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
+git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -369,7 +369,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
+git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -431,7 +431,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
+git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 ```bash slideshow={"slide_type": "fragment"}
@@ -449,7 +449,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../scripts/diff-so-fancy
+git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -515,7 +515,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
+git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -544,7 +544,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../scripts/diff-so-fancy
+git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -690,7 +690,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "subslide"}
-git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
+git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -796,7 +796,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ pyproject.toml | ../scripts/diff-so-fancy
+git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 ```bash slideshow={"slide_type": "subslide"}
@@ -857,7 +857,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
-git diff HEAD~ README.md | ../scripts/diff-so-fancy
+git diff HEAD~ README.md | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
