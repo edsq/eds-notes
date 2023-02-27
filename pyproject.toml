@@ -20,6 +20,9 @@ requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
 
 [tool.pdm]
+[tool.pdm.scripts]
+publish-docs = "ghp-import -n -p -f docs/_build/html"
+
 [tool.pdm.dev-dependencies]
 dev = [
     "black[jupyter]>=23.1.0",
