@@ -32,3 +32,6 @@ docs = [
 
 [tool.jupytext]
 formats = "notebooks///ipynb,md_notebooks///md"
+
+[tool.black]
+force-exclude = 'docs/_build/.*'
