@@ -1,6 +1,9 @@
 ---
 jupyter:
+  celltoolbar: Slideshow
   jupytext:
+    cell_metadata_filter: all
+    notebook_metadata_filter: all
     text_representation:
       extension: .md
       format_name: markdown
@@ -10,9 +13,17 @@ jupyter:
     display_name: Bash
     language: bash
     name: bash
+  language_info:
+    codemirror_mode: shell
+    file_extension: .sh
+    mimetype: text/x-sh
+    name: bash
+  rise:
+    autolaunch: true
+    scroll: true
 ---
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
 ```
 
@@ -101,7 +112,7 @@ A few more questions will be asked to include a project name and build backend [
 select `y`.  Otherwise, all the default options should be good.
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cd ../repos/eeskew-pwg-test-000
 git clean -dfx  # remove all untracked files (src, build, dist, .venv)
@@ -109,7 +120,7 @@ git checkout $(git rev-list --topo-order main | tail -1)  # check out first comm
 pdm venv create --force python
 ```
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 # Check that the environment and project are correct
 pdm info
@@ -121,7 +132,7 @@ pdm info
 Let's take a look at what we've created:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 ls -a
 ```
 
@@ -133,7 +144,7 @@ The relevant files created are the `README.md`; `.pdm.toml`, which holds local c
 ### The `pyproject.toml` file
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} scrolled=false trusted=false
 cat pyproject.toml
 ```
 
@@ -153,13 +164,13 @@ The `build-system` section tells the build frontend (e.g. `pip`) what build back
 First we create our package directory in [src layout](https://hynek.me/articles/testing-packaging/), with an empty (for now) `__init__.py` file to indicate that it is a python package:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 mkdir src
 mkdir src/eeskew_pwg_test_000
 touch src/eeskew_pwg_test_000/__init__.py
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
@@ -171,7 +182,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 Let's add some code in `src/eeskew_pwg_test_000/utils.py`:
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 def sarcasm(s):
@@ -188,13 +199,13 @@ def sarcasm(s):
 EOF
 ```
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 cat src/eeskew_pwg_test_000/utils.py
 ```
 
@@ -210,11 +221,11 @@ The actual content of this code is not too important for the purposes of these n
 To make our code available in the virtual environment, we have to install it:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm install
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
@@ -224,7 +235,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 Now we can import our package:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run python -c 'from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm("Hello world!"))'
 ```
 
@@ -238,11 +249,11 @@ Note we have to type `pdm run` before our command for it to be run within our pr
 Running `pdm install` also created a new file, `pdm.lock`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 ls
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 cat pdm.lock
 ```
 
@@ -258,11 +269,11 @@ Right now, we have not installed anything other than the project itself, so it i
 Let's add a dependency to our project:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm add cowsay
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
@@ -274,7 +285,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 `cowsay` now appears as a dependency in `pyproject.toml`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -282,7 +293,7 @@ git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 We've also updated `pdm.lock` to include cowsay:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 cat pdm.lock
 ```
 
@@ -290,7 +301,7 @@ cat pdm.lock
 We can now import `cowsay`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run python -c 'import cowsay; cowsay.cow("moo!")'
 ```
 
@@ -300,7 +311,7 @@ pdm run python -c 'import cowsay; cowsay.cow("moo!")'
 Let's add a new function to `utils.py`:
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
@@ -324,13 +335,13 @@ def sarcastic_cowsay(s):
 EOF
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
@@ -338,7 +349,7 @@ git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 We can now run this new function:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay("mooo!")'
 ```
 
@@ -356,11 +367,11 @@ The dependencies listed in the `project.dependencies` section of `pyproject.toml
 Let's add `black`, a tool to automatically format our code:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["output_scroll"]
+```bash slideshow={"slide_type": "fragment"} tags=["output_scroll"] scrolled=true trusted=false
 pdm add -d black
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
@@ -370,7 +381,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ### What happened?
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -384,7 +395,7 @@ See the [PDM docs](https://pdm.fming.dev/latest/usage/dependency/#add-developmen
 The lockfile has also been updated:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["output_scroll"]
+```bash slideshow={"slide_type": "fragment"} tags=["output_scroll"] trusted=false
 cat pdm.lock
 ```
 
@@ -402,7 +413,7 @@ However, we don't want to impose these restrictions on users of our library, or 
 We can now run `black` within our environment.  Let's re-write our code with poor formatting (note the spacing around the `==`, `%`, and `+=` operators), and then run `black` on it:
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
@@ -426,21 +437,21 @@ def sarcastic_cowsay(s):
 EOF
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run black src/
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
@@ -450,7 +461,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ### What happened?
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
@@ -466,12 +477,12 @@ Right now, the package version (`"0.1.0"`) is stored in the `pyproject.toml` fil
 Create a `__version__.py` file in `src/eeskew_pwg_test_000`, and add the `__version__` variable to it.  The new file should look like:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # This cell hidden in presentation and docs
 echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_000/__version__.py
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 cat src/eeskew_pwg_test_000/__version__.py
 ```
 
@@ -479,7 +490,7 @@ cat src/eeskew_pwg_test_000/__version__.py
 Now modify the `pyproject.toml` file so that the version is [dynamic metadata](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic):
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # This cell hidden in presentation and docs
 cat << EOF > pyproject.toml
 [tool.pdm]
@@ -510,13 +521,13 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -526,7 +537,7 @@ Note the new `project.dynamic` array, the new `tool.pdm.version` table, and that
 We can check our current version like so:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm show --version
 ```
 
@@ -534,18 +545,18 @@ pdm show --version
 We should also add the `__version__` variable to our `__init__.py`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # This cell hidden in presentation and docs
 echo 'from eeskew_pwg_test_000.__version__ import __version__' > src/eeskew_pwg_test_000/__init__.py
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../../scripts/diff-so-fancy
 ```
 
@@ -553,7 +564,7 @@ git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../../scripts/diff-so-fancy
 This allows us to check the version from python in the conventional way:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)"
 ```
 
@@ -563,7 +574,7 @@ pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__versi
 Let's review the project as it exists so far:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 tree
 ```
 
@@ -571,7 +582,7 @@ tree
 To create a [sdist](https://packaging.python.org/en/latest/specifications/source-distribution-format/) and [wheel](https://packaging.python.org/en/latest/specifications/binary-distribution-format/):
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm build
 ```
 
@@ -581,7 +592,7 @@ pdm build
 We've created a new directory named `dist`, where these two distribution formats have been placed.
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 tree
 ```
 
@@ -644,7 +655,7 @@ First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) 
 We add a new PDM script in the `tool.pdm.scripts` table of `pyproject.toml`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
 [tool.pdm]
@@ -685,13 +696,13 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash tags=["remove-input"] slideshow={"slide_type": "subslide"}
+```bash tags=["remove-input"] slideshow={"slide_type": "subslide"} trusted=false
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -705,7 +716,7 @@ When we run `pdm run test-publish`, this script:
 Let's run it!
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run test-publish
 ```
 
@@ -733,7 +744,7 @@ If we're developing a command-line application, we want our users to be able to 
 First, add a new module and new function:
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/cli.py
 import argparse
@@ -751,13 +762,13 @@ def main():
 EOF
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 cat src/eeskew_pwg_test_000/cli.py
 ```
 
@@ -765,7 +776,7 @@ cat src/eeskew_pwg_test_000/cli.py
 Now let's add the script to `pyproject.toml`:
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
 [tool.pdm]
@@ -809,17 +820,17 @@ build-backend = "pdm.pep517.api"
 EOF
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
-```bash slideshow={"slide_type": "subslide"}
+```bash slideshow={"slide_type": "subslide"} trusted=false
 pdm install
 ```
 
@@ -827,7 +838,7 @@ pdm install
 Now we can run our command from within the environment:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run sarcasticow "I'm a sarcastic cow"
 ```
 
@@ -845,7 +856,7 @@ Unlike the `test-publish` PDM script we wrote earlier, if we activated the envir
 Thus far, we've left our README as an empty file.  This is bad.  Let's update it to show our utility's usage:
 <!-- #endregion -->
 
-````bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
+````bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=false
 # This cell hidden in presentation and docs
 cat << "EOF" > README.md
 # eeskew-pwg-test-000
@@ -872,13 +883,13 @@ $ sarcasticow "I'm a sarcastic cow"
 EOF
 ````
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"]
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=false
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"]
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=false
 git diff HEAD~ README.md | ../../scripts/diff-so-fancy
 ```
 
@@ -886,7 +897,7 @@ git diff HEAD~ README.md | ../../scripts/diff-so-fancy
 Finally, we publish again to TestPYPI:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"}
+```bash slideshow={"slide_type": "fragment"} trusted=false
 pdm run test-publish
 ```
 
