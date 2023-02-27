@@ -894,6 +894,70 @@ git diff HEAD~ README.md | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
+### Project URLs
+
+We can add relevant URLs in the [`urls` table](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#urls), which will appear in the sidebar on PyPI.
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# This cell hidden in presentation and docs
+cat << "EOF" > pyproject.toml
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.scripts]
+test-publish.shell = '''\
+VERSION=$(pdm show --version)
+pdm bump patch > /dev/null
+DEV_VERSION=$(pdm show --version).dev$(date +%s)
+echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+pdm publish -r testpypi
+echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+'''
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.1.0",
+]
+
+[project]
+name = "eeskew-pwg-test-000"
+description = "A test project for presentation to the WSU Python Working Group."
+authors = [
+    {name = "Edward Eskew", email = "edward.eskew@wsu.edu"},
+]
+dependencies = [
+    "cowsay>=5.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://edsq.github.io/eds-notes/pwg_presentation_02-08-2023.html"
+Repository = "https://github.com/edsq/eeskew-pwg-test-000"
+
+[project.scripts]
+sarcasticow = "eeskew_pwg_test_000.cli:main"
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+EOF
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# checkpoint
+git add -A
+git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+```
+
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Finally, we publish again to TestPYPI:
 <!-- #endregion -->
 
@@ -902,7 +966,7 @@ pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Our page on TestPyPI now shows the README, so users can see relevant package information before they install it.
+Our page on TestPyPI now shows the README, and the documentation and repository links are available on the sidebar.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
