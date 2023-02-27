@@ -1,6 +1,9 @@
 # Working notes
 
-## Outline of presentation
+## Outline of PWG 02-08-2023 presentation
+I didn't get to most of this, as the presentation was long enough already.  I'm keeping
+it as a record of topics I'd like to eventually cover.
+
 - Overview
 - Maybe: python imports
   - standard library vs external packages
