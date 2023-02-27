@@ -1,6 +1,10 @@
-# Project management, packaging, and publishing on PyPI
+# Ed's Notes: Physics, Math, and Python
 
-Presentation given to the WSU Python Working Group on February 8, 2023.
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://edsq.github.io/eds-notes/intro.html)
+
+Notes on miscellaneous topics in physics, math, and python.
+
+Available as a Jupyter Book [here](https://edsq.github.io/eds-notes/intro.html).
 
 ## Installing
 
