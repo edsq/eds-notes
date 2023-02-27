@@ -1,6 +1,6 @@
 [submodule "eeskew-pwg-test-000"]
 	path = repos/eeskew-pwg-test-000
-	url = file://eeskew-pwg-test-000/
+	url = https://github.com/edsq/eeskew-pwg-test-000
 [submodule "repos/diff-so-fancy"]
 	path = repos/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy.git
