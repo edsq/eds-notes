@@ -180,6 +180,11 @@ dependencies = [
 ]
 
 [[package]]
+name = "cowsay"
+version = "5.0"
+summary = "The famous cowsay for GNU/Linux is now available for python"
+
+[[package]]
 name = "debugpy"
 version = "1.6.6"
 requires_python = ">=3.7"
@@ -1412,7 +1417,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.1"
-content_hash = "sha256:b2f407dcc475c426791daa38d34f201ace0bad33e8413db47bca2a8a8560e015"
+content_hash = "sha256:fbf8e873429f2e88da86efcce0056e8bf467d3552904ade8aee967b03be058f8"
 
 [metadata.files]
 "alabaster 0.7.13" = [
@@ -1688,6 +1693,9 @@ content_hash = "sha256:b2f407dcc475c426791daa38d34f201ace0bad33e8413db47bca2a8a8
 "comm 0.1.2" = [
     {url = "https://files.pythonhosted.org/packages/60/5b/0e55c73beb88043811601050c87e871bd1f6cab78c869dc077fa5d0a5b5b/comm-0.1.2.tar.gz", hash = "sha256:3e2f5826578e683999b93716285b3b1f344f157bf75fa9ce0a797564e742f062"},
     {url = "https://files.pythonhosted.org/packages/fc/04/e740a61ec9df8975bcb32e6698663bc9efa945ac6b2a585728deed6dcced/comm-0.1.2-py3-none-any.whl", hash = "sha256:9f3abf3515112fa7c55a42a6a5ab358735c9dccc8b5910a9d8e3ef5998130666"},
+]
+"cowsay 5.0" = [
+    {url = "https://files.pythonhosted.org/packages/6b/b8/9f497fd045d74fe21d91cbe8debae0b451229989e35b539d218547d79fc6/cowsay-5.0.tar.gz", hash = "sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3"},
 ]
 "debugpy 1.6.6" = [
     {url = "https://files.pythonhosted.org/packages/01/d9/3fe6737f760673f63bfaee35d6134cbfefc45b6fc672758b319eaaf7cb64/debugpy-1.6.6-cp38-cp38-win_amd64.whl", hash = "sha256:c05349890804d846eca32ce0623ab66c06f8800db881af7a876dc073ac1c2225"},
