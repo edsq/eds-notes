@@ -708,9 +708,27 @@ pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Add an entrypoint to the package
+## Other project metadata
 
-Let's add an entrypoint for our project in `pyproject.toml`.  First, add a new module and new function:
+There is quite a bit of project metadata we can specify in `pyproject.toml` - here are some other examples.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PyPA specification](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/) for a complete list of possible metadata keys.
+:::
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Add an entry point to the package
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+If we're developing a command-line application, we want our users to be able to run the application with a single command, not something like `python path_to_script/script.py`.  We can enable this by adding an [entry point](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points) to `pyproject.toml`.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+First, add a new module and new function:
 <!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"}
@@ -741,7 +759,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 cat src/eeskew_pwg_test_000/cli.py
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Now let's add the script to `pyproject.toml`:
 <!-- #endregion -->
 
@@ -819,8 +837,8 @@ Unlike the `test-publish` PDM script we wrote earlier, if we activated the envir
 :::
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Updating README
+<!-- #region slideshow={"slide_type": "subslide"} -->
+### Updating README
 
 Thus far, we've left our README as an empty file.  This is bad.  Let's update it to show our utility's usage:
 <!-- #endregion -->
@@ -860,7 +878,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 git diff HEAD~ README.md | ../../scripts/diff-so-fancy
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Finally, we publish again to TestPYPI:
 <!-- #endregion -->
 
