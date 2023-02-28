@@ -19,7 +19,7 @@ jupyter:
     mimetype: text/x-sh
     name: bash
   rise:
-    autolaunch: true
+    autolaunch: false
     scroll: true
 ---
 
