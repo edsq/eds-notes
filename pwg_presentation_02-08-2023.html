@@ -806,6 +806,10 @@ build-backend = &quot;pdm.pep517.api&quot;
 <p>The <code class="docutils literal notranslate"><span class="pre">tool.pdm</span></code> table is empty, although we’ll add things here later on.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">project</span></code> table contains the metadata needed to install our project.  Its values thus far were set by the options we chose while running <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">build-system</span></code> section tells the build frontend (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span></code>) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we’ll see later.  See <a class="reference external" href="https://peps.python.org/pep-0517/">PEP 517</a> for more information.  Here, we’re just using the default PDM backend.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/pep621/">PDM docs on writing <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more on what can be specified in this file.</p>
+</div>
 </section>
 </section>
 <section id="adding-code">
@@ -938,7 +942,7 @@ content_hash = &quot;sha256:86165c41f17b4b263a688544a3ebc55eccc1713dd177c40649b2
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">default</span> dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">cowsay</span>
-<span class=" -Color -Color-Cyan">⠙</span> Fetching hashes for resolved packages...
+<span class=" -Color -Color-Cyan">⠹</span> Fetching hashes for resolved packages...
 🔒 Lock successful
 Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
 Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
@@ -1029,6 +1033,10 @@ content_hash = &quot;sha256:a04c8eb9409090bc9acb94e5cec5ef19afdecacb2c169628142a
 </div>
 </div>
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/">PDM docs on managing dependencies</a> for more information.</p>
+</div>
 </section>
 <section id="adding-more-code">
 <h3>Adding more code<a class="headerlink" href="#adding-more-code" title="Permalink to this headline">#</a></h3>
@@ -1097,7 +1105,7 @@ def sarcasm(s):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">dev</span> dev-dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">black</span>
-<span class=" -Color -Color-Cyan">⠙</span> Fetching hashes for resolved packages...
+<span class=" -Color -Color-Cyan">⠦</span> Fetching hashes for resolved packages...
 🔒 Lock successful
 Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
 Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
@@ -1119,47 +1127,54 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.0.0</span> successful
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.0.0</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
 
 🎉 All complete!
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
 
 ?25h
 </pre></div>
@@ -1187,7 +1202,10 @@ name = &quot;eeskew-pwg-test-000&quot;
 </div>
 </div>
 <p>We’ve added a new <code class="docutils literal notranslate"><span class="pre">[dev-dependencies]</span></code> sub-table to the <code class="docutils literal notranslate"><span class="pre">[tool.pdm]</span></code> table.  When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, by default, PDM will install dependencies from here in addition to the dependencies listed in <code class="docutils literal notranslate"><span class="pre">[project.dependencies]</span></code>.  A different tool like <code class="docutils literal notranslate"><span class="pre">pip</span></code>, however, will not.</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies">PDM docs</a> for more information on development dependencies.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies">PDM docs on adding development dependencies</a> or the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/tool-pdm/#development-dependencies">PDM docs on development dependencies in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more information on development dependencies.</p>
+</div>
 <p>The lockfile has also been updated:</p>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
@@ -1322,6 +1340,10 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 <p>Many new packages now exist in the lockfile, not just <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> and <code class="docutils literal notranslate"><span class="pre">black</span></code>.  This is because (unlike <code class="docutils literal notranslate"><span class="pre">cowsay</span></code>), <code class="docutils literal notranslate"><span class="pre">black</span></code> itself has dependencies that we needed to install to get it to work.  This lock file records exactly the versions of those sub-dependencies that we’ve now installed into our project virtual environment.</p>
 <p>When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, if the lock file exists (and <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> hasn’t been changed since the lockfile was last updated), PDM will install precisely the packages listed in the lockfile, so we’ll always be working in the same virtual environment.  This is useful for developing and testing the code, so you should always include the lockfile in your project version control.</p>
 <p>However, we don’t want to impose these restrictions on users of our library, or our project would rapidly become impossible to install due to other packages requiring different versions of the packages in the lockfile.  The only thing that we care about is that users have the right versions of the dependencies we directly use, which are listed in the <code class="docutils literal notranslate"><span class="pre">project.dependencies</span></code> array in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.  This is why <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> does not care about the existence of the lockfile.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/project/#working-with-version-control">PDM docs on version control</a> for more on best practices for version-controlling a PDM project.</p>
+</div>
 </section>
 <section id="using-black">
 <h3>Using black<a class="headerlink" href="#using-black" title="Permalink to this headline">#</a></h3>
@@ -1500,6 +1522,10 @@ requires = [&quot;pdm-pep517&gt;=1.0&quot;]
 </div>
 </div>
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/build/#dynamic-versioning">PDM docs on dynamic versioning</a> for more information.</p>
+</div>
 </section>
 <section id="packaging-the-project">
 <h2>Packaging the project<a class="headerlink" href="#packaging-the-project" title="Permalink to this headline">#</a></h2>
@@ -1530,7 +1556,7 @@ requires = [&quot;pdm-pep517&gt;=1.0&quot;]
 </div>
 </div>
 </div>
-<p>To create a <a class="reference external" href="https://packaging.python.org/en/latest/specifications/source-distribution-format/">sdist</a> and <a class="reference external" href="https://packaging.python.org/en/latest/specifications/binary-distribution-format/">wheel</a>:</p>
+<p>To create an <a class="reference external" href="https://packaging.python.org/en/latest/specifications/source-distribution-format/">sdist</a> and <a class="reference external" href="https://packaging.python.org/en/latest/specifications/binary-distribution-format/">wheel</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>build
@@ -1614,6 +1640,10 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 </pre></div>
 </div>
 <p>Note that you do not need to run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">build</span></code> first - PDM will build the distribution as part of <code class="docutils literal notranslate"><span class="pre">publish</span></code> anyway.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/project/#publish-the-project-to-pypi">PDM docs on publishing to PyPI for more information.</a></p>
+</div>
 <p>However, TestPyPI won’t let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let’s set up a PDM script to automate that.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -1665,13 +1695,14 @@ dev = [
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1677488157.tar.gz
+1.1.dev1677541778.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1677488157-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1677488157-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1677488157.tar.gz</span>
+1.1.dev1677541778-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1677541778-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1677541778.tar.gz</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -1692,10 +1723,14 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167748
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677488157/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677541778/
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/scripts/">PDM docs on PDM scripts</a> for more information on writing PDM scripts.</p>
 </div>
 </section>
 </section>
@@ -1868,13 +1903,16 @@ sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1677488178.tar.gz
+1.1.dev1677541799.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1677488178-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1677488178-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1677488178.tar.gz</span>
+1.1.dev1677541799-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1677541799-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1677541799.tar.gz</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -1893,7 +1931,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167748
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677488178/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677541799/
 </pre></div>
 </div>
 </div>
