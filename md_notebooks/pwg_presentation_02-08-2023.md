@@ -87,7 +87,7 @@ pdm init --python python
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-`pyenv local` creates a file `.python-version` which `pyenv` uses to redirect the command `python` to the `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
+`pyenv local` creates a file `.python-version` which `pyenv` uses to redirect the command `python` to `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -162,6 +162,12 @@ The `project` table contains the metadata needed to install our project.  Its va
 The `build-system` section tells the build frontend (e.g. `pip`) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we'll see later.  See [PEP 517](https://peps.python.org/pep-0517/) for more information.  Here, we're just using the default PDM backend.
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on writing `pyproject.toml`](https://pdm.fming.dev/latest/pyproject/pep621/) for more on what can be specified in this file.
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Adding code
 
@@ -173,6 +179,12 @@ mkdir src
 mkdir src/eeskew_pwg_test_000
 touch src/eeskew_pwg_test_000/__init__.py
 ```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+:::{note}
+By convention, we use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for the package name, while we used [kebab-case](https://en.wiktionary.org/wiki/kebab_case) for the repository name.
+:::
+<!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
@@ -309,6 +321,12 @@ We can now import `cowsay`:
 pdm run python -c 'import cowsay; cowsay.cow("moo!")'
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on managing dependencies](https://pdm.fming.dev/latest/usage/dependency/) for more information.
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Adding more code
 
@@ -391,8 +409,12 @@ git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 We've added a new `[dev-dependencies]` sub-table to the `[tool.pdm]` table.  When we run `pdm install`, by default, PDM will install dependencies from here in addition to the dependencies listed in `[project.dependencies]`.  A different tool like `pip`, however, will not.
+<!-- #endregion -->
 
-See the [PDM docs](https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies) for more information on development dependencies.
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on adding development dependencies](https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies) or the [PDM docs on development dependencies in `pyproject.toml`](https://pdm.fming.dev/latest/pyproject/tool-pdm/#development-dependencies) for more information on development dependencies.
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -409,6 +431,12 @@ Many new packages now exist in the lockfile, not just `cowsay` and `black`.  Thi
 When we run `pdm install`, if the lock file exists (and `pyproject.toml` hasn't been changed since the lockfile was last updated), PDM will install precisely the packages listed in the lockfile, so we'll always be working in the same virtual environment.  This is useful for developing and testing the code, so you should always include the lockfile in your project version control.
 
 However, we don't want to impose these restrictions on users of our library, or our project would rapidly become impossible to install due to other packages requiring different versions of the packages in the lockfile.  The only thing that we care about is that users have the right versions of the dependencies we directly use, which are listed in the `project.dependencies` array in `pyproject.toml`.  This is why `pip install` does not care about the existence of the lockfile.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on version control](https://pdm.fming.dev/latest/usage/project/#working-with-version-control) for more on best practices for version-controlling a PDM project.
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -578,6 +606,12 @@ This allows us to check the version from python in the conventional way:
 pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)"
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on dynamic versioning](https://pdm.fming.dev/latest/pyproject/build/#dynamic-versioning) for more information.
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Packaging the project
 
@@ -589,7 +623,7 @@ tree
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-To create a [sdist](https://packaging.python.org/en/latest/specifications/source-distribution-format/) and [wheel](https://packaging.python.org/en/latest/specifications/binary-distribution-format/):
+To create an [sdist](https://packaging.python.org/en/latest/specifications/source-distribution-format/) and [wheel](https://packaging.python.org/en/latest/specifications/binary-distribution-format/):
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
@@ -647,6 +681,12 @@ pdm publish -r testpypi
 ```
 
 Note that you do not need to run `pdm build` first - PDM will build the distribution as part of `publish` anyway.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on publishing to PyPI for more information](https://pdm.fming.dev/latest/usage/project/#publish-the-project-to-pypi).
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -729,6 +769,12 @@ Let's run it!
 ```bash slideshow={"slide_type": "fragment"} trusted=true
 pdm run test-publish
 ```
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) for more information on writing PDM scripts.
+:::
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Other project metadata
