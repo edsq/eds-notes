@@ -6,24 +6,32 @@ Notes on miscellaneous topics in physics, math, and python.
 
 Available as a Jupyter Book [here](https://edsq.github.io/eds-notes/intro.html).
 
+
 ## Installing
 
-1. Install the package:
+To install for running notebooks and building docs:
+
 ```
-pdm install
+make init
 ```
 
-2. Install the Jupyter bash kernel:
+This requires [PDM](https://pdm.fming.dev/latest/).
+
+Notebooks should run when this project is installed with any PEP 517 compatible build
+backend, however.  You will still need to run `jupytext --sync md_notebooks/*` to get
+the actual `.ipynb` files.
+
+
+## Building and publishing documentation
+
+Build docs:
+
 ```
-pdm run python -m bash_kernel.install
+pdm build-docs
 ```
 
-3. Generate the notebooks from synced markdown files using `jupytext`:
-```
-pdm run jupytext --sync md_notebooks/*
-```
+Publish docs online:
 
-4. (If you intend to commit to the repository) Install pre-commit hooks:
 ```
-pdm run pre-commit install
+pdm publish-docs
 ```
