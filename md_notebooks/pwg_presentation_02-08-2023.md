@@ -1022,7 +1022,12 @@ pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Our page on TestPyPI now shows the README, and the documentation and repository links are available on the sidebar.
+Our page on TestPyPI now shows the README, and the documentation and repository links are available on the sidebar:
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{image} images/testpypi_project_screenshot.png
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
