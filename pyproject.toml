@@ -15,6 +15,9 @@ requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
 
+[project.scripts]
+simple-diff = "eds_notes.cli:simple_diff_cli"
+
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
