@@ -8,7 +8,7 @@ authors = [
 dependencies = [
     "jupyter>=1.0.0",
     "jupytext>=1.14.4",
-    "bash-kernel>=0.9.0",
+    "bash-kernel @ git+https://github.com/edsq/bash_kernel@display_markdown",
     "RISE>=5.7.1",
 ]
 requires-python = ">=3.11"
