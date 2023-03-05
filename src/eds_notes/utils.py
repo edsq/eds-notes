@@ -89,11 +89,19 @@ def simple_diff(
         out_lines.append(f"{comment_char} {file}")
         out_lines.append("")
 
+    if hunks[0][0] > 0:
+        # Add ellipsis at beginning
+        out_lines += ["...", ""]
+
     out_lines += file_lines[hunks[0][0] : hunks[0][1]]
 
     if len(hunks) > 1:
         for hunk in hunks[1:]:
             out_lines += ["", "...", ""]
             out_lines += file_lines[hunk[0] : hunk[1]]
+
+    if hunks[-1][1] < len(file_lines):
+        # Add ellipsis at end
+        out_lines += ["", "..."]
 
     print("\n".join(out_lines))
