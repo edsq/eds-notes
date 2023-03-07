@@ -6,4 +6,7 @@ root: intro
 parts:
   - caption: Python Notes
     chapters:
-    - file: pwg_presentation_02-08-2023
+    - file: python_notes/pwg_presentation/pwg_presentation_02-08-2023
+      sections:
+        - file: python_notes/pwg_presentation/pwg_presentation_02-08-2023_part1
+        - file: python_notes/pwg_presentation/pwg_presentation_02-08-2023_part2
