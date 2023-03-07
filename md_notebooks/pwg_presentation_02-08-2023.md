@@ -1,6 +1,6 @@
 ---
 jupyter:
-  celltoolbar: Slideshow
+  celltoolbar: Tags
   jupytext:
     cell_metadata_filter: all
     notebook_metadata_filter: all
@@ -148,8 +148,12 @@ The relevant files created are the `README.md`; `.pdm.toml`, which holds local c
 ### The `pyproject.toml` file
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} scrolled=false trusted=true
-cat pyproject.toml
+```bash slideshow={"slide_type": "fragment"} scrolled=false trusted=true tags=["remove-input"]
+FILE="pyproject.toml"
+echo "\`\`\`toml
+# $FILE
+$(cat $FILE)
+\`\`\`" | displayMD
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -221,8 +225,12 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} trusted=true
-cat src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+FILE="src/eeskew_pwg_test_000/utils.py"
+echo "\`\`\`python
+# $FILE
+$(cat $FILE)
+\`\`\`" | displayMD
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -269,8 +277,12 @@ Running `pdm install` also created a new file, `pdm.lock`:
 ls
 ```
 
-```bash slideshow={"slide_type": "fragment"} trusted=true
-cat pdm.lock
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+FILE="pdm.lock"
+echo "\`\`\`toml
+# $FILE
+$(cat pdm.lock)
+\`\`\`" | displayMD
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -301,7 +313,13 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 `cowsay` now appears as a dependency in `pyproject.toml`:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+```bash tags=["remove-input"] slideshow={"slide_type": "fragment"} trusted=true
+echo "\`\`\`toml
+$(simple-diff HEAD~ pyproject.toml)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input", "hide-output"]
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -309,8 +327,10 @@ git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 We've also updated `pdm.lock` to include cowsay:
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} trusted=true
-cat pdm.lock
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+echo "\`\`\`toml
+$(simple-diff HEAD~ pdm.lock)
+\`\`\`" | displayMD
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -363,7 +383,13 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+echo "\`\`\`python
+$(simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
@@ -404,6 +430,12 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+echo "\`\`\`toml
+$(simple-diff HEAD~ pyproject.toml)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -476,6 +508,12 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+echo "\`\`\`python
+$(simple-diff --context 2 HEAD~ src/eeskew_pwg_test_000/utils.py)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
@@ -520,8 +558,13 @@ Create a `__version__.py` file in `src/eeskew_pwg_test_000`, and add the `__vers
 echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_000/__version__.py
 ```
 
-```bash slideshow={"slide_type": "fragment"} trusted=true
-cat src/eeskew_pwg_test_000/__version__.py
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+FILE="src/eeskew_pwg_test_000/__version__.py"
+
+echo "\`\`\`python
+# $FILE
+$(cat $FILE)
+\`\`\`" | displayMD
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -566,6 +609,12 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+echo "\`\`\`toml
+$(simple-diff HEAD~ pyproject.toml)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -601,6 +650,12 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+echo "\`\`\`python
+$(simple-diff HEAD~ src/eeskew_pwg_test_000/__init__.py)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../../scripts/diff-so-fancy
 ```
 
@@ -760,6 +815,12 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "subslide"} trusted=true
+echo "\`\`\`toml
+$(simple-diff HEAD~ pyproject.toml)
+\`\`\`" | displayMD
+```
+
+```bash tags=["remove-input", "hide-output"] slideshow={"slide_type": "notes"} trusted=true
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
@@ -831,8 +892,10 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "fragment"} trusted=true
-cat src/eeskew_pwg_test_000/cli.py
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+echo "\`\`\`python
+$(simple-diff HEAD~ src/eeskew_pwg_test_000/cli.py)
+\`\`\`" | displayMD
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -891,8 +954,18 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+echo "\`\`\`toml
+$(simple-diff HEAD~ pyproject.toml)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+Note the new entry for `sarcasticow` in the `project.scripts` table.
+<!-- #endregion -->
 
 ```bash slideshow={"slide_type": "subslide"} trusted=true
 pdm install
@@ -954,6 +1027,10 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+simple-diff HEAD~ README.md
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ README.md | ../../scripts/diff-so-fancy
 ```
 
@@ -1019,6 +1096,12 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+echo "\`\`\`toml
+$(simple-diff HEAD~ pyproject.toml)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
