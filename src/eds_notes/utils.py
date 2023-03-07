@@ -68,7 +68,7 @@ def simple_diff(
         hunks = [[0, first_hunk[1]]]
 
     else:
-        hunks = [first_hunk]
+        hunks = [list(first_hunk)]
 
     for next_hunk in raw_hunks[1:]:
         last_hunk = hunks[-1]
@@ -78,7 +78,7 @@ def simple_diff(
             last_hunk[1] = next_hunk[1]
 
         else:
-            hunks.append(next_hunk)
+            hunks.append(list(next_hunk))
 
     # Get lines to print
     with open(file, "r") as f:
