@@ -87,7 +87,6 @@ def simple_diff(
     out_lines = []
     if show_filename:
         out_lines.append(f"{comment_char} {file}")
-        out_lines.append("")
 
     if hunks[0][0] > 0:
         # Add ellipsis at beginning
