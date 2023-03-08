@@ -1,5 +1,6 @@
 #!/bin/bash
 COWSAY_TEXT="Spherical!"
+CAPTION_TEXT="Fig. 1: Ed's Notes"
 OUTPUT_FILE="docs/logo.png"
 pdm run cowsay $COWSAY_TEXT > _cowsaid_text.txt  # Output is wrong if I don't save this to an intermediate file.  Unsure why.
 # see:
@@ -7,4 +8,5 @@ pdm run cowsay $COWSAY_TEXT > _cowsaid_text.txt  # Output is wrong if I don't sa
 # https://imagemagick.org/script/color.php
 # https://imagemagick.org/Usage/fonts/
 magick -background transparent -fill black -font Monaco -pointsize 72 label:@_cowsaid_text.txt $OUTPUT_FILE
+magick $OUTPUT_FILE -pointsize 84 -background transparent -fill black label:"$CAPTION_TEXT" -gravity South -append $OUTPUT_FILE
 rm _cowsaid_text.txt
