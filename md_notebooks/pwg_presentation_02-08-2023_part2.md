@@ -478,6 +478,8 @@ git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Note the new entry for `sarcasticow` in the `project.scripts` table.
+
+To use the `sarcasticow` command, we need to re-install the project:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "subslide"} trusted=true
@@ -547,6 +549,8 @@ simple-diff HEAD~ README.md
 ### Project URLs
 
 We can add relevant URLs in the [`urls` table](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#urls), which will appear in the sidebar on PyPI.
+
+Here, we set `Documentation` to a link to our docs (this Jupyter Book), and `Repository` to the GitHub repo for this code.
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true

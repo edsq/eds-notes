@@ -68,7 +68,7 @@ Because this is a throwaway test project, it is important that you give your pro
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Set the python version and initialize the project
 
-Here, we'll use python version 3.11, but you may change this to be whatever you like.
+Here, we'll use python version 3.11, but you may change this to be whatever you like.  I'll cover two methods of setting the python version: using [`pyenv`](https://github.com/pyenv/pyenv), and using [`conda`](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
 ### Using `pyenv` (recommended)
 
@@ -149,6 +149,10 @@ ls -a
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 The relevant files created are the `README.md`; `.pdm.toml`, which holds local configuration for this PDM project; and `pyproject.toml`, which holds project tool configuration and package metadata.
+
+:::{seealso}
+PDM has also created a virtual environment for us in the `.venv` directory.  This is where our package and its dependencies will be installed.  If you are unfamiliar with virtual environments, I recommend [this article](https://realpython.com/python-virtual-environments-a-primer/).
+:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -442,6 +446,8 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### What happened?
+
+We've added a new `[dev-dependencies]` sub-table to the `[tool.pdm]` table, which contains `black`:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -459,7 +465,7 @@ git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
-We've added a new `[dev-dependencies]` sub-table to the `[tool.pdm]` table.  When we run `pdm install`, by default, PDM will install dependencies from here in addition to the dependencies listed in `[project.dependencies]`.  A different tool like `pip`, however, will not.
+When we run `pdm install`, by default, PDM will install dependencies from here in addition to the dependencies listed in `[project.dependencies]`.  A different tool like `pip`, however, will not.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -539,6 +545,10 @@ Click below to show diff:
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
 git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+This is bad formatting!  Rather than fix it manually, we can run `black` on our code, which will auto-impose a reasonable style.
+<!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
 pdm run black src/
