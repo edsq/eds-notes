@@ -643,4 +643,37 @@ Our page on TestPyPI now shows the README, and the documentation and repository 
 ## Conclusion
 
 And that's it!  We've gone through the basics of project management, packaging, and publishing on (Test)PyPI.
+
+### Further reading
+
+Some good articles for further reading:
+
+- The official [PyPA packaging tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) is a good place to start.
+- I have taken quite a bit of inspiration in my work from the great series [Hypermodern Python](https://cjolowicz.github.io/posts/hypermodern-python-01-setup/) by Claudio Jolowicz.  It goes into much greater detail on various points of project management than I did here, and is well worth a read.
+    - Hypermodern Python uses the project manager [Poetry](https://python-poetry.org), not PDM (see my thoughts on that below), but PDM can do nearly everything Poetry can do, so this series is still useful.
+- [How to improve Python packaging, or why fourteen tools are at least twelve too many](https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/) is a good overview of the mess of modern python project management tools.
+
+Some important accepted Python Enhancement Proposals that shape the modern python packaging ecosystem:
+
+- [PEP 621](https://peps.python.org/pep-0621/) (project metadata in `pyproject.toml`)
+- [PEP 508](https://peps.python.org/pep-0508/) (dependency specification syntax)
+- [PEP 440](https://peps.python.org/pep-0440/) (version numbers for dependency specification)
+- [PEP 517](https://peps.python.org/pep-0517/) (specifying the build backend in `pyproject.toml` independently of the build frontend)
+
+
+### Other project management tools
+
+You'll note that Hypermodern Python recommends using the project manager [Poetry](https://python-poetry.org).  Poetry was a cutting-edge option at the time that series was written, and it has grown to considerable popularity.  I chose not to recommend it in this tutorial for several reasons:
+
+- Poetry is not fully [PEP 517](https://peps.python.org/pep-0517/) compliant.  This means you and your users will not be able to use any other tool to build and install your project.
+- By default, Poetry imposes an upper bound on dependency version numbers.  This goes against [Python standards](https://peps.python.org/pep-0440/) and will likely cause problems down the line: see articles [here](https://iscinumpy.dev/post/bound-version-constraints/) and [here](https://iscinumpy.dev/post/poetry-versions/).
+- The Poetry developers chose to "deprecate" their old install script by [*causing it to randomly fail*](https://youtu.be/Gr9o8MW_pb0?t=290) instead of sunsetting with a typical deprecation warning.  This bizarre choice raises serious concerns about the future of the application.
+- PDM has considerably fewer open issues on GitHub than Poetry: at the time of this writing, [34](https://github.com/pdm-project/pdm/issues) vs [575](https://github.com/python-poetry/poetry/issues).
+    - Some of this is explainable by PDM having fewer users than Poetry.  However, PDM has 4.1k stars on Github vs. Poetry's 24.1k, so using those stars as a proxy for the number of users, we see Poetry has 17 times the number of open issues but only 6 times the number of users as PDM.
+- The Poetry developers are famously stubborn and slow to implement new python standards, while the PDM developer is remarkably responsive and active in development.
+- Poetry is much more inflexible about resolving dependency conflicts than PDM, which quickly becomes a huge headache for complicated projects.
+
+Another project manager worth looking in to is [Hatch](https://hatch.pypa.io/latest/).  I don't have any experience with this particular tool, but it does support modern Python standards and has the benefit of being an official part of the Python Packaging Authority (PyPA).  However, it does not have lockfile support, as there is not yet an established standard (PEP [665](https://peps.python.org/pep-0665/) was an attempt, but it was rejected).  If you don't need a lockfile in your work, it may be worth considering.
+
+Finally, for those using `conda`, [anaconda-project](https://anaconda-project.readthedocs.io/en/latest/) deserves a mention.  It isn't a full-fledged project manager (for example, you can't easily use it to publish on PyPI), but it does dramatically simplify sharing and running code.
 <!-- #endregion -->
