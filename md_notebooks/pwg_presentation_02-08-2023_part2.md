@@ -125,8 +125,12 @@ $(simple-diff HEAD~ pyproject.toml)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -164,10 +168,6 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 echo "\`\`\`python
 $(simple-diff HEAD~ src/eeskew_pwg_test_000/__init__.py)
 \`\`\`" | displayMD
-```
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ src/eeskew_pwg_test_000/__init__.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -331,8 +331,12 @@ $(simple-diff HEAD~ pyproject.toml)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash tags=["remove-input", "hide-output"] slideshow={"slide_type": "notes"} trusted=true
-git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -470,8 +474,12 @@ $(simple-diff HEAD~ pyproject.toml)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -541,10 +549,6 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 simple-diff HEAD~ README.md
 ```
 
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ README.md | ../../scripts/diff-so-fancy
-```
-
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Project URLs
 
@@ -612,8 +616,12 @@ $(simple-diff HEAD~ pyproject.toml)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->

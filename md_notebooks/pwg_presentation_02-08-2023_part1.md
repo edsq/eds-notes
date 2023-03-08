@@ -1,6 +1,6 @@
 ---
 jupyter:
-  celltoolbar: Tags
+  celltoolbar: Slideshow
   jupytext:
     cell_metadata_filter: all
     notebook_metadata_filter: all
@@ -326,8 +326,12 @@ $(simple-diff HEAD~ pyproject.toml)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input", "hide-output"]
-git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -396,8 +400,12 @@ $(simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -442,8 +450,12 @@ $(simple-diff HEAD~ pyproject.toml)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -520,8 +532,12 @@ $(simple-diff --context 2 HEAD~ src/eeskew_pwg_test_000/utils.py)
 \`\`\`" | displayMD
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
@@ -539,7 +555,7 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-git diff HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
