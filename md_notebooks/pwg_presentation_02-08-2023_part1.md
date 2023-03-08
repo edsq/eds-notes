@@ -155,6 +155,12 @@ PDM has also created a virtual environment for us in the `.venv` directory.  Thi
 :::
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{note}
+PDM supports the draft Python Enhancement Proposal (PEP) [582](https://peps.python.org/pep-0582/).  An alternative to virtual environments, PEP 582 would automatically get dependencies from a `__pypackages__` directory in the project root, without having to activate a virtualenv.  See the PDM docs on PEP 582 [here](https://pdm.fming.dev/latest/usage/pep582/).  We will not be using PEP 582 mode in this tutorial.
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### The `pyproject.toml` file
 <!-- #endregion -->
