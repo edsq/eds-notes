@@ -577,3 +577,15 @@ git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-
 See the [black documentation](https://black.readthedocs.io/en/stable/) for more information.
 :::
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Conclusion
+
+That's all for Part 1!  The examples here should be enough to get you started using PDM to manage your own python projects.  For more advanced usage, check out the PDM documentation on:
+
+- [General project management](https://pdm.fming.dev/latest/usage/project/)
+- [Working with virtualenv](https://pdm.fming.dev/latest/usage/venv/)
+- [Managing dependencies](https://pdm.fming.dev/latest/usage/dependency/)
+
+In Part 2, we'll cover how to publish a PDM project on PyPI, so that it can be installed with a simple `pip install`.
+<!-- #endregion -->
