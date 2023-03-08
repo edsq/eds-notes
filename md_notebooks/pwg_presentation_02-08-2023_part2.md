@@ -135,19 +135,13 @@ git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Note the new `project.dynamic` array, the new `tool.pdm.version` table, and that the `project.version` key is gone.
+
+We can check the version like so:
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-:::{note}
-Before PDM version 2.4.7, we could check our version number like so:
-
+```bash slideshow={"slide_type": "fragment"} trusted=true
+pdm show --version eeskew-pwg-test-000
 ```
-pdm show --version
-```
-
-As of version 2.4.7, this just prints `DYNAMIC`, instead of the version number.  It isn't clear to me if this new behavior is intended or a bug.  There is a github issue on this [here](https://github.com/pdm-project/pdm/issues/1753).
-:::
-<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 We should also add the `__version__` variable to our `__init__.py`:
@@ -285,9 +279,9 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-VERSION=$(pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)")
+VERSION=$(pdm show --version eeskew-pwg-test-000)
 pdm bump patch > /dev/null
-BUMPED_VERSION=$(pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)")
+BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)
 DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)
 echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
 pdm publish -r testpypi
@@ -425,9 +419,9 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-VERSION=$(pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)")
+VERSION=$(pdm show --version eeskew-pwg-test-000)
 pdm bump patch > /dev/null
-BUMPED_VERSION=$(pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)")
+BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)
 DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)
 echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
 pdm publish -r testpypi
@@ -563,9 +557,9 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-VERSION=$(pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)")
+VERSION=$(pdm show --version eeskew-pwg-test-000)
 pdm bump patch > /dev/null
-BUMPED_VERSION=$(pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)")
+BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)
 DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)
 echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
 pdm publish -r testpypi
