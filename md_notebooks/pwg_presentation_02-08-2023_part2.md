@@ -359,6 +359,18 @@ pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
+:::{note}
+If you want to test installing from TestPyPI, you can do so with the following command:
+
+```
+python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package
+```
+
+Be sure not to `pip install` into your system or conda base environment!  First make a new virtual environment using PDM, venv, or conda, and test your install there.
+:::
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
 See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) for more information on writing PDM scripts.
 :::
