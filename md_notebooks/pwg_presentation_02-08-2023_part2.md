@@ -27,6 +27,13 @@ jupyter:
 bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# Alias for showing link to companion repo
+alias repo-link='echo "\`\`\`{seealso}
+See the companion repo at the current state [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)).
+\`\`\`" | displayMD'
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Publishing on (Test)PyPI
 
@@ -177,6 +184,10 @@ pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__versi
 See the [PDM docs on dynamic versioning](https://pdm.fming.dev/latest/pyproject/build/#dynamic-versioning) for more information.
 :::
 <!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Packaging the project
@@ -353,6 +364,10 @@ See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) f
 :::
 <!-- #endregion -->
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Other project metadata
 
@@ -502,6 +517,10 @@ Unlike the `test-publish` PDM script we wrote earlier, if we activated the envir
 :::
 <!-- #endregion -->
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Updating README
 
@@ -543,6 +562,10 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 simple-diff HEAD~ README.md
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -638,6 +661,10 @@ Our page on TestPyPI now shows the README, and the documentation and repository 
 :::{image} images/testpypi_project_screenshot.png
 :::
 <!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conclusion

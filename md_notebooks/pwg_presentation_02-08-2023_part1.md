@@ -27,6 +27,13 @@ jupyter:
 bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# Alias for showing link to companion repo
+alias repo-link='echo "\`\`\`{seealso}
+See the companion repo at the current state [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)).
+\`\`\`" | displayMD'
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Project Management with PDM
 
@@ -189,6 +196,10 @@ See the [PDM docs on writing `pyproject.toml`](https://pdm.fming.dev/latest/pypr
 :::
 <!-- #endregion -->
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Adding code
 
@@ -253,6 +264,10 @@ $(cat $FILE)
 <!-- #region slideshow={"slide_type": "notes"} -->
 The actual content of this code is not too important for the purposes of these notes, but for completeness, all it does is capitalize and lowercase alternating letters in a string.
 <!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Install the project
@@ -432,6 +447,10 @@ We didn't have to re-run `pdm install` to use our new function - this is because
 :::
 <!-- #endregion -->
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Add a development dependency
 
@@ -583,6 +602,10 @@ git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-
 See the [black documentation](https://black.readthedocs.io/en/stable/) for more information.
 :::
 <!-- #endregion -->
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conclusion
