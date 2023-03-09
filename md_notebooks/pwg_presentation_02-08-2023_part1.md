@@ -32,6 +32,9 @@ bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, wh
 alias repo-link='echo "\`\`\`{seealso}
 See the companion repo at the current state [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)).
 \`\`\`" | displayMD'
+
+# Alias for colored ls
+alias ls="gls --color=always"
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
