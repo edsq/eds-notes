@@ -41,6 +41,8 @@ Part 2 of notes from a talk given to the WSU Python Working Group on February 8,
 
 Here, we'll cover the basics of publishing a project on PyPI or TestPyPI using PDM,
 including managing relevant project metadata.
+
+This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->

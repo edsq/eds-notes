@@ -41,6 +41,8 @@ Part 1 of notes from talk given to the WSU Python Working Group on February 8, 2
 
 Here I show the basics of project management with [PDM](https://pdm.fming.dev/latest/): how to create a project,
 add dependencies, and add development dependencies.
+
+This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
