@@ -1,12 +1,20 @@
 #!/bin/bash
 COWSAY_TEXT="Spherical!"
 CAPTION_TEXT="Fig. 1: Ed's Notes"
-OUTPUT_FILE="docs/logo.png"
+OUTPUT_FILE_LIGHT="docs/logo_light.png"
+OUTPUT_FILE_DARK="docs/logo_dark.png"
 pdm run cowsay $COWSAY_TEXT > _cowsaid_text.txt  # Output is wrong if I don't save this to an intermediate file.  Unsure why.
 # see:
 # https://imagemagick.org/Usage/text/
 # https://imagemagick.org/script/color.php
 # https://imagemagick.org/Usage/fonts/
-magick -background transparent -fill black -font Monaco -pointsize 72 label:@_cowsaid_text.txt $OUTPUT_FILE
-magick $OUTPUT_FILE -pointsize 84 -background transparent -fill black label:"$CAPTION_TEXT" -gravity South -append $OUTPUT_FILE
+# Create light logo
+magick -background transparent -fill black -font Monaco -pointsize 72 label:@_cowsaid_text.txt $OUTPUT_FILE_LIGHT
+magick $OUTPUT_FILE_LIGHT -pointsize 84 -background transparent -fill black label:"$CAPTION_TEXT" -gravity South -append $OUTPUT_FILE_LIGHT
+
+# Now create dark logo
+magick -background transparent -fill snow -font Monaco -pointsize 72 label:@_cowsaid_text.txt $OUTPUT_FILE_DARK
+magick $OUTPUT_FILE_DARK -pointsize 84 -background transparent -fill snow label:"$CAPTION_TEXT" -gravity South -append $OUTPUT_FILE_DARK
+
+# Delete cowsaid text
 rm _cowsaid_text.txt

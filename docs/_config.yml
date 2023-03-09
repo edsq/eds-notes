@@ -3,7 +3,6 @@
 
 title: "Ed's Notes: Physics, Math, and Python"
 author: Edward Eskew
-logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -39,3 +38,7 @@ sphinx:
   config:
     nb_merge_streams: true
     nb_render_markdown_format: "myst"
+    html_theme_options:
+      logo:
+        image_light: logo_light.png
+        image_dark: logo_dark.png
