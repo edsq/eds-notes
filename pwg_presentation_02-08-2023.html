@@ -7,29 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Project Management and Publishing with PDM &#8212; Ed&#39;s Notes: Physics, Math, and Python</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,12 +44,12 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,1899 +57,358 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pwg_presentation_02-08-2023';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Ed’s Notes on Physics, Math, and Python" href="intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="None">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Project Management and Publishing with PDM
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="_static/logo.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">Ed's Notes: Physics, Math, and Python</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Python Notes
- </span>
-</p>
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Project Management and Publishing with PDM
+                      </a>
+                    </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Notes</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Project Management and Publishing with PDM
-  </a>
- </li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Project Management and Publishing with PDM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
-<a href="https://github.com/edsq/eds-notes"
-   class="headerbtn"
+<a href="https://github.com/edsq/eds-notes" target="_blank"
+   class="btn btn-sm"
    data-toggle="tooltip"
 data-placement="bottom"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/pwg_presentation_02-08-2023.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="_sources/pwg_presentation_02-08-2023.md" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-the-python-version-and-initialize-the-project">
-   Set the python version and initialize the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-pyenv-recommended">
-     Using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pyenv
-      </span>
-     </code>
-     (recommended)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-conda">
-     Using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       conda
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pdm-init-options">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdm
-      </span>
-      <span class="pre">
-       init
-      </span>
-     </code>
-     options
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-pdm-project">
-   The PDM project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-pyproject-toml-file">
-     The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pyproject.toml
-      </span>
-     </code>
-     file
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-code">
-   Adding code
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-a-module">
-     Add a module
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-the-project">
-   Install the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-pdm-lock-file">
-     The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdm.lock
-      </span>
-     </code>
-     file
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-a-dependency">
-   Add a dependency
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-did-pdm-add-do">
-     What did
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdm
-      </span>
-      <span class="pre">
-       add
-      </span>
-     </code>
-     do?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adding-more-code">
-     Adding more code
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-a-development-dependency">
-   Add a development dependency
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-happened">
-     What happened?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-black">
-     Using black
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     What happened?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#package-version">
-   Package version
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#packaging-the-project">
-   Packaging the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     What happened?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#publishing-the-project">
-   Publishing the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-pypi-credentials">
-     Setting up PyPI credentials
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-a-test-publish-pdm-script">
-     Setting up a test-publish PDM script
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-project-metadata">
-   Other project metadata
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-an-entry-point-to-the-package">
-     Add an entry point to the package
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updating-readme">
-     Updating README
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#project-urls">
-     Project URLs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   Conclusion
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Project Management and Publishing with PDM</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-the-python-version-and-initialize-the-project">
-   Set the python version and initialize the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-pyenv-recommended">
-     Using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pyenv
-      </span>
-     </code>
-     (recommended)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-conda">
-     Using
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       conda
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pdm-init-options">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdm
-      </span>
-      <span class="pre">
-       init
-      </span>
-     </code>
-     options
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-pdm-project">
-   The PDM project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-pyproject-toml-file">
-     The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pyproject.toml
-      </span>
-     </code>
-     file
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-code">
-   Adding code
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-a-module">
-     Add a module
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-the-project">
-   Install the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-pdm-lock-file">
-     The
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdm.lock
-      </span>
-     </code>
-     file
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-a-dependency">
-   Add a dependency
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-did-pdm-add-do">
-     What did
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdm
-      </span>
-      <span class="pre">
-       add
-      </span>
-     </code>
-     do?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adding-more-code">
-     Adding more code
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-a-development-dependency">
-   Add a development dependency
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-happened">
-     What happened?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-black">
-     Using black
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     What happened?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#package-version">
-   Package version
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#packaging-the-project">
-   Packaging the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     What happened?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#publishing-the-project">
-   Publishing the project
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-pypi-credentials">
-     Setting up PyPI credentials
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-a-test-publish-pdm-script">
-     Setting up a test-publish PDM script
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#other-project-metadata">
-   Other project metadata
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-an-entry-point-to-the-package">
-     Add an entry point to the package
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#updating-readme">
-     Updating README
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#project-urls">
-     Project URLs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   Conclusion
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Project Management and Publishing with PDM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="project-management-and-publishing-with-pdm">
 <h1>Project Management and Publishing with PDM<a class="headerlink" href="#project-management-and-publishing-with-pdm" title="Permalink to this headline">#</a></h1>
 <p>Notes from talk given to the WSU Python Working Group on February 8, 2023.</p>
 <p>Here I show how to create a basic project with <a class="reference external" href="https://pdm.fming.dev/latest/">PDM</a>,
 add dependencies and development dependencies, and publish the package on (Test)PyPI.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A companion repository with the example project created in these notes is available <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000">here</a>.</p>
+<div class="toctree-wrapper compound">
 </div>
-<p>Requirements:</p>
-<ul class="simple">
-<li><p>The ability to get python executables of different versions, such as with <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">conda</a></p></li>
-<li><p><a class="reference external" href="https://pdm.fming.dev/latest/">PDM</a> available globally</p></li>
-<li><p>The <a class="reference external" href="https://github.com/carstencodes/pdm-bump">pdm-bump</a> plugin installed</p></li>
-</ul>
-<p>First, create the project directory and <code class="docutils literal notranslate"><span class="pre">cd</span></code> into it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>eeskew-pwg-test-000
-<span class="nb">cd</span><span class="w"> </span>eeskew-pwg-test-000
-</pre></div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Because this is a throwaway test project, it is important that you give your project a name that won’t conflict with any other package on PyPI or TestPyPI. Adding your name and some numbers is a good way to ensure this.</p>
-</div>
-<section id="set-the-python-version-and-initialize-the-project">
-<h2>Set the python version and initialize the project<a class="headerlink" href="#set-the-python-version-and-initialize-the-project" title="Permalink to this headline">#</a></h2>
-<p>Here, we’ll use python version 3.11, but you may change this to be whatever you like.</p>
-<section id="using-pyenv-recommended">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">pyenv</span></code> (recommended)<a class="headerlink" href="#using-pyenv-recommended" title="Permalink to this headline">#</a></h3>
-<p>Install python 3.11 if it is not already (see installed versions with <code class="docutils literal notranslate"><span class="pre">pyenv</span> <span class="pre">versions</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.11
-</pre></div>
-</div>
-<p>Set the local python version for this project and initialize using that version:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.11
-pdm<span class="w"> </span>init<span class="w"> </span>--python<span class="w"> </span>python
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">pyenv</span> <span class="pre">local</span></code> creates a file <code class="docutils literal notranslate"><span class="pre">.python-version</span></code> which <code class="docutils literal notranslate"><span class="pre">pyenv</span></code> uses to redirect the command <code class="docutils literal notranslate"><span class="pre">python</span></code> to the <code class="docutils literal notranslate"><span class="pre">python3.11</span></code>.  Thus, we only need to tell pdm to use the usual <code class="docutils literal notranslate"><span class="pre">python</span></code> executable.</p>
-</section>
-<section id="using-conda">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#using-conda" title="Permalink to this headline">#</a></h3>
-<p>Here, we’ll use <code class="docutils literal notranslate"><span class="pre">conda</span></code> to get a particular python version, but we won’t activate the conda environment (except to get a path to the <code class="docutils literal notranslate"><span class="pre">python</span></code> executable).  Environment management will be handled by PDM.</p>
-<p>Get python 3.11:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-y<span class="w"> </span>-p<span class="w"> </span>.conda_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
-pdm<span class="w"> </span>init<span class="w"> </span>--python<span class="w"> </span>.conda_env/bin/python
-</pre></div>
-</div>
-</section>
-<section id="pdm-init-options">
-<h3><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code> options<a class="headerlink" href="#pdm-init-options" title="Permalink to this headline">#</a></h3>
-<p>For</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Is the project a library that is installable?
-A few more questions will be asked to include a project name and build backend [y/n] (n):
-</pre></div>
-</div>
-<p>select <code class="docutils literal notranslate"><span class="pre">y</span></code>.  Otherwise, all the default options should be good.</p>
-</section>
-</section>
-<section id="the-pdm-project">
-<h2>The PDM project<a class="headerlink" href="#the-pdm-project" title="Permalink to this headline">#</a></h2>
-<p>Let’s take a look at what we’ve created:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-a
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.		.git		.pdm.toml	.venv		pyproject.toml
-..		.gitignore	.python-version	README.md
-</pre></div>
-</div>
-</div>
-</div>
-<p>The relevant files created are the <code class="docutils literal notranslate"><span class="pre">README.md</span></code>; <code class="docutils literal notranslate"><span class="pre">.pdm.toml</span></code>, which holds local configuration for this PDM project; and <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, which holds project tool configuration and package metadata.</p>
-<section id="the-pyproject-toml-file">
-<h3>The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file<a class="headerlink" href="#the-pyproject-toml-file" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>pyproject.toml
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tool.pdm]
-
-[project]
-name = &quot;eeskew-pwg-test-000&quot;
-version = &quot;0.1.0&quot;
-description = &quot;A test project for presentation to the WSU Python Working Group.&quot;
-authors = [
-    {name = &quot;Edward Eskew&quot;, email = &quot;edward.eskew@wsu.edu&quot;},
-]
-dependencies = []
-requires-python = &quot;&gt;=3.11&quot;
-readme = &quot;README.md&quot;
-license = {text = &quot;MIT&quot;}
-
-[build-system]
-requires = [&quot;pdm-pep517&gt;=1.0&quot;]
-build-backend = &quot;pdm.pep517.api&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>This file is written in <code class="docutils literal notranslate"><span class="pre">.toml</span></code> format, which stands for <a class="reference external" href="https://toml.io/en/">Tom’s Obvious Minimal Language</a>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">tool.pdm</span></code> table is empty, although we’ll add things here later on.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">project</span></code> table contains the metadata needed to install our project.  Its values thus far were set by the options we chose while running <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">build-system</span></code> section tells the build frontend (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span></code>) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we’ll see later.  See <a class="reference external" href="https://peps.python.org/pep-0517/">PEP 517</a> for more information.  Here, we’re just using the default PDM backend.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/pep621/">PDM docs on writing <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more on what can be specified in this file.</p>
-</div>
-</section>
-</section>
-<section id="adding-code">
-<h2>Adding code<a class="headerlink" href="#adding-code" title="Permalink to this headline">#</a></h2>
-<p>First we create our package directory in <a class="reference external" href="https://hynek.me/articles/testing-packaging/">src layout</a>, with an empty (for now) <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file to indicate that it is a python package:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>src
-mkdir<span class="w"> </span>src/eeskew_pwg_test_000
-touch<span class="w"> </span>src/eeskew_pwg_test_000/__init__.py
-</pre></div>
-</div>
-</div>
-</div>
-<section id="add-a-module">
-<h3>Add a module<a class="headerlink" href="#add-a-module" title="Permalink to this headline">#</a></h3>
-<p>Let’s add some code in <code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/utils.py</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>src/eeskew_pwg_test_000/utils.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>def sarcasm(s):
-    &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;
-    out = &quot;&quot;
-    for i, c in enumerate(s):
-        if i % 2 == 0:
-            out += c.lower()
-
-        else:
-            out += c.upper()
-
-    return out
-</pre></div>
-</div>
-</div>
-</div>
-<p>The actual content of this code is not too important for the purposes of these notes, but for completeness, all it does is capitalize and lowercase alternating letters in a string.</p>
-</section>
-</section>
-<section id="install-the-project">
-<h2>Install the project<a class="headerlink" href="#install-the-project" title="Permalink to this headline">#</a></h2>
-<p>To make our code available in the virtual environment, we have to install it:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>install
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">Lock file does not exist</span>
-<span class=" -Color -Color-Green">Updating the lock file</span><span class=" -Color -Color-Yellow">...</span>
-?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
-🔒 Lock successful
-Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
-?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
-All packages are synced to date, nothing to do.
-Installing the project as an editable package...
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">eeskew-pwg-test-000</span> <span class=" -Color -Color-Yellow">0.1.0</span> successful
-
-🎉 All complete!
-
-?25h
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can import our package:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm(&quot;Hello world!&quot;))&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hElLo wOrLd!
-</pre></div>
-</div>
-</div>
-</div>
-<p>Note we have to type <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code> before our command for it to be run within our project environment.</p>
-<section id="the-pdm-lock-file">
-<h3>The <code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code> file<a class="headerlink" href="#the-pdm-lock-file" title="Permalink to this headline">#</a></h3>
-<p>Running <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code> also created a new file, <code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>README.md	pdm.lock	pyproject.toml	src
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>pdm.lock
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># This file is @generated by PDM.
-# It is not intended for manual editing.
-
-[metadata]
-lock_version = &quot;4.1&quot;
-content_hash = &quot;sha256:86165c41f17b4b263a688544a3ebc55eccc1713dd177c40649b2e936dab66751&quot;
-
-[metadata.files]
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is a lockfile, which will contain the exact versions of each project dependency we install.  It is useful for creating a perfect reproduction of the project virtual environment, which keeps our development reproducible over time and across different machines.</p>
-<p>Right now, we have not installed anything other than the project itself, so it is essentially empty.</p>
-</section>
-</section>
-<section id="add-a-dependency">
-<h2>Add a dependency<a class="headerlink" href="#add-a-dependency" title="Permalink to this headline">#</a></h2>
-<p>Let’s add a dependency to our project:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>add<span class="w"> </span>cowsay
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">default</span> dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">cowsay</span>
-<span class=" -Color -Color-Cyan">⠹</span> Fetching hashes for resolved packages...
-🔒 Lock successful
-Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
-Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
-?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
-<span class=" -Color -Color-Bold">Synchronizing working set with lock file</span>: <span class=" -Color -Color-Green">1</span> to add, <span class=" -Color -Color-Yellow">0</span> to update, <span class=" -Color -Color-Red">0</span> to remove
-
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">cowsay</span> <span class=" -Color -Color-Yellow">5.0</span> successful
-Installing the project as an editable package...
-  <span class=" -Color -Color-Green">✔</span> Update <span class=" -Color -Color-Bold -Color-Bold-Green">eeskew-pwg-test-000</span> <span class=" -Color -Color-Yellow">0.1.0</span> -&gt; <span class=" -Color -Color-Yellow">0.1.0</span> successful
-
-🎉 All complete!
-
-?25h
-</pre></div>
-</div>
-</div>
-</div>
-<section id="what-did-pdm-add-do">
-<h3>What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">add</span></code> do?<a class="headerlink" href="#what-did-pdm-add-do" title="Permalink to this headline">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">cowsay</span></code> now appears as a dependency in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:10 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> description = &quot;A test project for presentation to the WSU Python Working Group.&quot;</span>
-authors = [
-    {name = &quot;Edward Eskew&quot;, email = &quot;edward.eskew@wsu.edu&quot;},
-]
-<span class=" -Color -Color-Bold -Color-Bold-C1">dependencies = []</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">dependencies = [</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    &quot;cowsay&gt;=5.0&quot;,</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">]</span>
-requires-python = &quot;&gt;=3.11&quot;
-readme = &quot;README.md&quot;
-license = {text = &quot;MIT&quot;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>We’ve also updated <code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code> to include cowsay:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>pdm.lock
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># This file is @generated by PDM.
-# It is not intended for manual editing.
-
-[[package]]
-name = &quot;cowsay&quot;
-version = &quot;5.0&quot;
-summary = &quot;The famous cowsay for GNU/Linux is now available for python&quot;
-
-[metadata]
-lock_version = &quot;4.1&quot;
-content_hash = &quot;sha256:a04c8eb9409090bc9acb94e5cec5ef19afdecacb2c169628142af5ca472135f0&quot;
-
-[metadata.files]
-&quot;cowsay 5.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/6b/b8/9f497fd045d74fe21d91cbe8debae0b451229989e35b539d218547d79fc6/cowsay-5.0.tar.gz&quot;, hash = &quot;sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3&quot;},
-]
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can now import <code class="docutils literal notranslate"><span class="pre">cowsay</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import cowsay; cowsay.cow(&quot;moo!&quot;)&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  ____
-| moo! |
-  ====
-    \
-     \
-       ^__^
-       (oo)\_______
-       (__)\       )\/\
-           ||----w |
-           ||     ||
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/">PDM docs on managing dependencies</a> for more information.</p>
-</div>
-</section>
-<section id="adding-more-code">
-<h3>Adding more code<a class="headerlink" href="#adding-more-code" title="Permalink to this headline">#</a></h3>
-<p>Let’s add a new function to <code class="docutils literal notranslate"><span class="pre">utils.py</span></code>:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/utils.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:2 @</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">import cowsay</span>
- 
-def sarcasm(s):
-    &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;
-    out = &quot;&quot;
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:14 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> def sarcasm(s):</span>
-            out += c.upper()
-
-    return out
- 
-<span class=" -Color -Color-Bold -Color-Bold-C2">def sarcastic_cowsay(s):</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    &quot;&quot;&quot;Cowsay `s`, sArCaStIcAlLy.&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    sarcastic_s = sarcasm(s)</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    cowsay.cow(sarcastic_s)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can now run this new function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay(&quot;mooo!&quot;)&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  _____
-| mOoO! |
-  =====
-     \
-      \
-        ^__^
-        (oo)\_______
-        (__)\       )\/\
-            ||----w |
-            ||     ||
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We didn’t have to re-run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code> to use our new function - this is because PDM installs our <code class="docutils literal notranslate"><span class="pre">eeskew_pwg_test_000</span></code> package in “editable mode”, which acts sort of like a symlink between the source code and the installed files in the <code class="docutils literal notranslate"><span class="pre">.venv</span></code> directory.</p>
-</div>
-</section>
-</section>
-<section id="add-a-development-dependency">
-<h2>Add a development dependency<a class="headerlink" href="#add-a-development-dependency" title="Permalink to this headline">#</a></h2>
-<p>The dependencies listed in the <code class="docutils literal notranslate"><span class="pre">project.dependencies</span></code> section of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> will all be installed when someone runs <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">eeskew_pwg_test_project</span></code>.  What if we have dependencies we only want in our development environment?</p>
-<p>Let’s add <code class="docutils literal notranslate"><span class="pre">black</span></code>, a tool to automatically format our code:</p>
-<div class="cell tag_output_scroll docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>black
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">dev</span> dev-dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">black</span>
-<span class=" -Color -Color-Cyan">⠦</span> Fetching hashes for resolved packages...
-🔒 Lock successful
-Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
-Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
-?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
-<span class=" -Color -Color-Bold">Synchronizing working set with lock file</span>: <span class=" -Color -Color-Green">6</span> to add, <span class=" -Color -Color-Yellow">0</span> to update, <span class=" -Color -Color-Red">0</span> to remove
-
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.0.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-
-🎉 All complete!
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-
-?25h
-</pre></div>
-</div>
-</div>
-</div>
-<section id="what-happened">
-<h3>What happened?<a class="headerlink" href="#what-happened" title="Permalink to this headline">#</a></h3>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:4 @</span>
-[tool.pdm]
-<span class=" -Color -Color-Bold -Color-Bold-C2">[tool.pdm.dev-dependencies]</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">dev = [</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    &quot;black&gt;=23.1.0&quot;,</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">]</span>
-
-[project]
-name = &quot;eeskew-pwg-test-000&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>We’ve added a new <code class="docutils literal notranslate"><span class="pre">[dev-dependencies]</span></code> sub-table to the <code class="docutils literal notranslate"><span class="pre">[tool.pdm]</span></code> table.  When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, by default, PDM will install dependencies from here in addition to the dependencies listed in <code class="docutils literal notranslate"><span class="pre">[project.dependencies]</span></code>.  A different tool like <code class="docutils literal notranslate"><span class="pre">pip</span></code>, however, will not.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies">PDM docs on adding development dependencies</a> or the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/tool-pdm/#development-dependencies">PDM docs on development dependencies in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more information on development dependencies.</p>
-</div>
-<p>The lockfile has also been updated:</p>
-<div class="cell tag_output_scroll docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>pdm.lock
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># This file is @generated by PDM.
-# It is not intended for manual editing.
-
-[[package]]
-name = &quot;black&quot;
-version = &quot;23.1.0&quot;
-requires_python = &quot;&gt;=3.7&quot;
-summary = &quot;The uncompromising code formatter.&quot;
-dependencies = [
-    &quot;click&gt;=8.0.0&quot;,
-    &quot;mypy-extensions&gt;=0.4.3&quot;,
-    &quot;packaging&gt;=22.0&quot;,
-    &quot;pathspec&gt;=0.9.0&quot;,
-    &quot;platformdirs&gt;=2&quot;,
-]
-
-[[package]]
-name = &quot;click&quot;
-version = &quot;8.1.3&quot;
-requires_python = &quot;&gt;=3.7&quot;
-summary = &quot;Composable command line interface toolkit&quot;
-dependencies = [
-    &quot;colorama; platform_system == \&quot;Windows\&quot;&quot;,
-]
-
-[[package]]
-name = &quot;colorama&quot;
-version = &quot;0.4.6&quot;
-requires_python = &quot;!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,&gt;=2.7&quot;
-summary = &quot;Cross-platform colored terminal text.&quot;
-
-[[package]]
-name = &quot;cowsay&quot;
-version = &quot;5.0&quot;
-summary = &quot;The famous cowsay for GNU/Linux is now available for python&quot;
-
-[[package]]
-name = &quot;mypy-extensions&quot;
-version = &quot;1.0.0&quot;
-requires_python = &quot;&gt;=3.5&quot;
-summary = &quot;Type system extensions for programs checked with the mypy type checker.&quot;
-
-[[package]]
-name = &quot;packaging&quot;
-version = &quot;23.0&quot;
-requires_python = &quot;&gt;=3.7&quot;
-summary = &quot;Core utilities for Python packages&quot;
-
-[[package]]
-name = &quot;pathspec&quot;
-version = &quot;0.11.0&quot;
-requires_python = &quot;&gt;=3.7&quot;
-summary = &quot;Utility library for gitignore style pattern matching of file paths.&quot;
-
-[[package]]
-name = &quot;platformdirs&quot;
-version = &quot;3.0.0&quot;
-requires_python = &quot;&gt;=3.7&quot;
-summary = &quot;A small Python package for determining appropriate platform-specific dirs, e.g. a \&quot;user data dir\&quot;.&quot;
-
-[metadata]
-lock_version = &quot;4.1&quot;
-content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b847a36f7bbf2&quot;
-
-[metadata.files]
-&quot;black 23.1.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/01/8a/065d0a59c1ebe13186b12a2fa3965a41fc1588828709995e2630004d216e/black-23.1.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:8178318cb74f98bc571eef19068f6ab5613b3e59d4f47771582f04e175570ed8&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/15/11/533355217b1cc4a6df3263048060c1527f733d4720e158de2085293112bb/black-23.1.0.tar.gz&quot;, hash = &quot;sha256:b0bd97bea8903f5a2ba7219257a44e3f1f9d00073d6cc1add68f0beec69692ac&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/18/99/bb1be0ff3a7e912679ad234a3c4884fa7689dfcc4eae85bddb6c04feaa62/black-23.1.0-py3-none-any.whl&quot;, hash = &quot;sha256:7a0f701d314cfa0896b9001df70a530eb2472babb76086344e688829efd97d32&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/20/de/eff8e3ccc22b5c2be1265a9e61f1006d03e194519a3ca2e83dd8483dbbb5/black-23.1.0-cp38-cp38-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:49f7b39e30f326a34b5c9a4213213a6b221d7ae9d58ec70df1c4a307cf2a1580&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/2d/9a/a81bf384a08d8a5e13d97223a60a74ac3c16c0aecdbd85edbc662d158bde/black-23.1.0-cp310-cp310-win_amd64.whl&quot;, hash = &quot;sha256:9afd3f493666a0cd8f8df9a0200c6359ac53940cbde049dcb1a7eb6ee2dd7074&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/32/a7/1d207427b87780c505a41c9430d26362e729954503b8ffba27c4f53a6810/black-23.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:2bf649fda611c8550ca9d7592b69f0637218c2369b7744694c5e4902873b2f3a&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/3d/dc/12dc29bb38b8db68c79b8339de1590fe1ae796858bfa6cf7494eb672be21/black-23.1.0-cp38-cp38-win_amd64.whl&quot;, hash = &quot;sha256:8b70eb40a78dfac24842458476135f9b99ab952dd3f2dab738c1881a9b38b753&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/3e/c0/abc7031d670d211e4e2a063910d587dfcb62ce469631e779b23b66653442/black-23.1.0-cp310-cp310-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:57c18c5165c1dbe291d5306e53fb3988122890e57bd9b3dcb75f967f13411a26&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/43/bc/5232fd6b0fd6d6177140cfb7d8f0f0e06638e2a750122767e265beb91161/black-23.1.0-cp39-cp39-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:a29650759a6a0944e7cca036674655c2f0f63806ddecc45ed40b7b8aa314b651&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/6b/d1/4394e4b0a24ad0f556aca3ab11e27f2e199f03b43f147c31a4befbf62b48/black-23.1.0-cp311-cp311-win_amd64.whl&quot;, hash = &quot;sha256:121ca7f10b4a01fd99951234abdbd97728e1240be89fde18480ffac16503d481&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/77/11/db2ae5bf93af5185086d9b1baf4ce369ca34c3a01835230873aa9163d52d/black-23.1.0-cp39-cp39-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:bb460c8561c8c1bec7824ecbc3ce085eb50005883a6203dcfb0122e95797ee06&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/7e/fe/6c05c3f9255b7b498cfb88faa85b45329f1b7b0ecb444ebdc6b74ffa1457/black-23.1.0-cp311-cp311-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:c1c476bc7b7d021321e7d93dc2cbd78ce103b84d5a4cf97ed535fbc0d6660648&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/96/af/3361b34907efbfd9d55af453488be2282f831d98b7d201248b38d4c44346/black-23.1.0-cp37-cp37m-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:a8471939da5e824b891b25751955be52ee7f8a30a916d570a5ba8e0f2eb2ecad&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/9a/ee/549e8be7f635cabcc3c7c3f2c3b27971dc32735155631b9ef2dcb1bd861f/black-23.1.0-cp311-cp311-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:bfffba28dc52a58f04492181392ee380e95262af14ee01d4bc7bb1b1c6ca8d27&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/a4/ec/934e89820289e6952922fa5965aec0e046ed65da168ffb0515af1e3364e1/black-23.1.0-cp38-cp38-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:a59db0a2094d2259c554676403fa2fac3473ccf1354c1c63eccf7ae65aac8ab6&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/ae/93/1e62fe94ab531bdc3f6cbbbd5b518727277bf40f695777b4097db5da2a38/black-23.1.0-cp39-cp39-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:c91dfc2c2a4e50df0026f88d2215e166616e0c80e86004d0003ece0488db2739&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/b1/7e/c368e9c795387a01bc181d8acbfd178278cc9960c5e7ef1059222a4419f9/black-23.1.0-cp37-cp37m-win_amd64.whl&quot;, hash = &quot;sha256:a436e7881d33acaf2536c46a454bb964a50eff59b21b51c6ccf5a40601fbef24&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/b7/33/8e074fd8b86a1c8668f5493ed28929d87bdccb6aa68c2975b47a02f92287/black-23.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:2a951cc83ab535d248c89f300eccbd625e80ab880fbcfb5ac8afb5f01a258ac9&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/be/f9/11e401323cd5b4e53d138fc880564765466a86acd2d4b50d7c8cdd048c18/black-23.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:e6663f91b6feca5d06f2ccd49a10f254f9298cc1f7f49c46e498a0771b507104&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/c0/1d/8dac412cf5cc4120a438969a4fafefdc3de8fa13d411f317a9f9f1e268a4/black-23.1.0-cp39-cp39-win_amd64.whl&quot;, hash = &quot;sha256:0680d4380db3719ebcfb2613f34e86c8e6d15ffeabcf8ec59355c5e7b85bb555&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/cf/fe/dda4b7eedb9d4dc46e306b814f7838cd9026907fdc889f75eb9f6d47d414/black-23.1.0-cp310-cp310-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:9880d7d419bb7e709b37e28deb5e68a49227713b623c72b2b931028ea65f619b&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/d0/cb/0a38ffdafbb4b3f337adaf1b79aeaf4b8a21ed18835acad6349e46c78c80/black-23.1.0-cp310-cp310-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:b6a92a41ee34b883b359998f0c8e6eb8e99803aa8bf3123bf2b2e6fec505a221&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/dd/19/875b5006e40ea69a4120671f50317100b24732f2b877203722c91bc4eef3/black-23.1.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:162e37d49e93bd6eb6f1afc3e17a3d23a823042530c37c3c42eeeaf026f38468&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/e6/0a/9a5fca4a2ca07d4dbc3b00445c9353f05ea182b000f68c9ad6ba1da87a47/black-23.1.0-cp38-cp38-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:0052dba51dec07ed029ed61b18183942043e00008ec65d5028814afaab9a22fd&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/f1/89/ccc28cb74a66c094b609295b009b5e0350c10b75661d2450eeed2f60ce37/black-23.1.0-cp311-cp311-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:382998821f58e5c8238d3166c492139573325287820963d2f7de4d518bd76958&quot;},
-]
-&quot;click 8.1.3&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz&quot;, hash = &quot;sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/c2/f1/df59e28c642d583f7dacffb1e0965d0e00b218e0186d7858ac5233dce840/click-8.1.3-py3-none-any.whl&quot;, hash = &quot;sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48&quot;},
-]
-&quot;colorama 0.4.6&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl&quot;, hash = &quot;sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz&quot;, hash = &quot;sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44&quot;},
-]
-&quot;cowsay 5.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/6b/b8/9f497fd045d74fe21d91cbe8debae0b451229989e35b539d218547d79fc6/cowsay-5.0.tar.gz&quot;, hash = &quot;sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3&quot;},
-]
-&quot;mypy-extensions 1.0.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/2a/e2/5d3f6ada4297caebe1a2add3b126fe800c96f56dbe5d1988a2cbe0b267aa/mypy_extensions-1.0.0-py3-none-any.whl&quot;, hash = &quot;sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/98/a4/1ab47638b92648243faf97a5aeb6ea83059cc3624972ab6b8d2316078d3f/mypy_extensions-1.0.0.tar.gz&quot;, hash = &quot;sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782&quot;},
-]
-&quot;packaging 23.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz&quot;, hash = &quot;sha256:b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/ed/35/a31aed2993e398f6b09a790a181a7927eb14610ee8bbf02dc14d31677f1c/packaging-23.0-py3-none-any.whl&quot;, hash = &quot;sha256:714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2&quot;},
-]
-&quot;pathspec 0.11.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/e6/be/1a973593d7ce7ac9d1a793b81eb265c152a62f34825169fbd7c4e4548e34/pathspec-0.11.0-py3-none-any.whl&quot;, hash = &quot;sha256:3a66eb970cbac598f9e5ccb5b2cf58930cd8e3ed86d393d541eaf2d8b1705229&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/f4/8e/f91cffb32740b251cff04cad1e7cdd2c710582c735a01f56307316c148f2/pathspec-0.11.0.tar.gz&quot;, hash = &quot;sha256:64d338d4e0914e91c1792321e6907b5a593f1ab1851de7fc269557a21b30ebbc&quot;},
-]
-&quot;platformdirs 3.0.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/11/39/702094fc1434a4408783b071665d9f5d8a1d0ba4dddf9dadf3d50e6eb762/platformdirs-3.0.0.tar.gz&quot;, hash = &quot;sha256:8a1228abb1ef82d788f74139988b137e78692984ec7b08eaa6c65f1723af28f9&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/ba/24/a83a900a90105f8ad3f20df5bb5a2cde886df7125c7827e196e4ed4fa8a7/platformdirs-3.0.0-py3-none-any.whl&quot;, hash = &quot;sha256:b1d5eb14f221506f50d6604a561f4c5786d9e80355219694a1b244bcd96f4567&quot;},
-]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Many new packages now exist in the lockfile, not just <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> and <code class="docutils literal notranslate"><span class="pre">black</span></code>.  This is because (unlike <code class="docutils literal notranslate"><span class="pre">cowsay</span></code>), <code class="docutils literal notranslate"><span class="pre">black</span></code> itself has dependencies that we needed to install to get it to work.  This lock file records exactly the versions of those sub-dependencies that we’ve now installed into our project virtual environment.</p>
-<p>When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, if the lock file exists (and <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> hasn’t been changed since the lockfile was last updated), PDM will install precisely the packages listed in the lockfile, so we’ll always be working in the same virtual environment.  This is useful for developing and testing the code, so you should always include the lockfile in your project version control.</p>
-<p>However, we don’t want to impose these restrictions on users of our library, or our project would rapidly become impossible to install due to other packages requiring different versions of the packages in the lockfile.  The only thing that we care about is that users have the right versions of the dependencies we directly use, which are listed in the <code class="docutils literal notranslate"><span class="pre">project.dependencies</span></code> array in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.  This is why <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> does not care about the existence of the lockfile.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/project/#working-with-version-control">PDM docs on version control</a> for more on best practices for version-controlling a PDM project.</p>
-</div>
-</section>
-<section id="using-black">
-<h3>Using black<a class="headerlink" href="#using-black" title="Permalink to this headline">#</a></h3>
-<p>We can now run <code class="docutils literal notranslate"><span class="pre">black</span></code> within our environment.  Let’s re-write our code with poor formatting (note the spacing around the <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, and <code class="docutils literal notranslate"><span class="pre">+=</span></code> operators), and then run <code class="docutils literal notranslate"><span class="pre">black</span></code> on it:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/utils.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:5 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> import cowsay</span>
-
-def sarcasm(s):
-    &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;
-<span class=" -Color -Color-Bold -Color-Bold-C1">    out = &quot;&quot;</span>
-<span class=" -Color -Color-Bold -Color-Bold-C1">    for i, c in enumerate(s):</span>
-<span class=" -Color -Color-Bold -Color-Bold-C1">        if i % 2 == 0:</span>
-<span class=" -Color -Color-Bold -Color-Bold-C1">            out += c.lower()</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    out = &#39;&#39;</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    for i,c in enumerate(s):</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">        if i% 2 ==0:</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">            out +=c.lower()</span>
-
-        else:
-<span class=" -Color -Color-Bold -Color-Bold-C1">            out += c.upper()</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">            out+= c.upper()</span>
-
-    return out
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>src/
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">reformatted /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/src/eeskew_pwg_test_000/utils.py</span>
-
-<span class=" -Color -Color-Bold">All done! ✨ 🍰 ✨</span>
-<span class=" -Color -Color-Bold -Color-Bold-Blue">1 file </span><span class=" -Color -Color-Bold">reformatted</span>, <span class=" -Color -Color-Blue">1 file </span>left unchanged.
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id1">
-<h3>What happened?<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/utils.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:4 @</span>
-import cowsay
-
- 
-def sarcasm(s):
-    &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;
-<span class=" -Color -Color-Bold -Color-Bold-C1">    out = &#39;&#39;</span>
-<span class=" -Color -Color-Bold -Color-Bold-C1">    for i,c in enumerate(s):</span>
-<span class=" -Color -Color-Bold -Color-Bold-C1">        if i% 2 ==0:</span>
-<span class=" -Color -Color-Bold -Color-Bold-C1">            out +=c.lower()</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    out = &quot;&quot;</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">    for i, c in enumerate(s):</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">        if i % 2 == 0:</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">            out += c.lower()</span>
-
-        else:
-<span class=" -Color -Color-Bold -Color-Bold-C1">            out+= c.upper()</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">            out += c.upper()</span>
-
-    return out
-
- 
-def sarcastic_cowsay(s):
-    &quot;&quot;&quot;Cowsay `s`, sArCaStIcAlLy.&quot;&quot;&quot;
-    sarcastic_s = sarcasm(s)
-</pre></div>
-</div>
-</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">black</span></code> has automatically re-formatted our code, fixing the poor formatting we introduced earlier.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://black.readthedocs.io/en/stable/">black documentation</a> for more information.</p>
-</div>
-</section>
-</section>
-<section id="package-version">
-<h2>Package version<a class="headerlink" href="#package-version" title="Permalink to this headline">#</a></h2>
-<p>Right now, the package version (<code class="docutils literal notranslate"><span class="pre">&quot;0.1.0&quot;</span></code>) is stored in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file (in the <code class="docutils literal notranslate"><span class="pre">project.version</span></code> keyword).  The best practice is to place this in a <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> file, and have that be the single source of truth for our package version.</p>
-<p>Create a <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> file in <code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000</span></code>, and add the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> variable to it.  The new file should look like:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>src/eeskew_pwg_test_000/__version__.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__version__ = &quot;0.1.0&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now modify the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file so that the version is <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic">dynamic metadata</a>:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:3 @</span>
-[tool.pdm]
-<span class=" -Color -Color-Bold -Color-Bold-C2">version = { source = &quot;file&quot;, path = &quot;src/eeskew_pwg_test_000/__version__.py&quot; }</span>
- 
-[tool.pdm.dev-dependencies]
-dev = [
-    &quot;black&gt;=23.1.0&quot;,
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:11 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> dev = [</span>
-
-[project]
-name = &quot;eeskew-pwg-test-000&quot;
-<span class=" -Color -Color-Bold -Color-Bold-C1">version = &quot;0.1.0&quot;</span>
-description = &quot;A test project for presentation to the WSU Python Working Group.&quot;
-authors = [
-    {name = &quot;Edward Eskew&quot;, email = &quot;edward.eskew@wsu.edu&quot;},
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:21 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> dependencies = [</span>
-requires-python = &quot;&gt;=3.11&quot;
-readme = &quot;README.md&quot;
-license = {text = &quot;MIT&quot;}
-<span class=" -Color -Color-Bold -Color-Bold-C2">dynamic = [&quot;version&quot;]</span>
-
-[build-system]
-requires = [&quot;pdm-pep517&gt;=1.0&quot;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Note the new <code class="docutils literal notranslate"><span class="pre">project.dynamic</span></code> array, the new <code class="docutils literal notranslate"><span class="pre">tool.pdm.version</span></code> table, and that the <code class="docutils literal notranslate"><span class="pre">project.version</span></code> key is gone.</p>
-<p>We can check our current version like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>show<span class="w"> </span>--version
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>We should also add the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> variable to our <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/__init__.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/__init__.py:1 @</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">from eeskew_pwg_test_000.__version__ import __version__</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This allows us to check the version from python in the conventional way:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__version__)&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/build/#dynamic-versioning">PDM docs on dynamic versioning</a> for more information.</p>
-</div>
-</section>
-<section id="packaging-the-project">
-<h2>Packaging the project<a class="headerlink" href="#packaging-the-project" title="Permalink to this headline">#</a></h2>
-<p>Let’s review the project as it exists so far:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tree
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
-├── README.md
-├── pdm.lock
-├── pyproject.toml
-└── src
-    └── eeskew_pwg_test_000
-        ├── __init__.py
-        ├── __pycache__
-        │   ├── __init__.cpython-311.pyc
-        │   ├── __version__.cpython-311.pyc
-        │   └── utils.cpython-311.pyc
-        ├── __version__.py
-        └── utils.py
-
-3 directories, 9 files
-</pre></div>
-</div>
-</div>
-</div>
-<p>To create an <a class="reference external" href="https://packaging.python.org/en/latest/specifications/source-distribution-format/">sdist</a> and <a class="reference external" href="https://packaging.python.org/en/latest/specifications/binary-distribution-format/">wheel</a>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>build
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
-Built sdist at 
-/Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.0.tar.gz
-Building wheel...
-Built wheel at 
-/Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.0-py3-none-any.whl
-</pre></div>
-</div>
-</div>
-</div>
-<section id="id2">
-<h3>What happened?<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<p>We’ve created a new directory named <code class="docutils literal notranslate"><span class="pre">dist</span></code>, where these two distribution formats have been placed.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tree
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
-├── README.md
-├── build
-├── dist
-│   ├── eeskew-pwg-test-000-0.1.0.tar.gz
-│   └── eeskew_pwg_test_000-0.1.0-py3-none-any.whl
-├── pdm.lock
-├── pyproject.toml
-└── src
-    └── eeskew_pwg_test_000
-        ├── __init__.py
-        ├── __pycache__
-        │   ├── __init__.cpython-311.pyc
-        │   ├── __version__.cpython-311.pyc
-        │   └── utils.cpython-311.pyc
-        ├── __version__.py
-        └── utils.py
-
-5 directories, 11 files
-</pre></div>
-</div>
-</div>
-</div>
-<p>We could install this project into a different python environment with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dist/eeskew-pwg-test-000-0.1.0.tar.gz</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dist/eeskew_pwg_test_000-0.1.0-py3-none-any.whl</span></code> (the latter is faster).</p>
-</section>
-</section>
-<section id="publishing-the-project">
-<h2>Publishing the project<a class="headerlink" href="#publishing-the-project" title="Permalink to this headline">#</a></h2>
-<p>Now we’ll publish the project on (Test)PyPI.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To publish on the actual index (PyPI, not TestPyPI), simply replace <code class="docutils literal notranslate"><span class="pre">testpypi</span></code> with <code class="docutils literal notranslate"><span class="pre">pypi</span></code> in the instructions that follow.  Try not to pollute PyPI with throwaway projects!</p>
-</div>
-<section id="setting-up-pypi-credentials">
-<h3>Setting up PyPI credentials<a class="headerlink" href="#setting-up-pypi-credentials" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
-<li><p>First, make an account on <a class="reference external" href="https://test.pypi.org">TestPyPI</a>.</p></li>
-<li><p>Navigate to your account settings, scroll down to “API tokens”, and click “Add API token”</p></li>
-<li><p>Give the token a descriptive name, set the scope to “Entire account (all projects)”, and click “Add token”.</p></li>
-<li><p>Copy the token that appears - heeding the warning that it will appear only once!</p></li>
-<li><p>Now we’ll configure PDM with these credentials (replacing <code class="docutils literal notranslate"><span class="pre">&lt;PASTE_YOUR_TOKEN_HERE&gt;</span></code> with the token you’ve just copied):</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.username<span class="w"> </span><span class="s2">&quot;__token__&quot;</span>
-pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.password<span class="w"> </span><span class="s2">&quot;&lt;PASTE_YOUR_TOKEN_HERE&gt;&quot;</span>
-</pre></div>
-</div>
-</section>
-<section id="setting-up-a-test-publish-pdm-script">
-<h3>Setting up a test-publish PDM script<a class="headerlink" href="#setting-up-a-test-publish-pdm-script" title="Permalink to this headline">#</a></h3>
-<p>To publish on PyPI, we could now simply run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>publish<span class="w"> </span>-r<span class="w"> </span>testpypi
-</pre></div>
-</div>
-<p>Note that you do not need to run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">build</span></code> first - PDM will build the distribution as part of <code class="docutils literal notranslate"><span class="pre">publish</span></code> anyway.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/project/#publish-the-project-to-pypi">PDM docs on publishing to PyPI for more information.</a></p>
-</div>
-<p>However, TestPyPI won’t let you overwrite an existing version of your package, so we have to bump our version every time we want to do this.  Let’s set up a PDM script to automate that.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>If you are publishing on PyPI (<em>not</em> TestPyPI), you probably don’t want to use this script.  Publishing will be as simple as running <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">bump</span> <span class="pre">{version}</span></code> to increment your package version number (for example, <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">bump</span> <span class="pre">patch</span></code>), and then publishing with <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">publish</span></code> (equivalent to <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">publish</span> <span class="pre">-r</span> <span class="pre">pypyi</span></code>).</p>
-</div>
-<p>First, ensure you have the <a class="reference external" href="https://github.com/carstencodes/pdm-bump">pdm-bump</a> plugin installed.</p>
-<p>We add a new PDM script in the <code class="docutils literal notranslate"><span class="pre">tool.pdm.scripts</span></code> table of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:4 @</span>
-[tool.pdm]
-version = { source = &quot;file&quot;, path = &quot;src/eeskew_pwg_test_000/__version__.py&quot; }
-
-<span class=" -Color -Color-Bold -Color-Bold-C2">[tool.pdm.scripts]</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">test-publish.shell = &#39;&#39;&#39;\</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">VERSION=$(pdm show --version)</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">pdm bump patch &gt; /dev/null</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">DEV_VERSION=$(pdm show --version).dev$(date +%s)</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">echo &quot;__version__ = \&quot;$DEV_VERSION\&quot;&quot; &gt; src/eeskew_pwg_test_000/__version__.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">pdm publish -r testpypi</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">echo &quot;__version__ = \&quot;$VERSION\&quot;&quot; &gt; src/eeskew_pwg_test_000/__version__.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">&#39;&#39;&#39;</span>
- 
-[tool.pdm.dev-dependencies]
-dev = [
-    &quot;black&gt;=23.1.0&quot;,
-</pre></div>
-</div>
-</div>
-</div>
-<p>When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span> <span class="pre">test-publish</span></code>, this script:</p>
-<ol class="simple">
-<li><p>Gets the current version with <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">show</span> <span class="pre">--version</span></code></p></li>
-<li><p>Changes the package version to a patch bump of that version with <code class="docutils literal notranslate"><span class="pre">.dev{date</span> <span class="pre">in</span> <span class="pre">seconds}</span></code> appended.  This is a <a class="reference external" href="https://peps.python.org/pep-0440/#developmental-releases">developmental release</a> format.</p></li>
-<li><p>Publishes the package on TestPyPI</p></li>
-<li><p>Returns the package version to its original value</p></li>
-</ol>
-<p>Let’s run it!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>test-publish
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
-Built sdist at 
-/Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1677541778.tar.gz
-Building wheel...
-Built wheel at 
-/Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1677541778-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1677541778-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1677541778.tar.gz</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
-?25h
-<span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677541778/
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/scripts/">PDM docs on PDM scripts</a> for more information on writing PDM scripts.</p>
-</div>
-</section>
-</section>
-<section id="other-project-metadata">
-<h2>Other project metadata<a class="headerlink" href="#other-project-metadata" title="Permalink to this headline">#</a></h2>
-<p>There is quite a bit of project metadata we can specify in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> - here are some other examples.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/">PyPA specification</a> for a complete list of possible metadata keys.</p>
-</div>
-<section id="add-an-entry-point-to-the-package">
-<h3>Add an entry point to the package<a class="headerlink" href="#add-an-entry-point-to-the-package" title="Permalink to this headline">#</a></h3>
-<p>If we’re developing a command-line application, we want our users to be able to run the application with a single command, not something like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">path_to_script/script.py</span></code>.  We can enable this by adding an <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points">entry point</a> to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
-<p>First, add a new module and new function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>src/eeskew_pwg_test_000/cli.py
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>import argparse
-
-from eeskew_pwg_test_000.utils import sarcastic_cowsay
-
-def main():
-    &quot;&quot;&quot;Cowsay something sarcastically from the command line.&quot;&quot;&quot;
-    parser = argparse.ArgumentParser()
-    parser.add_argument(&quot;speech&quot;)
-    args = parser.parse_args()
-    
-    s = args.speech
-    sarcastic_cowsay(s)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now let’s add the script to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:33 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> readme = &quot;README.md&quot;</span>
-license = {text = &quot;MIT&quot;}
-dynamic = [&quot;version&quot;]
-
-<span class=" -Color -Color-Bold -Color-Bold-C2">[project.scripts]</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;</span>
- 
-[build-system]
-requires = [&quot;pdm-pep517&gt;=1.0&quot;]
-build-backend = &quot;pdm.pep517.api&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>install
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
-All packages are synced to date, nothing to do.
-Installing the project as an editable package...
-  <span class=" -Color -Color-Green">✔</span> Update <span class=" -Color -Color-Bold -Color-Bold-Green">eeskew-pwg-test-000</span> <span class=" -Color -Color-Yellow">0.1.0</span> -&gt; <span class=" -Color -Color-Yellow">0.1.0</span> successful
-
-🎉 All complete!
-
-?25h
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can run our command from within the environment:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>sarcasticow<span class="w"> </span><span class="s2">&quot;I&#39;m a sarcastic cow&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  ___________________
-| i&#39;m a sArCaStIc cOw |
-  ===================
-                   \
-                    \
-                      ^__^
-                      (oo)\_______
-                      (__)\       )\/\
-                          ||----w |
-                          ||     ||
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Because we’re using <code class="docutils literal notranslate"><span class="pre">pdm</span></code> for environment management, we still need to use <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code> to access the script installed into the virtual environment.</p>
-<p>Unlike the <code class="docutils literal notranslate"><span class="pre">test-publish</span></code> PDM script we wrote earlier, if we activated the environment with <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code>, we could simply use the <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code> command by itself, and users who install our package with <code class="docutils literal notranslate"><span class="pre">pip</span></code> into their own virtualenv or conda environment will also have access to <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code>.  Even better, users who install our package through <a class="reference external" href="https://pypa.github.io/pipx/"><code class="docutils literal notranslate"><span class="pre">pipx</span></code></a> will be able to use the <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code> command without activating a virtual environment.</p>
-</div>
-</section>
-<section id="updating-readme">
-<h3>Updating README<a class="headerlink" href="#updating-readme" title="Permalink to this headline">#</a></h3>
-<p>Thus far, we’ve left our README as an empty file.  This is bad.  Let’s update it to show our utility’s usage:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: README.md</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ README.md:4 @</span>
-# eeskew-pwg-test-000
- 
-<span class=" -Color -Color-Bold -Color-Bold-C2">This is a companion repository to the presentation [Project Management and Publishing with PDM](https://edsq.github.io/eds-notes/pwg_presentation_02-08-2023.html).</span>
- 
-<span class=" -Color -Color-Bold -Color-Bold-C2">Command-line usage:</span>
- 
-<span class=" -Color -Color-Bold -Color-Bold-C2">```</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">$ sarcasticow &quot;I&#39;m a sarcastic cow&quot;</span>
- 
-<span class=" -Color -Color-Bold -Color-Bold-C2">  ___________________</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">| i&#39;m a sArCaStIc cOw |</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">  ===================</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                   \</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                    \</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                      ^__^</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                      (oo)\_______</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                      (__)\       )\/\</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                          ||----w |</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">                          ||     ||</span>
- 
-<span class=" -Color -Color-Bold -Color-Bold-C2">```</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="project-urls">
-<h3>Project URLs<a class="headerlink" href="#project-urls" title="Permalink to this headline">#</a></h3>
-<p>We can add relevant URLs in the <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#urls"><code class="docutils literal notranslate"><span class="pre">urls</span></code> table</a>, which will appear in the sidebar on PyPI.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:33 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> readme = &quot;README.md&quot;</span>
-license = {text = &quot;MIT&quot;}
-dynamic = [&quot;version&quot;]
-
-<span class=" -Color -Color-Bold -Color-Bold-C2">[project.urls]</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">Documentation = &quot;https://edsq.github.io/eds-notes/pwg_presentation_02-08-2023.html&quot;</span>
-<span class=" -Color -Color-Bold -Color-Bold-C2">Repository = &quot;https://github.com/edsq/eeskew-pwg-test-000&quot;</span>
- 
-[project.scripts]
-sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally, we publish again to TestPYPI:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>test-publish
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
-Built sdist at 
-/Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1677541799.tar.gz
-Building wheel...
-Built wheel at 
-/Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1677541799-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1677541799-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1677541799.tar.gz</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
-?25h
-<span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677541799/
-</pre></div>
-</div>
-</div>
-</div>
-<p>Our page on TestPyPI now shows the README, and the documentation and repository links are available on the sidebar.</p>
-</section>
-</section>
-<section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
-<p>And that’s it!  We’ve gone through the basics of project management, packaging, and publishing on (Test)PyPI.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1954,54 +420,88 @@ https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1677541799/
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "bash"
+            mode: "python"
         },
         kernelOptions: {
-            name: "bash",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'bash'</script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Ed’s Notes on Physics, Math, and Python</p>
-        </div>
-    </a>
+  <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Ed’s Notes on Physics, Math, and Python</p>
+      </div>
+  </a>
 </div>
             </footer>
+            
+          </div>
+          
+          
+          
+          
         </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-    By Edward Eskew<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By Edward Eskew
+</p>
 
-
-      </div>
-    </div>
+  </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="copyright">
 
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
