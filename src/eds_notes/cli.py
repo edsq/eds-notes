@@ -4,6 +4,7 @@ from eds_notes.utils import simple_diff
 
 
 def simple_diff_cli():
+    """CLI for utils.simple_diff."""
     parser = argparse.ArgumentParser(
         description="Print a simple git diff, omitting lines removed."
     )

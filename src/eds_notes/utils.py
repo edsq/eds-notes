@@ -16,8 +16,6 @@ def simple_diff(
     comparison_commit : str, optional
         A commit to compare against.  The default behavior is "HEAD", but you could, for
         example, compare against the parent of HEAD with "HEAD~".
-    extra_args : list of str, optional
-        Extra args to pass to git diff.
     context : int, optional
         The number of lines of context to show.
     show_filename : bool
