@@ -42,3 +42,5 @@ sphinx:
       logo:
         image_light: logo_light.png
         image_dark: logo_dark.png
+      repository_url: https://github.com/edsq/eds-notes
+      use_repository_button: true
