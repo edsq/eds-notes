@@ -81,7 +81,9 @@ Because this is a throwaway test project, it is important that you give your pro
 ## Set the python version and initialize the project
 
 Here, we'll use python version 3.11, but you may change this to be whatever you like.  I'll cover two methods of setting the python version: using [`pyenv`](https://github.com/pyenv/pyenv), and using [`conda`](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "subslide"} tags=["remove-cell"] -->
 ### Using `pyenv`
 
 Install python 3.11 if it is not already (see installed versions with `pyenv versions`):
@@ -96,13 +98,11 @@ Set the local python version for this project and initialize using that version:
 pyenv local 3.11
 pdm init --python python
 ```
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
 `pyenv local` creates a file `.python-version`, which `pyenv` reads and redirects the command `python` to the installed `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
+<!-- #region slideshow={"slide_type": "subslide"} tags=["remove-cell"] -->
 ### Using `conda`
 
 PDM can also use `conda` to create your virtual environment.  To do this simply, we create the virtual environment before initializing the project, so that we can pass the right python executable to `pdm init`.
@@ -111,6 +111,38 @@ PDM can also use `conda` to create your virtual environment.  To do this simply,
 pdm venv create -w conda 3.11
 pdm init --python .venv/bin/python
 ```
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+::::{tab-set}
+:::{tab-item} Using `pyenv`
+
+Install python 3.11 if it is not already (see installed versions with `pyenv versions`):
+
+```bash
+pyenv install 3.11
+```
+
+Set the local python version for this project and initialize using that version:
+
+```bash
+pyenv local 3.11
+pdm init --python python
+```
+
+`pyenv local` creates a file `.python-version`, which `pyenv` reads and redirects the command `python` to the installed `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
+:::
+
+:::{tab-item} Using `conda`
+
+PDM can use `conda` to create your virtual environment.  To do this simply, we create the virtual environment before initializing the project, so that we can pass the right python executable to `pdm init`.
+
+```bash
+pdm venv create -w conda 3.11
+pdm init --python .venv/bin/python
+```
+:::
+::::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
