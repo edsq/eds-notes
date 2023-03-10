@@ -334,6 +334,29 @@ pdm run python -c 'from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm(
 Note we have to type `pdm run` before our command for it to be run within our project environment.
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
+:::{tip}
+If you don't want to type `pdm run` every time before a command to be run in the project virtual environment, you can *activate* the environment, which will modify your `sys.prefix` to point to the `.venv` directory.  See the python `venv` docs [here](https://docs.python.org/3/library/venv.html#how-venvs-work) for more on how virtual environments work.
+
+`pdm` will print the command to activate the project virtual environment with command `pdm venv activate`.  You can copy and paste that output, or, if you want to activate the environment in one line, use:
+
+```bash
+eval $(pdm venv activate)
+```
+
+To simplify things further, add this as an alias to your `~/.bashrc` or `~/.bash_profile` (and don't forget to restart your shell or `source ~/.bashrc` after):
+
+```bash
+# ~/.bashrc
+alias pdm-activate='eval $(pdm venv activate)'
+```
+
+This will let you activate the environment with the command `pdm-activate`.
+
+You can deactivate an active virtual environment with the command `deactivate`.  See also the [PDM docs on virtualenv activation](https://pdm.fming.dev/latest/usage/venv/#activate-a-virtualenv).
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### The `pdm.lock` file
 
