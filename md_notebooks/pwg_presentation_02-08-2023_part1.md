@@ -82,7 +82,7 @@ Because this is a throwaway test project, it is important that you give your pro
 
 Here, we'll use python version 3.11, but you may change this to be whatever you like.  I'll cover two methods of setting the python version: using [`pyenv`](https://github.com/pyenv/pyenv), and using [`conda`](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
-### Using `pyenv` (recommended)
+### Using `pyenv`
 
 Install python 3.11 if it is not already (see installed versions with `pyenv versions`):
 
@@ -99,19 +99,17 @@ pdm init --python python
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-`pyenv local` creates a file `.python-version` which `pyenv` uses to redirect the command `python` to `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
+`pyenv local` creates a file `.python-version`, which `pyenv` reads and redirects the command `python` to the installed `python3.11`.  Thus, we only need to tell pdm to use the usual `python` executable.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Using `conda`
 
-Here, we'll use `conda` to get a particular python version, but we won't activate the conda environment (except to get a path to the `python` executable).  Environment management will be handled by PDM.
-
-Get python 3.11:
+PDM can also use `conda` to create your virtual environment.  To do this simply, we create the virtual environment before initializing the project, so that we can pass the right python executable to `pdm init`.
 
 ```bash
-conda create -y -p .conda_env python=3.11
-pdm init --python .conda_env/bin/python
+pdm venv create -w conda 3.11
+pdm init --python .venv/bin/python
 ```
 <!-- #endregion -->
 
