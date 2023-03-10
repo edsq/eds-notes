@@ -62,7 +62,7 @@ cd $project_dir/repos/eeskew-pwg-test-000
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
 git add -A
-git checkout 6ed1de5
+git checkout 5688f46
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
