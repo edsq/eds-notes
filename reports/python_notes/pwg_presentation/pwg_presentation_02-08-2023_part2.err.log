@@ -25,9 +25,9 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# checkpoint
+# Start at the last checkpoint from Part 1
 git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git checkout 6ed1de5
 ------------------
 
 
