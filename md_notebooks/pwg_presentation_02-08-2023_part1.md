@@ -28,10 +28,15 @@ bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, wh
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
-# Alias for showing link to companion repo
-alias repo-link='echo "\`\`\`{seealso}
-See the companion repo at the current state [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)).
-\`\`\`" | displayMD'
+# Function for linking to file in companion repo
+repo-link() {
+echo "\`\`\`\`{margin}
+\`\`\`{admonition} Repository link
+:class: seealso
+See \`$(basename $1)\` in the companion repo [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$1).
+\`\`\`
+\`\`\`\`" | displayMD
+}
 
 # Alias for colored ls
 alias ls="gls --color=always"
@@ -231,10 +236,6 @@ See the [PDM docs on writing `pyproject.toml`](https://pdm.fming.dev/latest/pypr
 :::
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link
-```
-
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Adding code
 
@@ -288,6 +289,10 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link src/eeskew_pwg_test_000/utils.py
+```
+
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
 FILE="src/eeskew_pwg_test_000/utils.py"
 echo "\`\`\`python
@@ -299,10 +304,6 @@ $(cat $FILE)
 <!-- #region slideshow={"slide_type": "notes"} -->
 The actual content of this code is not too important for the purposes of these notes, but for completeness, all it does is capitalize and lowercase alternating letters in a string.
 <!-- #endregion -->
-
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link
-```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Install the project
@@ -477,6 +478,10 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link src/eeskew_pwg_test_000/utils.py
+```
+
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
 echo "\`\`\`python
 $(simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py)
@@ -504,10 +509,6 @@ pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarca
 We didn't have to re-run `pdm install` to use our new function - this is because PDM installs our `eeskew_pwg_test_000` package in "editable mode", which acts sort of like a symlink between the source code and the installed files in the `.venv` directory.
 :::
 <!-- #endregion -->
-
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link
-```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Add a development dependency
@@ -615,6 +616,10 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link src/eeskew_pwg_test_000/utils.py
+```
+
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 echo "\`\`\`python
 $(simple-diff --context 2 HEAD~ src/eeskew_pwg_test_000/utils.py)
@@ -647,6 +652,10 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ### What happened?
 <!-- #endregion -->
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
+repo-link src/eeskew_pwg_test_000/utils.py
+```
+
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
@@ -660,10 +669,6 @@ git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-
 See the [black documentation](https://black.readthedocs.io/en/stable/) for more information.
 :::
 <!-- #endregion -->
-
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link
-```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Conclusion
