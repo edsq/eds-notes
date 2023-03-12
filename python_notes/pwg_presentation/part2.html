@@ -507,6 +507,10 @@ including managing relevant project metadata.</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
 ├── README.md
+├── build
+├── dist
+│   ├── eeskew-pwg-test-000-0.1.1.dev1678597731.tar.gz
+│   └── eeskew_pwg_test_000-0.1.1.dev1678597731-py3-none-any.whl
 ├── pdm.lock
 ├── pyproject.toml
 └── src
@@ -515,11 +519,12 @@ including managing relevant project metadata.</p>
         ├── __pycache__
         │   ├── __init__.cpython-311.pyc
         │   ├── __version__.cpython-311.pyc
+        │   ├── cli.cpython-311.pyc
         │   └── utils.cpython-311.pyc
         ├── __version__.py
         └── utils.py
 
-3 directories, 9 files
+5 directories, 12 files
 </pre></div>
 </div>
 </div>
@@ -568,11 +573,12 @@ Built wheel at
         ├── __pycache__
         │   ├── __init__.cpython-311.pyc
         │   ├── __version__.cpython-311.pyc
+        │   ├── cli.cpython-311.pyc
         │   └── utils.cpython-311.pyc
         ├── __version__.py
         └── utils.py
 
-5 directories, 11 files
+5 directories, 12 files
 </pre></div>
 </div>
 </div>
@@ -701,14 +707,13 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1678597709.tar.gz
+1.1.dev1678599293.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1678597709-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678597709-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678597709.tar.gz</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+1.1.dev1678599293-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678599293-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678599293.tar.gz</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -731,7 +736,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167859
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678597709/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678599293/
 </pre></div>
 </div>
 </div>
@@ -895,7 +900,7 @@ Installing the project as an editable package...
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Because we’re using <code class="docutils literal notranslate"><span class="pre">pdm</span></code> for environment management, we still need to use <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code> to access the script installed into the virtual environment.  We could also first activate the environment with <code class="docutils literal notranslate"><span class="pre">eval</span> <span class="pre">$(pdm</span> <span class="pre">venv</span> <span class="pre">activate)</span></code>.</p>
-<p>Unlike the <code class="docutils literal notranslate"><span class="pre">test-publish</span></code> PDM script we wrote earlier, if we activated the environment with <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code>, we could simply use the <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code> command by itself, and users who install our package with <code class="docutils literal notranslate"><span class="pre">pip</span></code> into their own virtualenv or conda environment will also have access to <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code>.  Even better, users who install our package through <a class="reference external" href="https://pypa.github.io/pipx/"><code class="docutils literal notranslate"><span class="pre">pipx</span></code></a> will be able to use the <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code> command without activating a virtual environment.</p>
+<p>Unlike the <code class="docutils literal notranslate"><span class="pre">test-publish</span></code> PDM script we wrote earlier, if we activate the environment, we could simply use the <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code> command by itself (without <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">run</span></code>), and users who install our package with <code class="docutils literal notranslate"><span class="pre">pip</span></code> into their own virtualenv or conda environment will also have access to <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code>.  Even better, users who install our package through <a class="reference external" href="https://pypa.github.io/pipx/"><code class="docutils literal notranslate"><span class="pre">pipx</span></code></a> will be able to use the <code class="docutils literal notranslate"><span class="pre">sarcasticow</span></code> command without activating a virtual environment.</p>
 </div>
 </section>
 <section id="updating-readme">
@@ -1002,13 +1007,18 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1678597731.tar.gz
+1.1.dev1678599316.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1678597731-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678597731-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678597731.tar.gz</span>
+1.1.dev1678599316-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678599316-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678599316.tar.gz</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -1033,7 +1043,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167859
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678597731/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678599316/
 </pre></div>
 </div>
 </div>
