@@ -28,14 +28,12 @@ bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, wh
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
-# Function for linking to file in companion repo
-repo-link() {
-echo "\`\`\`\`{margin}
-\`\`\`{admonition} Repository link
-:class: seealso
-See \`$(basename $1)\` in the companion repo [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$1).
-\`\`\`
-\`\`\`\`" | displayMD
+# Function for embedding a link to a file in the companion repo
+# Replaces a filename in curly braces with a link to the file in the repo @ HEAD
+embed-repo-link() {
+file=$(echo $1 | awk -F '{|}' '{print $2}')  # get filename that was in curly braces
+link="https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$file"
+echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 }
 ```
 
@@ -74,31 +72,12 @@ git checkout 5688f46
 ## Package version
 
 Right now, the package version (`"0.1.0"`) is stored in the `pyproject.toml` file (in the `project.version` keyword).  The best practice is to place this in a `__version__.py` file, and have that be the single source of truth for our package version.
-
-Create a `__version__.py` file in `src/eeskew_pwg_test_000`, and add the `__version__` variable to it.  The new file should look like:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # This cell hidden in presentation and docs
 echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_000/__version__.py
 ```
-
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/__version__.py
-```
-
-```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-FILE="src/eeskew_pwg_test_000/__version__.py"
-
-echo "\`\`\`python
-# $FILE
-$(cat $FILE)
-\`\`\`" | displayMD
-```
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-Now modify the `pyproject.toml` file so that the version is [dynamic metadata](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic):
-<!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # This cell hidden in presentation and docs
@@ -137,8 +116,21 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link pyproject.toml
+```bash tags=["remove-input"] slideshow={"slide_type": "fragment"} trusted=true
+embed-repo-link "Create the file {src/eeskew_pwg_test_000/__version__.py}, and add the \`__version__\` variable to it.  The new file should look like:"
+```
+
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+FILE="src/eeskew_pwg_test_000/__version__.py"
+
+echo "\`\`\`python
+# $FILE
+$(cat $FILE)
+\`\`\`" | displayMD
+```
+
+```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
+embed-repo-link "Now modify the {pyproject.toml} file so that the version is [dynamic metadata](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic):"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -165,10 +157,6 @@ We can check the version like so:
 pdm show --version eeskew-pwg-test-000
 ```
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-We should also add the `__version__` variable to our `__init__.py`:
-<!-- #endregion -->
-
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # This cell hidden in presentation and docs
 echo 'from eeskew_pwg_test_000.__version__ import __version__' > src/eeskew_pwg_test_000/__init__.py
@@ -180,8 +168,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/__init__.py
+```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
+embed-repo-link "We should also add the \`__version__\` variable to {src/eeskew_pwg_test_000/__init__.py}:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -293,8 +281,6 @@ If you are publishing on PyPI (*not* TestPyPI), you probably don't want to use t
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed.
-
-We add a new PDM script in the `tool.pdm.scripts` table of `pyproject.toml`:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
@@ -345,8 +331,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link pyproject.toml
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "We add a new PDM script in the \`tool.pdm.scripts\` table of {pyproject.toml}:"
 ```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "subslide"} trusted=true
@@ -415,10 +401,6 @@ See the [PyPA specification](https://packaging.python.org/en/latest/specificatio
 If we're developing a command-line application, we want our users to be able to run the application with a single command, not something like `python path_to_script/script.py`.  We can enable this by adding an [entry point](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points) to `pyproject.toml`.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
-First, add a new module and new function:
-<!-- #endregion -->
-
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/cli.py
@@ -443,8 +425,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/cli.py
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+embed-repo-link "First, add a new module and new function to {src/eeskew_pwg_test_000/cli.py}":
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
@@ -452,10 +434,6 @@ echo "\`\`\`python
 $(simple-diff HEAD~ src/eeskew_pwg_test_000/cli.py)
 \`\`\`" | displayMD
 ```
-
-<!-- #region slideshow={"slide_type": "subslide"} -->
-Now let's add the script to `pyproject.toml`:
-<!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # This cell hidden in presentation and docs
@@ -508,8 +486,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link pyproject.toml
+```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
+embed-repo-link "Now let's add the script to {pyproject.toml}, in the \`project.scripts\` table":
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -555,7 +533,7 @@ Unlike the `test-publish` PDM script we wrote earlier, if we activated the envir
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Updating README
 
-Thus far, we've left our README as an empty file.  This is bad.  Let's update it to show our utility's usage:
+Thus far, we've left our README as an empty file.  This is bad.
 <!-- #endregion -->
 
 ````bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -591,8 +569,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link README.md
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "Let's update {README.md} to show our utility's usage:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -603,8 +581,6 @@ simple-diff HEAD~ README.md
 ### Project URLs
 
 We can add relevant URLs in the [`urls` table](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#urls), which will appear in the sidebar on PyPI.
-
-Here, we set `Documentation` to a link to our docs (this Jupyter Book), and `Repository` to the GitHub repo for this code.
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
@@ -662,8 +638,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link pyproject.toml
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "In the \`project.urls\` table of {pyproject.toml}, we set \`Documentation\` to a link to our docs (this Jupyter Book), and \`Repository\` to the GitHub repo for this code."
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true

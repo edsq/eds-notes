@@ -28,14 +28,12 @@ bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, wh
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
-# Function for linking to file in companion repo
-repo-link() {
-echo "\`\`\`\`{margin}
-\`\`\`{admonition} Repository link
-:class: seealso
-See \`$(basename $1)\` in the companion repo [here](https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$1).
-\`\`\`
-\`\`\`\`" | displayMD
+# Function for embedding a link to a file in the companion repo
+# Replaces a filename in curly braces with a link to the file in the repo @ HEAD
+embed-repo-link() {
+file=$(echo $1 | awk -F '{|}' '{print $2}')  # get filename that was in curly braces
+link="https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$file"
+echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 }
 
 # Alias for colored ls
@@ -262,8 +260,6 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### Add a module
-
-Let's add some code in `src/eeskew_pwg_test_000/utils.py`:
 <!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -289,8 +285,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "Let's add some code in {src/eeskew_pwg_test_000/utils.py}:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
@@ -400,9 +396,11 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### What did `pdm add` do?
-
-`cowsay` now appears as a dependency in `pyproject.toml`:
 <!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "\`cowsay\` now appears as a dependency in {pyproject.toml}:"
+```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "fragment"} trusted=true
 echo "\`\`\`toml
@@ -418,9 +416,9 @@ Click below to show diff:
 git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-We've also updated `pdm.lock` to include cowsay:
-<!-- #endregion -->
+```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
+embed-repo-link "We've also updated {pdm.lock} to include cowsay:"
+```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
 echo "\`\`\`toml
@@ -444,8 +442,6 @@ See the [PDM docs on managing dependencies](https://pdm.fming.dev/latest/usage/d
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Adding more code
-
-Let's add a new function to `utils.py`:
 <!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -478,8 +474,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "Let's add a new function to {src/eeskew_pwg_test_000/utils.py}:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
@@ -530,9 +526,11 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### What happened?
-
-We've added a new `[dev-dependencies]` sub-table to the `[tool.pdm]` table, which contains `black`:
 <!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+embed-repo-link "We've added a new \`[dev-dependencies]\` sub-table to the \`[tool.pdm]\` table of {pyproject.toml}, which contains \`black\`:"
+```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 echo "\`\`\`toml
@@ -583,7 +581,7 @@ See the [PDM docs on version control](https://pdm.fming.dev/latest/usage/project
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Using black
 
-We can now run `black` within our environment.  Let's re-write our code with poor formatting (note the spacing around the `==`, `%`, and `+=` operators), and then run `black` on it:
+We can now run `black` within our environment.
 <!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -616,8 +614,8 @@ git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/utils.py
+```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
+embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with deliberately poor formatting (note the spacing around the \`==\`, \`%\`, and \`+=\` operators):"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -652,17 +650,13 @@ git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out nex
 ### What happened?
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-input"] trusted=true
-repo-link src/eeskew_pwg_test_000/utils.py
-```
-
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | ../../scripts/diff-so-fancy
 ```
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-`black` has automatically re-formatted our code, fixing the poor formatting we introduced earlier.
-<!-- #endregion -->
+```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input"]
+embed-repo-link "\`black\` has automatically re-formatted {src/eeskew_pwg_test_000/utils.py}, fixing the poor formatting we introduced earlier."
+```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
