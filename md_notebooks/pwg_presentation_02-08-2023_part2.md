@@ -33,6 +33,14 @@ file=$(echo $1 | awk -F '{|}' '{print $2}')  # get filename that was in curly br
 link="https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$file"
 echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 }
+
+# Function to show a file as markdown code
+# First argument is the type of code to syntax highlight, second is the file to show
+show-code() {
+echo "\`\`\`$1
+$(cat $2)
+\`\`\`" | displayMD
+}
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -134,12 +142,7 @@ embed-repo-link "Create the file {src/eeskew_pwg_test_000/__version__.py}, and a
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-FILE="src/eeskew_pwg_test_000/__version__.py"
-
-echo "\`\`\`python
-# $FILE
-$(cat $FILE)
-\`\`\`" | displayMD
+simple-diff HEAD~ src/eeskew_pwg_test_000/__version__.py | show-code python
 ```
 
 ```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
@@ -147,9 +150,7 @@ embed-repo-link "Now modify the {pyproject.toml} file so that the version is [dy
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-echo "\`\`\`toml
-$(simple-diff HEAD~ pyproject.toml)
-\`\`\`" | displayMD
+simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -186,9 +187,7 @@ embed-repo-link "We should also add the \`__version__\` variable to {src/eeskew_
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-echo "\`\`\`python
-$(simple-diff HEAD~ src/eeskew_pwg_test_000/__init__.py)
-\`\`\`" | displayMD
+simple-diff HEAD~ src/eeskew_pwg_test_000/__init__.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -349,9 +348,7 @@ embed-repo-link "We add a new PDM script in the \`tool.pdm.scripts\` table of {p
 ```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "subslide"} trusted=true
-echo "\`\`\`toml
-$(simple-diff HEAD~ pyproject.toml)
-\`\`\`" | displayMD
+simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -461,9 +458,7 @@ embed-repo-link "First, add a new module and new function to {src/eeskew_pwg_tes
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-echo "\`\`\`python
-$(simple-diff HEAD~ src/eeskew_pwg_test_000/cli.py)
-\`\`\`" | displayMD
+simple-diff HEAD~ src/eeskew_pwg_test_000/cli.py | show-code python
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -522,9 +517,7 @@ embed-repo-link "Now let's add the script to {pyproject.toml}, in the \`project.
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-echo "\`\`\`toml
-$(simple-diff HEAD~ pyproject.toml)
-\`\`\`" | displayMD
+simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -674,9 +667,7 @@ embed-repo-link "In the \`project.urls\` table of {pyproject.toml}, we set \`Doc
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-echo "\`\`\`toml
-$(simple-diff HEAD~ pyproject.toml)
-\`\`\`" | displayMD
+simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->

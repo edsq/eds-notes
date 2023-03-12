@@ -34,8 +34,19 @@ link="https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$fi
 echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 }
 
+# Function to show a file as markdown code
+# First argument is the type of code to syntax highlight, second is the file to show
+show-code() {
+echo "\`\`\`$1
+$(cat $2)
+\`\`\`" | displayMD
+}
+
 # Alias for colored ls
 alias ls="gls --color=always"
+
+# Get the git object ID of an empty tree, useful for diffing files in the first commit
+EMPTY_TREE=$(git hash-object -t tree /dev/null)
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -216,11 +227,7 @@ embed-repo-link "The central location of our project configuration is {pyproject
 ```
 
 ```bash slideshow={"slide_type": "fragment"} scrolled=false trusted=true tags=["remove-input"]
-FILE="pyproject.toml"
-echo "\`\`\`toml
-# $FILE
-$(cat $FILE)
-\`\`\`" | displayMD
+simple-diff $EMPTY_TREE pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -295,11 +302,7 @@ embed-repo-link "Let's add some code in {src/eeskew_pwg_test_000/utils.py}:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-FILE="src/eeskew_pwg_test_000/utils.py"
-echo "\`\`\`python
-# $FILE
-$(cat $FILE)
-\`\`\`" | displayMD
+simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -370,11 +373,7 @@ ls
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-FILE="pdm.lock"
-echo "\`\`\`toml
-# $FILE
-$(cat pdm.lock)
-\`\`\`" | displayMD
+simple-diff HEAD~ pdm.lock | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -408,9 +407,7 @@ embed-repo-link "\`cowsay\` now appears as a dependency in {pyproject.toml}:"
 ```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "fragment"} trusted=true
-echo "\`\`\`toml
-$(simple-diff HEAD~ pyproject.toml)
-\`\`\`" | displayMD
+simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -426,9 +423,7 @@ embed-repo-link "We've also updated {pdm.lock} to include cowsay:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-echo "\`\`\`toml
-$(simple-diff HEAD~ pdm.lock)
-\`\`\`" | displayMD
+simple-diff HEAD~ pdm.lock | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -484,9 +479,7 @@ embed-repo-link "Let's add a new function to {src/eeskew_pwg_test_000/utils.py}:
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-echo "\`\`\`python
-$(simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py)
-\`\`\`" | displayMD
+simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -538,9 +531,7 @@ embed-repo-link "We've added a new \`[dev-dependencies]\` sub-table to the \`[to
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-echo "\`\`\`toml
-$(simple-diff HEAD~ pyproject.toml)
-\`\`\`" | displayMD
+simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -624,9 +615,7 @@ embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with delibera
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-echo "\`\`\`python
-$(simple-diff --context 2 HEAD~ src/eeskew_pwg_test_000/utils.py)
-\`\`\`" | displayMD
+simple-diff --context 2 HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
