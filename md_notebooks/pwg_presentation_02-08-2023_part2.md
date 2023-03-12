@@ -23,11 +23,9 @@ jupyter:
     scroll: true
 ---
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
-```
-
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
+
 # Function for embedding a link to a file in the companion repo
 # Replaces a filename in curly braces with a link to the file in the repo @ HEAD
 embed-repo-link() {
@@ -36,23 +34,6 @@ link="https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$fi
 echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 }
 ```
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-# Publishing on (Test)PyPI
-
-Part 2 of notes from a talk given to the WSU Python Working Group on February 8, 2023.
-
-Here, we'll cover the basics of publishing a project on PyPI or TestPyPI using PDM,
-including managing relevant project metadata.
-
-This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "skip"} -->
-:::{note}
-A companion repository with the example project created in these notes is available [here](https://github.com/edsq/eeskew-pwg-test-000).
-:::
-<!-- #endregion -->
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Make sure we're in the repo directory
@@ -72,7 +53,7 @@ git add -A
 git checkout 5688f46
 ```
 
-```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true scrolled=true
 # Create the local venv and install the project (since it was already installed in part 1)
 pdm venv create --force python &&
 pdm install
@@ -82,6 +63,23 @@ pdm install
 # For debugging, ensure we're in the right place and using the right venv/interpreter
 pdm info
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+# Publishing on (Test)PyPI
+
+Part 2 of notes from a talk given to the WSU Python Working Group on February 8, 2023.
+
+Here, we'll cover the basics of publishing a project on PyPI or TestPyPI using PDM,
+including managing relevant project metadata.
+
+This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{note}
+A companion repository with the example project created in these notes is available [here](https://github.com/edsq/eeskew-pwg-test-000).
+:::
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Package version

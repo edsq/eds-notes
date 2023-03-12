@@ -23,11 +23,9 @@ jupyter:
     scroll: true
 ---
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
-```
-
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, which clutters up the output here
+
 # Function for embedding a link to a file in the companion repo
 # Replaces a filename in curly braces with a link to the file in the repo @ HEAD
 embed-repo-link() {
@@ -38,6 +36,30 @@ echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 
 # Alias for colored ls
 alias ls="gls --color=always"
+```
+
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
+# Make sure we're in the repo directory
+# Note: if cwd is already the companion repo, this will fail.
+# Either restart the kernel first or don't run this cell, in that case.
+tmp_dir="_tmp_pwg_presentation_02-08-2023_part1"
+project_dir=$(pdm info --where) &&
+cd $project_dir/repos &&
+rm -rf $tmp_dir &&
+git clone eeskew-pwg-test-000 $tmp_dir &&
+cd $tmp_dir
+```
+
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
+# Start companion repo fresh from the beginning
+git checkout $(git rev-list --topo-order main | tail -1)  # check out first commit
+pdm venv create --force python
+```
+
+```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
+# This cell hidden in presentation and docs
+# Check that the environment and project are correct
+pdm info
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -161,30 +183,6 @@ A few more questions will be asked to include a project name and build backend [
 select `y`.  Otherwise, all the default options should be good.
 <!-- #endregion -->
 
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-# Make sure we're in the repo directory
-# Note: if cwd is already the companion repo, this will fail.
-# Either restart the kernel first or don't run this cell, in that case.
-tmp_dir="_tmp_pwg_presentation_02-08-2023_part1"
-project_dir=$(pdm info --where) &&
-cd $project_dir/repos &&
-rm -rf $tmp_dir &&
-git clone eeskew-pwg-test-000 $tmp_dir &&
-cd $tmp_dir
-```
-
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-# Start companion repo fresh from the beginning
-git checkout $(git rev-list --topo-order main | tail -1)  # check out first commit
-pdm venv create --force python
-```
-
-```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-# This cell hidden in presentation and docs
-# Check that the environment and project are correct
-pdm info
-```
-
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## The PDM project
 
@@ -212,6 +210,10 @@ PDM supports the draft Python Enhancement Proposal (PEP) [582](https://peps.pyth
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### The `pyproject.toml` file
 <!-- #endregion -->
+
+```bash tags=["remove-input"] slideshow={"slide_type": "fragment"} trusted=true
+embed-repo-link "The central location of our project configuration is {pyproject.toml}":
+```
 
 ```bash slideshow={"slide_type": "fragment"} scrolled=false trusted=true tags=["remove-input"]
 FILE="pyproject.toml"
@@ -249,17 +251,17 @@ mkdir src/eeskew_pwg_test_000
 touch src/eeskew_pwg_test_000/__init__.py
 ```
 
-<!-- #region slideshow={"slide_type": "notes"} -->
-:::{note}
-By convention, we use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for the package name, while we used [kebab-case](https://en.wiktionary.org/wiki/kebab_case) for the repository name.
-:::
-<!-- #endregion -->
-
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
 git add -A
 git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
 ```
+
+<!-- #region slideshow={"slide_type": "notes"} -->
+:::{note}
+By convention, we use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for the package name, while we used [kebab-case](https://en.wiktionary.org/wiki/kebab_case) for the repository name.
+:::
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### Add a module
