@@ -25,7 +25,8 @@ jupyter:
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # Run startup commands
-source ../.bashnbrc
+project_dir=$(pdm info --where);
+source $project_dir/.bashnbrc;
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
