@@ -544,7 +544,7 @@ pdm run sarcasticow "I'm a sarcastic cow"
 :::{note}
 Because we're using `pdm` for environment management, we still need to use `pdm run` to access the script installed into the virtual environment.  We could also first activate the environment with `eval $(pdm venv activate)`.
 
-Unlike the `test-publish` PDM script we wrote earlier, if we activated the environment with `source .venv/bin/activate`, we could simply use the `sarcasticow` command by itself, and users who install our package with `pip` into their own virtualenv or conda environment will also have access to `sarcasticow`.  Even better, users who install our package through [`pipx`](https://pypa.github.io/pipx/) will be able to use the `sarcasticow` command without activating a virtual environment.
+Unlike the `test-publish` PDM script we wrote earlier, if we activate the environment, we could simply use the `sarcasticow` command by itself (without `pdm run`), and users who install our package with `pip` into their own virtualenv or conda environment will also have access to `sarcasticow`.  Even better, users who install our package through [`pipx`](https://pypa.github.io/pipx/) will be able to use the `sarcasticow` command without activating a virtual environment.
 :::
 <!-- #endregion -->
 
