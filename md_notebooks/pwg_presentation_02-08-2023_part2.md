@@ -146,7 +146,7 @@ git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-Note the new `project.dynamic` array, the new `tool.pdm.version` table, and that the `project.version` key is gone.
+Note the new `tool.pdm.version` table, that the `project.version` key is gone, and the new `project.dynamic` array.
 
 We can check the version like so:
 <!-- #endregion -->
@@ -657,7 +657,7 @@ git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-Finally, we publish again to TestPYPI:
+Finally, we publish again to TestPyPI:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true

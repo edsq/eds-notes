@@ -70,8 +70,8 @@ A companion repository with the example project created in these notes is availa
 :::
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "subslide"} -->
-Requirements:
+<!-- #region slideshow={"slide_type": "slide"} -->
+## Requirements
 
 - The ability to get python executables of different versions, such as with [pyenv](https://github.com/pyenv/pyenv) or [conda](https://docs.conda.io/en/latest/miniconda.html)
 - [PDM](https://pdm.fming.dev/latest/) available globally
@@ -79,6 +79,8 @@ Requirements:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Set the python version and initialize the project
+
 First, create the project directory and `cd` into it:
 
 ```bash
@@ -93,9 +95,7 @@ Because this is a throwaway test project, it is important that you give your pro
 :::
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Set the python version and initialize the project
-
+<!-- #region slideshow={"slide_type": "subslide"} -->
 Here, we'll use python version 3.11, but you may change this to be whatever you like.  I'll cover two methods of setting the python version: using [`pyenv`](https://github.com/pyenv/pyenv), and using [`conda`](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 <!-- #endregion -->
 
@@ -245,7 +245,7 @@ git-checkpoint
 
 <!-- #region slideshow={"slide_type": "notes"} -->
 :::{note}
-By convention, we use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for the package name, while we used [kebab-case](https://en.wiktionary.org/wiki/kebab_case) for the repository name.
+By convention, we use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for the package name, while we use [kebab-case](https://en.wiktionary.org/wiki/kebab_case) for the repository name.
 :::
 <!-- #endregion -->
 
@@ -320,7 +320,7 @@ Note we have to type `pdm run` before our command for it to be run within our pr
 :::{tip}
 If you don't want to type `pdm run` every time before a command to be run in the project virtual environment, you can *activate* the environment, which will modify your `sys.prefix` to point to the `.venv` directory.  See the python `venv` docs [here](https://docs.python.org/3/library/venv.html#how-venvs-work) for more on how virtual environments work.
 
-`pdm` will print the command to activate the project virtual environment with command `pdm venv activate`.  You can copy and paste that output, or, if you want to activate the environment in one line, use:
+`pdm` will print the command to activate the project virtual environment with the command `pdm venv activate`.  You can copy and paste that output, or, if you want to activate the environment in one line, use:
 
 ```bash
 eval $(pdm venv activate)
@@ -362,7 +362,7 @@ Right now, we have not installed anything other than the project itself, so it i
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Add a dependency
 
-Let's add a dependency to our project:
+Let's add a dependency to our project, [cowsay](https://pypi.org/project/cowsay/):
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
