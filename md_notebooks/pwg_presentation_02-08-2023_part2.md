@@ -43,7 +43,7 @@ cd $tmp_dir
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
-git checkout 5688f46
+git checkout 128070e
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true scrolled=true

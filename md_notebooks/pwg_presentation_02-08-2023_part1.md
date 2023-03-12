@@ -558,23 +558,27 @@ We can now run `black` within our environment.
 # This cell hidden in presentation and docs
 cat << "EOF" > src/eeskew_pwg_test_000/utils.py
 import cowsay
-
-def sarcasm(s):
+def sarcasm(
+            s
+          ):
     """Convert string `s` to sArCaSm TeXt."""
     out = ''
-    for i,c in enumerate(s):
-        if i% 2 ==0:
-            out +=c.lower()
+    for i,c in \
+        enumerate( s ):
+
+        if i% 2 ==0: out +=c.lower()
 
         else:
+
+
+
             out+= c.upper()
 
     return out
 
 def sarcastic_cowsay(s):
     """Cowsay `s`, sArCaStIcAlLy."""
-    sarcastic_s = sarcasm(s)
-    cowsay.cow(sarcastic_s)
+    sarcastic_s = sarcasm(s); cowsay.cow(sarcastic_s)
 EOF
 ```
 
@@ -584,7 +588,7 @@ git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with deliberately poor formatting (note the spacing around the \`==\`, \`%\`, and \`+=\` operators):"
+embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with deliberately poor formatting:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
