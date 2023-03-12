@@ -41,6 +41,9 @@ echo "\`\`\`$1
 $(cat $2)
 \`\`\`" | displayMD
 }
+
+# Checkpoint alias: checks out the next commit, failing if this would change the working tree
+alias git-checkpoint='git add -A && git checkout $(git rev-list --topo-order HEAD...main | tail -1)'
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -57,7 +60,6 @@ cd $tmp_dir
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
-git add -A
 git checkout 5688f46
 ```
 
@@ -133,8 +135,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash tags=["remove-input"] slideshow={"slide_type": "fragment"} trusted=true
@@ -178,8 +179,7 @@ echo 'from eeskew_pwg_test_000.__version__ import __version__' > src/eeskew_pwg_
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
@@ -339,8 +339,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -449,8 +448,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
@@ -508,8 +506,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
@@ -589,8 +586,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -658,8 +654,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true

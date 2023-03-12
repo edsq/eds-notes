@@ -42,6 +42,9 @@ $(cat $2)
 \`\`\`" | displayMD
 }
 
+# Checkpoint alias: checks out the next commit, failing if this would change the working tree
+alias git-checkpoint='git add -A && git checkout $(git rev-list --topo-order HEAD...main | tail -1)'
+
 # Alias for colored ls
 alias ls="gls --color=always"
 
@@ -260,8 +263,7 @@ touch src/eeskew_pwg_test_000/__init__.py
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -293,8 +295,7 @@ EOF
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -323,8 +324,7 @@ pdm install
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -394,8 +394,7 @@ pdm add cowsay
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -470,8 +469,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -518,8 +516,7 @@ pdm add -d black
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -606,8 +603,7 @@ EOF
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
@@ -636,8 +632,7 @@ pdm run black src/
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # checkpoint
-git add -A
-git checkout $(git rev-list --topo-order HEAD...main | tail -1)  # check out next commit
+git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
