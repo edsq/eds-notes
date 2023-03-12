@@ -541,7 +541,7 @@ Thus far, we've left our README as an empty file.  This is bad.
 cat << "EOF" > README.md
 # eeskew-pwg-test-000
 
-This is a companion repository to the presentation [Project Management and Publishing with PDM](https://edsq.github.io/eds-notes/pwg_presentation_02-08-2023.html).
+This is a companion repository to the presentation [Project Management and Publishing with PDM](https://edsq.github.io/eds-notes/python_notes/pwg_presentation/intro.html).
 
 Command-line usage:
 
@@ -620,7 +620,7 @@ license = {text = "MIT"}
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://edsq.github.io/eds-notes/pwg_presentation_02-08-2023.html"
+Documentation = "https://edsq.github.io/eds-notes/python_notes/pwg_presentation/intro.html"
 Repository = "https://github.com/edsq/eeskew-pwg-test-000"
 
 [project.scripts]

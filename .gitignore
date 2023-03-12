@@ -10,4 +10,4 @@ docs/_build
 *.swp
 .pdm.toml
 !resources/**
-!docs/*.ipynb
+!docs/**/*.ipynb
