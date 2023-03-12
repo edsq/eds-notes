@@ -58,14 +58,29 @@ A companion repository with the example project created in these notes is availa
 # Make sure we're in the repo directory
 # Note: if cwd is already the companion repo, this will fail.
 # Either restart the kernel first or don't run this cell, in that case.
-project_dir=$(pdm info --where)
-cd $project_dir/repos/eeskew-pwg-test-000
+tmp_dir="_tmp_pwg_presentation_02-08-2023_part2"
+project_dir=$(pdm info --where) &&
+cd $project_dir/repos &&
+rm -rf $tmp_dir &&
+git clone eeskew-pwg-test-000 $tmp_dir &&
+cd $tmp_dir
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
 git add -A
 git checkout 5688f46
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# Create the local venv and install the project (since it was already installed in part 1)
+pdm venv create --force python &&
+pdm install
+```
+
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# For debugging, ensure we're in the right place and using the right venv/interpreter
+pdm info
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->

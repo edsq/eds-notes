@@ -11,3 +11,4 @@ docs/_build
 .pdm.toml
 !resources/**
 !docs/**/*.ipynb
+repos/_tmp*

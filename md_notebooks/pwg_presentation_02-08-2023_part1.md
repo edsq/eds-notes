@@ -165,13 +165,16 @@ select `y`.  Otherwise, all the default options should be good.
 # Make sure we're in the repo directory
 # Note: if cwd is already the companion repo, this will fail.
 # Either restart the kernel first or don't run this cell, in that case.
-project_dir=$(pdm info --where)
-cd $project_dir/repos/eeskew-pwg-test-000
+tmp_dir="_tmp_pwg_presentation_02-08-2023_part1"
+project_dir=$(pdm info --where) &&
+cd $project_dir/repos &&
+rm -rf $tmp_dir &&
+git clone eeskew-pwg-test-000 $tmp_dir &&
+cd $tmp_dir
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start companion repo fresh from the beginning
-git clean -dfx  # remove all untracked files (src, build, dist, .venv)
 git checkout $(git rev-list --topo-order main | tail -1)  # check out first commit
 pdm venv create --force python
 ```
