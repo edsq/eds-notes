@@ -701,13 +701,13 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1678594363.tar.gz
+1.1.dev1678597709.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1678594363-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678594363-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678594363.tar.gz</span>
+1.1.dev1678597709-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678597709-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678597709.tar.gz</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -731,16 +731,32 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167859
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678594363/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678597709/
 </pre></div>
 </div>
 </div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you want to test installing from TestPyPI, you can do so with the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="n">your</span><span class="o">-</span><span class="n">package</span>
+<p>If you want to test installing from TestPyPI, you can do so as follows:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+PDM</label><div class="sd-tab-content docutils">
+<p>Make a new PDM project, add TestPyPI to the local project indices, then install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdm</span> <span class="n">config</span> <span class="o">--</span><span class="n">local</span> <span class="n">pypi</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span>
+<span class="n">pdm</span> <span class="n">add</span> <span class="n">your</span><span class="o">-</span><span class="n">package</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+venv or conda</label><div class="sd-tab-content docutils">
+<p>Create a new <code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment, <em>don’t forget to activate it</em>, then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="o">--</span><span class="n">extra</span><span class="o">-</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span> <span class="n">your</span><span class="o">-</span><span class="n">package</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Be sure not to <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> into your system or conda base environment!  First make a new virtual environment using PDM, venv, or conda, and test your install there.</p>
 </div>
@@ -986,13 +1002,15 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew-pwg-test-000-0.
-1.1.dev1678594385.tar.gz
+1.1.dev1678597731.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/eeskew-pwg-test-000/dist/eeskew_pwg_test_000-0.
-1.1.dev1678594385-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678594385-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678594385.tar.gz</span>
+1.1.dev1678597731-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678597731-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678597731.tar.gz</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -1015,7 +1033,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167859
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678594385/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678597731/
 </pre></div>
 </div>
 </div>
