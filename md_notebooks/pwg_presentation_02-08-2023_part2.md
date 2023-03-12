@@ -364,15 +364,33 @@ pdm run test-publish
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
-:::{note}
-If you want to test installing from TestPyPI, you can do so with the following command:
+:::::{note}
+If you want to test installing from TestPyPI, you can do so as follows:
+
+::::{tab-set}
+
+:::{tab-item} PDM
+
+Make a new PDM project, add TestPyPI to the local project indices, then install:
+```
+pdm config --local pypi.test.url https://test.pypi.org/simple/
+pdm add your-package
+```
+:::
+
+:::{tab-item} venv or conda
+
+Create a new `venv` or `conda` environment, *don't forget to activate it*, then run:
 
 ```
-python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package
+python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package
 ```
+:::
+
+::::
 
 Be sure not to `pip install` into your system or conda base environment!  First make a new virtual environment using PDM, venv, or conda, and test your install there.
-:::
+:::::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
