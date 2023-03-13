@@ -25,20 +25,24 @@ jupyter:
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # Run startup commands
-project_dir=$(pdm info --where);
-source $project_dir/.bashnbrc;
+# Note: if cwd is already the companion repo, this will fail.
+# Either restart the kernel first or don't run this cell, in that case.
+project_dir=$(pdm info --where)
+source $project_dir/.bashnbrc
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-# Make sure we're in the repo directory
-# Note: if cwd is already the companion repo, this will fail.
-# Either restart the kernel first or don't run this cell, in that case.
+# Make sure we're in the repo directory and git config is correct
 tmp_dir="_tmp_pwg_presentation_02-08-2023_part2"
-project_dir=$(pdm info --where) &&
+repo_name="eeskew-pwg-test-000"
 cd $project_dir/repos &&
 rm -rf $tmp_dir &&
-git clone eeskew-pwg-test-000 $tmp_dir &&
-cd $tmp_dir
+mkdir -p $tmp_dir/$repo_name
+git clone $repo_name $tmp_dir/$repo_name &&
+cd $tmp_dir/$repo_name &&
+git config color.diff.meta "cyan bold" &&
+git config diff-so-fancy.markEmptyLines false &&
+git config diff-so-fancy.stripLeadingSymbols false
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -142,7 +146,7 @@ Click below to show diff:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -338,7 +342,7 @@ Click below to show diff:
 <!-- #endregion -->
 
 ```bash tags=["remove-input", "hide-output"] slideshow={"slide_type": "notes"} trusted=true
-git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -505,7 +509,7 @@ Click below to show diff:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -653,7 +657,7 @@ Click below to show diff:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | ../../scripts/diff-so-fancy
+git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
