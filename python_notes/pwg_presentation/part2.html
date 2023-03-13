@@ -361,7 +361,7 @@ including managing relevant project metadata.</p>
 <p>Right now, the package version (<code class="docutils literal notranslate"><span class="pre">&quot;0.1.0&quot;</span></code>) is stored in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file (in the <code class="docutils literal notranslate"><span class="pre">project.version</span></code> keyword).  The best practice is to place this in a <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> file, and have that be the single source of truth for our package version.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Create the file <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/b3bdadfd0d26120e126ecbdb918c111f9853050d/src/eeskew_pwg_test_000/__version__.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/__version__.py</span></code></a>, and add the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> variable to it. The new file should look like:</p>
+<p>Create the file <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/0d6d5a48bd4fdbd5a45f390839be5c95957d90ea/src/eeskew_pwg_test_000/__version__.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/__version__.py</span></code></a>, and add the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> variable to it. The new file should look like:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -374,7 +374,7 @@ including managing relevant project metadata.</p>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Now modify the <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/b3bdadfd0d26120e126ecbdb918c111f9853050d/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> file so that the version is <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic">dynamic metadata</a>:</p>
+<p>Now modify the <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/0d6d5a48bd4fdbd5a45f390839be5c95957d90ea/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> file so that the version is <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic">dynamic metadata</a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -419,38 +419,38 @@ including managing relevant project metadata.</p>
 <span class="expanded">Hide code cell outputs</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-C11">modified: pyproject.toml</span>
-<span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:3 @</span>
-[tool.pdm]
-<span class=" -Color -Color-Green">version = { source = &quot;file&quot;, path = &quot;src/eeskew_pwg_test_000/__version__.py&quot; }</span>
-<span class=" -Color -Color-Green"> </span>
-[tool.pdm.dev-dependencies]
-dev = [
-    &quot;black&gt;=23.1.0&quot;,
+ [tool.pdm]
+<span class=" -Color -Color-Green">+version = { source = &quot;file&quot;, path = &quot;src/eeskew_pwg_test_000/__version__.py&quot; }</span>
+<span class=" -Color -Color-Green">+</span>
+ [tool.pdm.dev-dependencies]
+ dev = [
+     &quot;black&gt;=23.1.0&quot;,
 <span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:11 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> dev = [</span>
-
-[project]
-name = &quot;eeskew-pwg-test-000&quot;
-<span class=" -Color -Color-Red">version = &quot;0.1.0&quot;</span>
-description = &quot;A test project for presentation to the WSU Python Working Group.&quot;
-authors = [
-    {name = &quot;Edward Eskew&quot;, email = &quot;edward.eskew@wsu.edu&quot;},
+ 
+ [project]
+ name = &quot;eeskew-pwg-test-000&quot;
+<span class=" -Color -Color-Red">-version = &quot;0.1.0&quot;</span>
+ description = &quot;A test project for presentation to the WSU Python Working Group.&quot;
+ authors = [
+     {name = &quot;Edward Eskew&quot;, email = &quot;edward.eskew@wsu.edu&quot;},
 <span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:21 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> dependencies = [</span>
-requires-python = &quot;&gt;=3.11&quot;
-readme = &quot;README.md&quot;
-license = {text = &quot;MIT&quot;}
-<span class=" -Color -Color-Green">dynamic = [&quot;version&quot;]</span>
-
-[build-system]
-requires = [&quot;pdm-pep517&gt;=1.0&quot;]
+ requires-python = &quot;&gt;=3.11&quot;
+ readme = &quot;README.md&quot;
+ license = {text = &quot;MIT&quot;}
+<span class=" -Color -Color-Green">+dynamic = [&quot;version&quot;]</span>
+ 
+ [build-system]
+ requires = [&quot;pdm-pep517&gt;=1.0&quot;]
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<p>Note the new <code class="docutils literal notranslate"><span class="pre">project.dynamic</span></code> array, the new <code class="docutils literal notranslate"><span class="pre">tool.pdm.version</span></code> table, and that the <code class="docutils literal notranslate"><span class="pre">project.version</span></code> key is gone.</p>
+<p>Note the new <code class="docutils literal notranslate"><span class="pre">tool.pdm.version</span></code> table, that the <code class="docutils literal notranslate"><span class="pre">project.version</span></code> key is gone, and the new <code class="docutils literal notranslate"><span class="pre">project.dynamic</span></code> array.</p>
 <p>We can check the version like so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -466,7 +466,7 @@ requires = [&quot;pdm-pep517&gt;=1.0&quot;]
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>We should also add the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> variable to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/64240ff21f2a5ea1713fc4dbf0f6a1c903575124/src/eeskew_pwg_test_000/__init__.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/__init__.py</span></code></a>:</p>
+<p>We should also add the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> variable to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/0d0df2e26fccf1b148d4a7df4e45ff7309622d28/src/eeskew_pwg_test_000/__init__.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/__init__.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -533,12 +533,12 @@ requires = [&quot;pdm-pep517&gt;=1.0&quot;]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
-/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/dist/ees
-kew-pwg-test-000-0.1.0.tar.gz
+/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
+wg-test-000/dist/eeskew-pwg-test-000-0.1.0.tar.gz
 Building wheel...
 Built wheel at 
-/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/dist/ees
-kew_pwg_test_000-0.1.0-py3-none-any.whl
+/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
+wg-test-000/dist/eeskew_pwg_test_000-0.1.0-py3-none-any.whl
 </pre></div>
 </div>
 </div>
@@ -618,7 +618,7 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <p>First, ensure you have the <a class="reference external" href="https://github.com/carstencodes/pdm-bump">pdm-bump</a> plugin installed.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>We add a new PDM script in the <code class="docutils literal notranslate"><span class="pre">tool.pdm.scripts</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/d28bac9fd3674bd5b37d59afc5b65be838e42fd4/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
+<p>We add a new PDM script in the <code class="docutils literal notranslate"><span class="pre">tool.pdm.scripts</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/6783d28e1aef5d2a523e0ab3136bce02eae8cc46/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -655,27 +655,27 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <span class="expanded">Hide code cell outputs</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-C11">modified: pyproject.toml</span>
-<span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:4 @</span>
-[tool.pdm]
-version = { source = &quot;file&quot;, path = &quot;src/eeskew_pwg_test_000/__version__.py&quot; }
-
-<span class=" -Color -Color-Green">[tool.pdm.scripts]</span>
-<span class=" -Color -Color-Green">test-publish.shell = &#39;&#39;&#39;\</span>
-<span class=" -Color -Color-Green">VERSION=$(pdm show --version eeskew-pwg-test-000)</span>
-<span class=" -Color -Color-Green">pdm bump patch &gt; /dev/null</span>
-<span class=" -Color -Color-Green">BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)</span>
-<span class=" -Color -Color-Green">DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)</span>
-<span class=" -Color -Color-Green">echo &quot;__version__ = \&quot;$DEV_VERSION\&quot;&quot; &gt; src/eeskew_pwg_test_000/__version__.py</span>
-<span class=" -Color -Color-Green">pdm publish -r testpypi</span>
-<span class=" -Color -Color-Green">echo &quot;__version__ = \&quot;$VERSION\&quot;&quot; &gt; src/eeskew_pwg_test_000/__version__.py</span>
-<span class=" -Color -Color-Green">&#39;&#39;&#39;</span>
-<span class=" -Color -Color-Green"> </span>
-[tool.pdm.dev-dependencies]
-dev = [
-    &quot;black&gt;=23.1.0&quot;,
+ [tool.pdm]
+ version = { source = &quot;file&quot;, path = &quot;src/eeskew_pwg_test_000/__version__.py&quot; }
+ 
+<span class=" -Color -Color-Green">+[tool.pdm.scripts]</span>
+<span class=" -Color -Color-Green">+test-publish.shell = &#39;&#39;&#39;\</span>
+<span class=" -Color -Color-Green">+VERSION=$(pdm show --version eeskew-pwg-test-000)</span>
+<span class=" -Color -Color-Green">+pdm bump patch &gt; /dev/null</span>
+<span class=" -Color -Color-Green">+BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)</span>
+<span class=" -Color -Color-Green">+DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)</span>
+<span class=" -Color -Color-Green">+echo &quot;__version__ = \&quot;$DEV_VERSION\&quot;&quot; &gt; src/eeskew_pwg_test_000/__version__.py</span>
+<span class=" -Color -Color-Green">+pdm publish -r testpypi</span>
+<span class=" -Color -Color-Green">+echo &quot;__version__ = \&quot;$VERSION\&quot;&quot; &gt; src/eeskew_pwg_test_000/__version__.py</span>
+<span class=" -Color -Color-Green">+&#39;&#39;&#39;</span>
+<span class=" -Color -Color-Green">+</span>
+ [tool.pdm.dev-dependencies]
+ dev = [
+     &quot;black&gt;=23.1.0&quot;,
 </pre></div>
 </div>
 </div>
@@ -698,15 +698,14 @@ dev = [
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
-/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/dist/ees
-kew-pwg-test-000-0.1.1.dev1678653766.tar.gz
+/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
+wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1678734935.tar.gz
 Building wheel...
 Built wheel at 
-/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/dist/ees
-kew_pwg_test_000-0.1.1.dev1678653766-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678653766-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678653766.tar.gz</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
+wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1678734935-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678734935-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678734935.tar.gz</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -727,7 +726,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167865
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678653766/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678734935/
 </pre></div>
 </div>
 </div>
@@ -774,7 +773,7 @@ venv or conda</label><div class="sd-tab-content docutils">
 <p>If we’re developing a command-line application, we want our users to be able to run the application with a single command, not something like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">path_to_script/script.py</span></code>.  We can enable this by adding an <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points">entry point</a> to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>First, add a new module and new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/94de6112a928f5f34fbc181752964a5f6f2d9776/src/eeskew_pwg_test_000/cli.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/cli.py</span></code></a>:</p>
+<p>First, add a new module and new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/a223d4ff61f26c6f7cc89800c2a67deb0b3c49f1/src/eeskew_pwg_test_000/cli.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/cli.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -798,7 +797,7 @@ venv or conda</label><div class="sd-tab-content docutils">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Now let’s add the script to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/bd0f6f0c5a7801e7572720c6456c46a5598bfc54/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, in the <code class="docutils literal notranslate"><span class="pre">project.scripts</span></code> table:</p>
+<p>Now let’s add the script to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/3d80e39f96ba19177f1c2bb6bdc2542f59aba271/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, in the <code class="docutils literal notranslate"><span class="pre">project.scripts</span></code> table:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -827,19 +826,19 @@ venv or conda</label><div class="sd-tab-content docutils">
 <span class="expanded">Hide code cell outputs</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-C11">modified: pyproject.toml</span>
-<span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:34 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> readme = &quot;README.md&quot;</span>
-license = {text = &quot;MIT&quot;}
-dynamic = [&quot;version&quot;]
-
-<span class=" -Color -Color-Green">[project.scripts]</span>
-<span class=" -Color -Color-Green">sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;</span>
-<span class=" -Color -Color-Green"> </span>
-[build-system]
-requires = [&quot;pdm-pep517&gt;=1.0&quot;]
-build-backend = &quot;pdm.pep517.api&quot;
+ license = {text = &quot;MIT&quot;}
+ dynamic = [&quot;version&quot;]
+ 
+<span class=" -Color -Color-Green">+[project.scripts]</span>
+<span class=" -Color -Color-Green">+sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;</span>
+<span class=" -Color -Color-Green">+</span>
+ [build-system]
+ requires = [&quot;pdm-pep517&gt;=1.0&quot;]
+ build-backend = &quot;pdm.pep517.api&quot;
 </pre></div>
 </div>
 </div>
@@ -899,7 +898,7 @@ Installing the project as an editable package...
 <p>Thus far, we’ve left our README as an empty file.  This is bad.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s update <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/60e53cc9f216a604ed2c2524825969bdb621c76e/README.md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a> to show our utility’s usage:</p>
+<p>Let’s update <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/385d08ac105c347ea1ca259696ea01170695db9b/README.md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a> to show our utility’s usage:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -936,7 +935,7 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <p>We can add relevant URLs in the <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#urls"><code class="docutils literal notranslate"><span class="pre">urls</span></code> table</a>, which will appear in the sidebar on PyPI.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>In the <code class="docutils literal notranslate"><span class="pre">project.urls</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/a9d58ccbed5868e5adbdf9adbbeb6861c2a5b57c/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, we set <code class="docutils literal notranslate"><span class="pre">Documentation</span></code> to a link to our docs (this Jupyter Book), and <code class="docutils literal notranslate"><span class="pre">Repository</span></code> to the GitHub repo for this code.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">project.urls</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fc8d83352efc36badbd72aa577ca57a8e2c2548b/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, we set <code class="docutils literal notranslate"><span class="pre">Documentation</span></code> to a link to our docs (this Jupyter Book), and <code class="docutils literal notranslate"><span class="pre">Repository</span></code> to the GitHub repo for this code.</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -968,26 +967,26 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <span class="expanded">Hide code cell outputs</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-C11">modified: pyproject.toml</span>
-<span class=" -Color -Color-C11">────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:34 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> readme = &quot;README.md&quot;</span>
-license = {text = &quot;MIT&quot;}
-dynamic = [&quot;version&quot;]
-
-<span class=" -Color -Color-Green">[project.urls]</span>
-<span class=" -Color -Color-Green">Documentation = &quot;https://edsq.github.io/eds-notes/python_notes/pwg_presentation/intro.html&quot;</span>
-<span class=" -Color -Color-Green">Repository = &quot;https://github.com/edsq/eeskew-pwg-test-000&quot;</span>
-<span class=" -Color -Color-Green"> </span>
-[project.scripts]
-sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;
-
+ license = {text = &quot;MIT&quot;}
+ dynamic = [&quot;version&quot;]
+ 
+<span class=" -Color -Color-Green">+[project.urls]</span>
+<span class=" -Color -Color-Green">+Documentation = &quot;https://edsq.github.io/eds-notes/python_notes/pwg_presentation/intro.html&quot;</span>
+<span class=" -Color -Color-Green">+Repository = &quot;https://github.com/edsq/eeskew-pwg-test-000&quot;</span>
+<span class=" -Color -Color-Green">+</span>
+ [project.scripts]
+ sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;
+ 
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<p>Finally, we publish again to TestPYPI:</p>
+<p>Finally, we publish again to TestPyPI:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>run<span class="w"> </span>test-publish
@@ -997,17 +996,14 @@ sarcasticow = &quot;eeskew_pwg_test_000.cli:main&quot;
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
-/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/dist/ees
-kew-pwg-test-000-0.1.1.dev1678653787.tar.gz
+/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
+wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1678734958.tar.gz
 Building wheel...
 Built wheel at 
-/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/dist/ees
-kew_pwg_test_000-0.1.1.dev1678653787-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678653787-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678653787.tar.gz</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+/Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
+wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1678734958-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678734958-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678734958.tar.gz</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -1030,7 +1026,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167865
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678653787/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678734958/
 </pre></div>
 </div>
 </div>
