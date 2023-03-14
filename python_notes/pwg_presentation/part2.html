@@ -316,7 +316,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-version">Package version</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging-the-project">Packaging the project</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happened">What happened?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-did-pdm-build-do">What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">build</span></code> do?</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-the-project">Publishing the project</a><ul class="nav section-nav flex-column">
@@ -385,26 +385,21 @@ including managing relevant project metadata.</p>
 
 <span class="k">[tool.pdm.dev-dependencies]</span>
 <span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&quot;black&gt;=23.1.0&quot;</span><span class="p">,</span>
 
 <span class="p">...</span>
 
-<span class="p">]</span>
 
 <span class="k">[project]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;eeskew-pwg-test-000&quot;</span>
 <span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A test project for presentation to the WSU Python Working Group.&quot;</span>
-<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 
 <span class="p">...</span>
 
-<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&gt;=3.11&quot;</span>
 <span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.md&quot;</span>
 <span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MIT&quot;</span><span class="p">}</span>
 <span class="n">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;version&quot;</span><span class="p">]</span>
 
 <span class="k">[build-system]</span>
-<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;pdm-pep517&gt;=1.0&quot;</span><span class="p">]</span>
 
 <span class="p">...</span>
 </pre></div>
@@ -512,13 +507,10 @@ including managing relevant project metadata.</p>
 └── src
     └── eeskew_pwg_test_000
         ├── __init__.py
-        ├── __pycache__
-        │   ├── __init__.cpython-311.pyc
-        │   └── __version__.cpython-311.pyc
         ├── __version__.py
         └── utils.py
 
-3 directories, 8 files
+2 directories, 6 files
 </pre></div>
 </div>
 </div>
@@ -543,8 +535,8 @@ wg-test-000/dist/eeskew_pwg_test_000-0.1.0-py3-none-any.whl
 </div>
 </div>
 </div>
-<section id="what-happened">
-<h3>What happened?<a class="headerlink" href="#what-happened" title="Permalink to this headline">#</a></h3>
+<section id="what-did-pdm-build-do">
+<h3>What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">build</span></code> do?<a class="headerlink" href="#what-did-pdm-build-do" title="Permalink to this headline">#</a></h3>
 <p>We’ve created a new directory named <code class="docutils literal notranslate"><span class="pre">dist</span></code>, where these two distribution formats have been placed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,13 +556,10 @@ wg-test-000/dist/eeskew_pwg_test_000-0.1.0-py3-none-any.whl
 └── src
     └── eeskew_pwg_test_000
         ├── __init__.py
-        ├── __pycache__
-        │   ├── __init__.cpython-311.pyc
-        │   └── __version__.cpython-311.pyc
         ├── __version__.py
         └── utils.py
 
-5 directories, 10 files
+4 directories, 8 files
 </pre></div>
 </div>
 </div>
@@ -699,13 +688,16 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1678734935.tar.gz
+wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1678805058.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1678734935-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678734935-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678734935.tar.gz</span>
+wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1678805058-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678805058-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678805058.tar.gz</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/4.7 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -726,7 +718,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167873
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678734935/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678805058/
 </pre></div>
 </div>
 </div>
@@ -773,7 +765,7 @@ venv or conda</label><div class="sd-tab-content docutils">
 <p>If we’re developing a command-line application, we want our users to be able to run the application with a single command, not something like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">path_to_script/script.py</span></code>.  We can enable this by adding an <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points">entry point</a> to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>First, add a new module and new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/a223d4ff61f26c6f7cc89800c2a67deb0b3c49f1/src/eeskew_pwg_test_000/cli.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/cli.py</span></code></a>:</p>
+<p>First, add a new module, <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/90d6f978ac565514139afdb86d1d67766a007316/src/eeskew_pwg_test_000/cli.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/cli.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -783,12 +775,13 @@ venv or conda</label><div class="sd-tab-content docutils">
 
 <span class="kn">from</span> <span class="nn">eeskew_pwg_test_000.utils</span> <span class="kn">import</span> <span class="n">sarcastic_cowsay</span>
 
+
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Cowsay something sarcastically from the command line.&quot;&quot;&quot;</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;speech&quot;</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    
+
     <span class="n">s</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">speech</span>
     <span class="n">sarcastic_cowsay</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
@@ -797,7 +790,7 @@ venv or conda</label><div class="sd-tab-content docutils">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Now let’s add the script to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/3d80e39f96ba19177f1c2bb6bdc2542f59aba271/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, in the <code class="docutils literal notranslate"><span class="pre">project.scripts</span></code> table:</p>
+<p>Now let’s add the script to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/5db15a126e1da7b0f94861fd932471e46c844f77/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, in the <code class="docutils literal notranslate"><span class="pre">project.scripts</span></code> table:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -898,7 +891,7 @@ Installing the project as an editable package...
 <p>Thus far, we’ve left our README as an empty file.  This is bad.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s update <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/385d08ac105c347ea1ca259696ea01170695db9b/README.md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a> to show our utility’s usage:</p>
+<p>Let’s update <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/76d9d661b84f86d411b84e9798a1e03ca930960c/README.md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a> to show our utility’s usage:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -935,7 +928,7 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <p>We can add relevant URLs in the <a class="reference external" href="https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#urls"><code class="docutils literal notranslate"><span class="pre">urls</span></code> table</a>, which will appear in the sidebar on PyPI.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>In the <code class="docutils literal notranslate"><span class="pre">project.urls</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fc8d83352efc36badbd72aa577ca57a8e2c2548b/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, we set <code class="docutils literal notranslate"><span class="pre">Documentation</span></code> to a link to our docs (this Jupyter Book), and <code class="docutils literal notranslate"><span class="pre">Repository</span></code> to the GitHub repo for this code.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">project.urls</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/60ee75e978f8810d8b60bc6e61ed25b491a19564/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, we set <code class="docutils literal notranslate"><span class="pre">Documentation</span></code> to a link to our docs (this Jupyter Book), and <code class="docutils literal notranslate"><span class="pre">Repository</span></code> to the GitHub repo for this code.</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -997,13 +990,17 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1678734958.tar.gz
+wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1678805079.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1678734958-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678734958-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678734958.tar.gz</span>
+wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1678805079-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1678805079-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1678805079.tar.gz</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -1026,7 +1023,7 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev167873
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678734958/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678805079/
 </pre></div>
 </div>
 </div>
@@ -1133,7 +1130,7 @@ https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1678734958/
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-version">Package version</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging-the-project">Packaging the project</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happened">What happened?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-did-pdm-build-do">What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">build</span></code> do?</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-the-project">Publishing the project</a><ul class="nav section-nav flex-column">
