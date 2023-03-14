@@ -1,6 +1,6 @@
 ---
 jupyter:
-  celltoolbar: Slideshow
+  celltoolbar: Tags
   jupytext:
     cell_metadata_filter: all
     notebook_metadata_filter: all

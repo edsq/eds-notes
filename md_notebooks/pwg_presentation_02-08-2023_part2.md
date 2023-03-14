@@ -1,6 +1,6 @@
 ---
 jupyter:
-  celltoolbar: Slideshow
+  celltoolbar: Tags
   jupytext:
     cell_metadata_filter: all
     notebook_metadata_filter: all
@@ -81,7 +81,7 @@ A companion repository with the example project created in these notes is availa
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Package version
 
-Right now, the package version (`"0.1.0"`) is stored in the `pyproject.toml` file (in the `project.version` keyword).  The best practice is to place this in a `__version__.py` file, and have that be the single source of truth for our package version.
+Right now, the package version (`"0.1.0"`) is stored in the `pyproject.toml` file (in the `project.version` keyword).  Python packages typically specify their version in a `__version__.py` file.
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
@@ -133,8 +133,12 @@ embed-repo-link "Create the file {src/eeskew_pwg_test_000/__version__.py}, and a
 simple-diff HEAD~ src/eeskew_pwg_test_000/__version__.py | show-code python
 ```
 
+### Single-sourcing the package version
+
+Now, our package version appears in both `__version__.py` and `pyproject.toml`.  To keep our code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and avoid these two potentially getting out of sync, we'd like `__version__.py` to be the single source of truth for our package version.
+
 ```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
-embed-repo-link "Now modify the {pyproject.toml} file so that the version is [dynamic metadata](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic):"
+embed-repo-link "We can achieve this by modifying {pyproject.toml} so that the version is [dynamic metadata](https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic):"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -149,9 +153,24 @@ Click below to show diff:
 git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
+<!-- #region slideshow={"slide_type": "notes"} -->
 Note the new `tool.pdm.version` table, that the `project.version` key is gone, and the new `project.dynamic` array.
 
+:::{note}
+We could have equivalently left `pyproject.toml` unchanged, and used [`importlib.metadata`](https://docs.python.org/3/library/importlib.metadata.html#distribution-versions) to get the version in `__version__.py` from `pyproject.toml` as follows:
+
+```python
+# src/eeskew_pwg_test_000/__version__.py
+from importlib.metadata import version
+
+__version__ = version("eeskew-pwg-test-000")
+```
+
+Whether you set the version in `pyproject.toml` or in `__version__.py` is essentially a matter of taste (although the way I've written the `test-publish` script below will only work with the latter).  The most important thing is that you only set it in one or the other.
+:::
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
 We can check the version like so:
 <!-- #endregion -->
 
