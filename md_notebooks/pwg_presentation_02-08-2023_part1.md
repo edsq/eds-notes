@@ -257,7 +257,7 @@ By convention, we use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # This cell hidden in presentation and docs
-cat << "EOF" > src/eeskew_pwg_test_000/utils.py
+cat << "EOF" > src/eeskew_pwg_test_000/sarcasm.py
 def sarcasm(s):
     """Convert string `s` to sArCaSm TeXt."""
     out = ""
@@ -278,11 +278,11 @@ git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-embed-repo-link "Let's add some code in {src/eeskew_pwg_test_000/utils.py}:"
+embed-repo-link "Let's add some code in {src/eeskew_pwg_test_000/sarcasm.py}:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
+simple-diff HEAD~ src/eeskew_pwg_test_000/sarcasm.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -311,7 +311,7 @@ Now we can import our package:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
-pdm run python -c 'from eeskew_pwg_test_000.utils import sarcasm; print(sarcasm("Hello world!"))'
+pdm run python -c 'from eeskew_pwg_test_000.sarcasm import sarcasm; print(sarcasm("Hello world!"))'
 ```
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
@@ -416,7 +416,7 @@ See the [PDM docs on managing dependencies](https://pdm.fming.dev/latest/usage/d
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # This cell hidden in presentation and docs
-cat << "EOF" > src/eeskew_pwg_test_000/utils.py
+cat << "EOF" > src/eeskew_pwg_test_000/sarcasm.py
 import cowsay
 
 def sarcasm(s):
@@ -444,11 +444,11 @@ git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-embed-repo-link "Let's add a new function to {src/eeskew_pwg_test_000/utils.py}:"
+embed-repo-link "Let's add a new function to {src/eeskew_pwg_test_000/sarcasm.py}:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
+simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/sarcasm.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -456,7 +456,7 @@ We can now run this new function:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
-pdm run python -c 'from eeskew_pwg_test_000.utils import sarcastic_cowsay; sarcastic_cowsay("mooo!")'
+pdm run python -c 'from eeskew_pwg_test_000.sarcasm import sarcastic_cowsay; sarcastic_cowsay("mooo!")'
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -534,7 +534,7 @@ We can now run `black` within our environment.
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # This cell hidden in presentation and docs
-cat << "EOF" > src/eeskew_pwg_test_000/utils.py
+cat << "EOF" > src/eeskew_pwg_test_000/sarcasm.py
 import cowsay
 def sarcasm(
             s
@@ -566,11 +566,11 @@ git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with deliberately poor formatting:"
+embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/sarcasm.py} with deliberately poor formatting:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
+simple-diff HEAD~ src/eeskew_pwg_test_000/sarcasm.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
@@ -591,11 +591,11 @@ git-checkpoint
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input"]
-embed-repo-link "\`black\` has automatically re-formatted {src/eeskew_pwg_test_000/utils.py}, fixing the poor formatting we introduced earlier:"
+embed-repo-link "\`black\` has automatically re-formatted {src/eeskew_pwg_test_000/sarcasm.py}, fixing the poor formatting we introduced earlier:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
+simple-diff HEAD~ src/eeskew_pwg_test_000/sarcasm.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->

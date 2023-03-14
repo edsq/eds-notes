@@ -45,7 +45,7 @@ cd $tmp_dir/$repo_name
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
-git checkout 128070e
+git checkout 28b2959
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true scrolled=true
@@ -432,7 +432,7 @@ If we're developing a command-line application, we want our users to be able to 
 cat << "EOF" > src/eeskew_pwg_test_000/cli.py
 import argparse
 
-from eeskew_pwg_test_000.utils import sarcastic_cowsay
+from eeskew_pwg_test_000.sarcasm import sarcastic_cowsay
 
 
 def main():
