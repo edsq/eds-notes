@@ -39,10 +39,7 @@ cd $project_dir/repos &&
 rm -rf $tmp_dir &&
 mkdir -p $tmp_dir/$repo_name
 git clone $repo_name $tmp_dir/$repo_name &&
-cd $tmp_dir/$repo_name &&
-git config color.diff.meta "cyan bold" &&
-git config diff-so-fancy.markEmptyLines false &&
-git config diff-so-fancy.stripLeadingSymbols false
+cd $tmp_dir/$repo_name
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -143,14 +140,6 @@ embed-repo-link "We can achieve this by modifying {pyproject.toml} so that the v
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 simple-diff --context 2 HEAD~ pyproject.toml | show-code toml
-```
-
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -362,14 +351,6 @@ simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash tags=["remove-input", "hide-output"] slideshow={"slide_type": "notes"} trusted=true
-git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
-```
-
-<!-- #region slideshow={"slide_type": "skip"} -->
 :::{note}
 A future release of `pdm-bump` will enable this script to be dramatically simplified, or even entirely unecessary.  See this [GitHub issue](https://github.com/carstencodes/pdm-bump/issues/38#issuecomment-1427082451).
 :::
@@ -535,14 +516,6 @@ embed-repo-link "Now let's add the script to {pyproject.toml}, in the \`project.
 simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
-```
-
 <!-- #region slideshow={"slide_type": "fragment"} -->
 Note the new entry for `sarcasticow` in the `project.scripts` table.
 
@@ -681,14 +654,6 @@ embed-repo-link "In the \`project.urls\` table of {pyproject.toml}, we set \`Doc
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 simple-diff HEAD~ pyproject.toml | show-code toml
-```
-
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->

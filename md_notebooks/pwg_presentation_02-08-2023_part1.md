@@ -32,17 +32,14 @@ source $project_dir/.bashnbrc
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
-# Make sure we're in the repo directory and git config is correct
+# Make sure we're in the repo directory
 tmp_dir="_tmp_pwg_presentation_02-08-2023_part2"
 repo_name="eeskew-pwg-test-000"
 cd $project_dir/repos &&
 rm -rf $tmp_dir &&
 mkdir -p $tmp_dir/$repo_name
 git clone $repo_name $tmp_dir/$repo_name &&
-cd $tmp_dir/$repo_name &&
-git config color.diff.meta "cyan bold" &&
-git config diff-so-fancy.markEmptyLines false &&
-git config diff-so-fancy.stripLeadingSymbols false
+cd $tmp_dir/$repo_name
 ```
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
@@ -390,14 +387,6 @@ embed-repo-link "\`cowsay\` now appears as a dependency in {pyproject.toml}:"
 simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input", "hide-output"]
-git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
-```
-
 ```bash slideshow={"slide_type": "subslide"} tags=["remove-input"] trusted=true
 embed-repo-link "We've also updated {pdm.lock} to include cowsay:"
 ```
@@ -461,14 +450,6 @@ embed-repo-link "Let's add a new function to {src/eeskew_pwg_test_000/utils.py}:
 simple-diff --context 0 HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
 ```
 
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | $project_dir/scripts/diff-so-fancy
-```
-
 <!-- #region slideshow={"slide_type": "subslide"} -->
 We can now run this new function:
 <!-- #endregion -->
@@ -510,14 +491,6 @@ embed-repo-link "We've added a new \`[dev-dependencies]\` sub-table to the \`[to
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 simple-diff --context 2 HEAD~ pyproject.toml | show-code toml
-```
-
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "notes"} -->
@@ -599,14 +572,6 @@ embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with delibera
 simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
 ```
 
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | $project_dir/scripts/diff-so-fancy
-```
-
 <!-- #region slideshow={"slide_type": "subslide"} -->
 This is bad formatting!  Rather than fix it manually, we can run `black` on our code, which will auto-impose a reasonable style.
 <!-- #endregion -->
@@ -630,14 +595,6 @@ embed-repo-link "\`black\` has automatically re-formatted {src/eeskew_pwg_test_0
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
 simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
-```
-
-<!-- #region slideshow={"slide_type": "skip"} -->
-Click below to show diff:
-<!-- #endregion -->
-
-```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
