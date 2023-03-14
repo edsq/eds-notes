@@ -369,6 +369,12 @@ Click below to show diff:
 git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ```
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{note}
+A future release of `pdm-bump` will enable this script to be dramatically simplified, or even entirely unecessary.  See this [GitHub issue](https://github.com/carstencodes/pdm-bump/issues/38#issuecomment-1427082451).
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 When we run `pdm run test-publish`, this script:
 1. Gets the current version with `pdm show --version`
