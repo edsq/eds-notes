@@ -71,7 +71,7 @@ def simple_diff(
     for next_hunk in raw_hunks[1:]:
         last_hunk = hunks[-1]
 
-        if last_hunk[1] > next_hunk[0]:
+        if last_hunk[1] >= next_hunk[0]:
             # Combine this hunk with the last
             last_hunk[1] = next_hunk[1]
 
