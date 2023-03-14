@@ -357,8 +357,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="project-management-with-pdm">
 <h1>Project Management with PDM<a class="headerlink" href="#project-management-with-pdm" title="Permalink to this headline">#</a></h1>
-<p>Part 1 of notes from talk given to the WSU Python Working Group on February 8, 2023.</p>
-<p>Here I show the basics of project management with <a class="reference external" href="https://pdm.fming.dev/latest/">PDM</a>: how to create a project,
+<p>Part 1 of notes from talk given to the WSU Python Working Group on February 8, 2023.  See Part 2 <a class="reference internal" href="part2.html"><span class="doc std std-doc">here</span></a>.</p>
+<p>In this chapter, I show the basics of project management with <a class="reference external" href="https://pdm.fming.dev/latest/">PDM</a>: how to create a project,
 add dependencies, and add development dependencies.</p>
 <p>This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.</p>
 <div class="admonition note">
@@ -631,7 +631,7 @@ Installing the project as an editable package...
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">default</span> dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">cowsay</span>
-<span class=" -Color -Color-Cyan">⠸</span> Fetching hashes for resolved packages...
+<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
 🔒 Lock successful
 Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
 Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
@@ -675,33 +675,6 @@ Installing the project as an editable package...
 </pre></div>
 </div>
 </div>
-</div>
-<p>Click below to show diff:</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:10 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> description = &quot;A test project for presentation to the WSU Python Working Group.&quot;</span>
- authors = [
-     {name = &quot;Edward Eskew&quot;, email = &quot;edward.eskew@wsu.edu&quot;},
- ]
-<span class=" -Color -Color-Red">-dependencies = []</span>
-<span class=" -Color -Color-Green">+dependencies = [</span>
-<span class=" -Color -Color-Green">+    &quot;cowsay&gt;=5.0&quot;,</span>
-<span class=" -Color -Color-Green">+]</span>
- requires-python = &quot;&gt;=3.11&quot;
- readme = &quot;README.md&quot;
- license = {text = &quot;MIT&quot;}
-</pre></div>
-</div>
-</div>
-</details>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -782,37 +755,6 @@ Installing the project as an editable package...
 </div>
 </div>
 </div>
-<p>Click below to show diff:</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/utils.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:2 @</span>
-<span class=" -Color -Color-Green">+import cowsay</span>
-<span class=" -Color -Color-Green">+</span>
- def sarcasm(s):
-     &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;
-     out = &quot;&quot;
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:14 @</span><span class=" -Color -Color-Bold -Color-Bold-C146"> def sarcasm(s):</span>
-             out += c.upper()
- 
-     return out
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+def sarcastic_cowsay(s):</span>
-<span class=" -Color -Color-Green">+    &quot;&quot;&quot;Cowsay `s`, sArCaStIcAlLy.&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+    sarcastic_s = sarcasm(s)</span>
-<span class=" -Color -Color-Green">+    cowsay.cow(sarcastic_s)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
 <p>We can now run this new function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -875,47 +817,54 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span> successful
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.1.1</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.1.1</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
 
 🎉 All complete!
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...    
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...   
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.0</span>...      
 
 ?25h
 </pre></div>
@@ -944,31 +893,6 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 </pre></div>
 </div>
 </div>
-</div>
-<p>Click below to show diff:</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: pyproject.toml</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ pyproject.toml:4 @</span>
- [tool.pdm]
-<span class=" -Color -Color-Green">+[tool.pdm.dev-dependencies]</span>
-<span class=" -Color -Color-Green">+dev = [</span>
-<span class=" -Color -Color-Green">+    &quot;black&gt;=23.1.0&quot;,</span>
-<span class=" -Color -Color-Green">+]</span>
- 
- [project]
- name = &quot;eeskew-pwg-test-000&quot;
-</pre></div>
-</div>
-</div>
-</details>
 </div>
 <p>When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, by default, PDM will install dependencies from here in addition to the dependencies listed in <code class="docutils literal notranslate"><span class="pre">[project.dependencies]</span></code>.  A different tool like <code class="docutils literal notranslate"><span class="pre">pip</span></code>, however, will not.</p>
 <div class="admonition seealso">
@@ -1151,54 +1075,6 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 </div>
 </div>
 </div>
-<p>Click below to show diff:</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/utils.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:4 @</span>
- import cowsay
-<span class=" -Color -Color-Red">-</span>
-<span class=" -Color -Color-Red">-def sarcasm(s):</span>
-<span class=" -Color -Color-Green">+def sarcasm(</span>
-<span class=" -Color -Color-Green">+            s</span>
-<span class=" -Color -Color-Green">+          ):</span>
-     &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;
-<span class=" -Color -Color-Red">-    out = &quot;&quot;</span>
-<span class=" -Color -Color-Red">-    for i, c in enumerate(s):</span>
-<span class=" -Color -Color-Red">-        if i % 2 == 0:</span>
-<span class=" -Color -Color-Red">-            out += c.lower()</span>
-<span class=" -Color -Color-Green">+    out = &#39;&#39;</span>
-<span class=" -Color -Color-Green">+    for i,c in \</span>
-<span class=" -Color -Color-Green">+        enumerate( s ):</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+        if i% 2 ==0: out +=c.lower()</span>
- 
-         else:
-<span class=" -Color -Color-Red">-            out += c.upper()</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+</span>
-<span class=" -Color -Color-Green">+            out+= c.upper()</span>
- 
-     return out
- 
- def sarcastic_cowsay(s):
-     &quot;&quot;&quot;Cowsay `s`, sArCaStIcAlLy.&quot;&quot;&quot;
-<span class=" -Color -Color-Red">-    sarcastic_s = sarcasm(s)</span>
-<span class=" -Color -Color-Red">-    cowsay.cow(sarcastic_s)</span>
-<span class=" -Color -Color-Green">+    sarcastic_s = sarcasm(s); cowsay.cow(sarcastic_s)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
 <p>This is bad formatting!  Rather than fix it manually, we can run <code class="docutils literal notranslate"><span class="pre">black</span></code> on our code, which will auto-impose a reasonable style.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1207,7 +1083,7 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">reformatted /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-pwg-test-000/src/eeskew_pwg_test_000/utils.py</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">reformatted /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part1/eeskew-pwg-test-000/src/eeskew_pwg_test_000/utils.py</span>
 
 <span class=" -Color -Color-Bold">All done! ✨ 🍰 ✨</span>
 <span class=" -Color -Color-Bold -Color-Bold-Blue">1 file </span><span class=" -Color -Color-Bold">reformatted</span>, <span class=" -Color -Color-Blue">1 file </span>left unchanged.
@@ -1250,56 +1126,6 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 </div>
 </div>
 </div>
-<p>Click below to show diff:</p>
-<div class="cell tag_remove-input tag_hide-output docutils container">
-<details class="hide above-output">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell outputs</span>
-<span class="expanded">Hide code cell outputs</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">modified: src/eeskew_pwg_test_000/utils.py</span>
-<span class=" -Color -Color-Bold -Color-Bold-Cyan">────────────────────────────────────────────────────────────────────────────────</span>
-<span class=" -Color -Color-Bold -Color-Bold-C13">@ src/eeskew_pwg_test_000/utils.py:4 @</span>
- import cowsay
-<span class=" -Color -Color-Red">-def sarcasm(</span>
-<span class=" -Color -Color-Red">-            s</span>
-<span class=" -Color -Color-Red">-          ):</span>
-<span class=" -Color -Color-Red">-    &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Red">-    out = &#39;&#39;</span>
-<span class=" -Color -Color-Red">-    for i,c in \</span>
-<span class=" -Color -Color-Red">-        enumerate( s ):</span>
-<span class=" -Color -Color-Red">-</span>
-<span class=" -Color -Color-Red">-        if i% 2 ==0: out +=c.lower()</span>
-<span class=" -Color -Color-Red">-</span>
-<span class=" -Color -Color-Red">-        else:</span>
- 
- 
-<span class=" -Color -Color-Green">+def sarcasm(s):</span>
-<span class=" -Color -Color-Green">+    &quot;&quot;&quot;Convert string `s` to sArCaSm TeXt.&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Green">+    out = &quot;&quot;</span>
-<span class=" -Color -Color-Green">+    for i, c in enumerate(s):</span>
-<span class=" -Color -Color-Green">+        if i % 2 == 0:</span>
-<span class=" -Color -Color-Green">+            out += c.lower()</span>
- 
-<span class=" -Color -Color-Red">-            out+= c.upper()</span>
-<span class=" -Color -Color-Green">+        else:</span>
-<span class=" -Color -Color-Green">+            out += c.upper()</span>
- 
-     return out
- 
-<span class=" -Color -Color-Green">+</span>
- def sarcastic_cowsay(s):
-     &quot;&quot;&quot;Cowsay `s`, sArCaStIcAlLy.&quot;&quot;&quot;
-<span class=" -Color -Color-Red">-    sarcastic_s = sarcasm(s); cowsay.cow(sarcastic_s)</span>
-<span class=" -Color -Color-Green">+    sarcastic_s = sarcasm(s)</span>
-<span class=" -Color -Color-Green">+    cowsay.cow(sarcastic_s)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>See the <a class="reference external" href="https://black.readthedocs.io/en/stable/">black documentation</a> for more information.</p>
@@ -1314,7 +1140,7 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 <li><p><a class="reference external" href="https://pdm.fming.dev/latest/usage/venv/">Working with virtualenv</a></p></li>
 <li><p><a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/">Managing dependencies</a></p></li>
 </ul>
-<p>In Part 2, we’ll cover how to publish a PDM project on PyPI, so that it can be installed with a simple <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.</p>
+<p>In <a class="reference internal" href="part2.html"><span class="doc std std-doc">Part 2</span></a>, we’ll cover how to publish a PDM project on PyPI, so that it can be installed with a simple <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.</p>
 </section>
 </section>
 

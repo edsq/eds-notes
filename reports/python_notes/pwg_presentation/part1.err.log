@@ -25,10 +25,9 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Run startup commands
-source ../.bashnbrc
+git diff --color HEAD~ pyproject.toml | $project_dir/scripts/diff-so-fancy
 ------------------
 
 
-: 1
+: 127
 
