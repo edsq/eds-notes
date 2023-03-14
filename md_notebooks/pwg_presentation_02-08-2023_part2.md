@@ -64,9 +64,9 @@ pdm info
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Publishing on (Test)PyPI
 
-Part 2 of notes from a talk given to the WSU Python Working Group on February 8, 2023.
+Part 2 of notes from a talk given to the WSU Python Working Group on February 8, 2023.  See Part 1 [here](part1.ipynb).
 
-Here, we'll cover the basics of publishing a project on PyPI or TestPyPI using PDM,
+In this chapter, we'll cover the basics of publishing a project on PyPI or TestPyPI using PDM,
 including managing relevant project metadata.
 
 This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.

@@ -60,9 +60,9 @@ pdm info
 <!-- #region slideshow={"slide_type": "slide"} -->
 # Project Management with PDM
 
-Part 1 of notes from talk given to the WSU Python Working Group on February 8, 2023.
+Part 1 of notes from talk given to the WSU Python Working Group on February 8, 2023.  See Part 2 [here](part2.ipynb).
 
-Here I show the basics of project management with [PDM](https://pdm.fming.dev/latest/): how to create a project,
+In this chapter, I show the basics of project management with [PDM](https://pdm.fming.dev/latest/): how to create a project,
 add dependencies, and add development dependencies.
 
 This tutorial is primarily aimed at macOS and Linux users, although the commands for Windows should mostly translate.
@@ -655,5 +655,5 @@ That's all for Part 1!  The examples here should be enough to get you started us
 - [Working with virtualenv](https://pdm.fming.dev/latest/usage/venv/)
 - [Managing dependencies](https://pdm.fming.dev/latest/usage/dependency/)
 
-In Part 2, we'll cover how to publish a PDM project on PyPI, so that it can be installed with a simple `pip install`.
+In [Part 2](part2.ipynb), we'll cover how to publish a PDM project on PyPI, so that it can be installed with a simple `pip install`.
 <!-- #endregion -->
