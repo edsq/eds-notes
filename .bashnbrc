@@ -4,9 +4,10 @@ bind "set show-mode-in-prompt off"  # Turn off showing the vi mode in prompt, wh
 
 # Function for embedding a link to a file in the companion repo
 # Replaces a filename in curly braces with a link to the file in the repo @ HEAD
+# Requires the variable $GITHUB_URL to be set with an https url to the repository
 embed-repo-link() {
 file=$(echo $1 | awk -F '{|}' '{print $2}')  # get filename that was in curly braces
-link="https://github.com/edsq/eeskew-pwg-test-000/tree/$(git rev-parse HEAD)/$file"
+link="$GITHUB_URL/tree/$(git rev-parse HEAD)/$file"
 echo $1 | sed "s~{[^}]*}~[\`$file\`]($link)~g" | displayMD
 }
 

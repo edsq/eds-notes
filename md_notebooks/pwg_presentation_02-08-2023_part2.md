@@ -33,6 +33,7 @@ source $project_dir/.bashnbrc
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Make sure we're in the repo directory and git config is correct
+GITHUB_URL='https://github.com/edsq/eeskew-pwg-test-000'  # needed for embed-repo-link
 tmp_dir="_tmp_pwg_presentation_02-08-2023_part2"
 repo_name="eeskew-pwg-test-000"
 cd $project_dir/repos &&
