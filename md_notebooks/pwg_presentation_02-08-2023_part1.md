@@ -87,7 +87,7 @@ A companion repository with the example project created in these notes is availa
 
 First, create the project directory and `cd` into it:
 
-```bash
+```
 mkdir eeskew-pwg-test-000
 cd eeskew-pwg-test-000
 ```
@@ -108,13 +108,13 @@ Here, we'll use python version 3.11, but you may change this to be whatever you 
 
 Install python 3.11 if it is not already (see installed versions with `pyenv versions`):
 
-```bash
+```
 pyenv install 3.11
 ```
 
 Set the local python version for this project and initialize using that version:
 
-```bash
+```
 pyenv local 3.11
 pdm init --python python
 ```
@@ -127,7 +127,7 @@ pdm init --python python
 
 PDM can also use `conda` to create your virtual environment.  To do this simply, we create the virtual environment before initializing the project, so that we can pass the right python executable to `pdm init`.
 
-```bash
+```
 pdm venv create -w conda 3.11
 pdm init --python .venv/bin/python
 ```
@@ -139,13 +139,13 @@ pdm init --python .venv/bin/python
 
 Install python 3.11 if it is not already (see installed versions with `pyenv versions`):
 
-```bash
+```
 pyenv install 3.11
 ```
 
 Set the local python version for this project and initialize using that version:
 
-```bash
+```
 pyenv local 3.11
 pdm init --python python
 ```
@@ -157,7 +157,7 @@ pdm init --python python
 
 PDM can use `conda` to create your virtual environment.  To do this simply, we create the virtual environment before initializing the project, so that we can pass the right python executable to `pdm init`.
 
-```bash
+```
 pdm venv create -w conda 3.11
 pdm init --python .venv/bin/python
 ```
@@ -501,7 +501,7 @@ git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### What happened?
+### What did `pdm add -d` do?
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
@@ -509,7 +509,7 @@ embed-repo-link "We've added a new \`[dev-dependencies]\` sub-table to the \`[to
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-simple-diff HEAD~ pyproject.toml | show-code toml
+simple-diff --context 2 HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -596,7 +596,7 @@ embed-repo-link "Let's re-write {src/eeskew_pwg_test_000/utils.py} with delibera
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-simple-diff --context 2 HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
+simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -621,15 +621,23 @@ git-checkpoint
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
-### What happened?
+### What did `black` do?
 <!-- #endregion -->
 
-```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | $project_dir/scripts/diff-so-fancy
+```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input"]
+embed-repo-link "\`black\` has automatically re-formatted {src/eeskew_pwg_test_000/utils.py}, fixing the poor formatting we introduced earlier:"
 ```
 
-```bash slideshow={"slide_type": "notes"} trusted=true tags=["remove-input"]
-embed-repo-link "\`black\` has automatically re-formatted {src/eeskew_pwg_test_000/utils.py}, fixing the poor formatting we introduced earlier."
+```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
+simple-diff HEAD~ src/eeskew_pwg_test_000/utils.py | show-code python
+```
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+Click below to show diff:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "notes"} tags=["remove-input", "hide-output"] trusted=true
+git diff --color HEAD~ src/eeskew_pwg_test_000/utils.py | $project_dir/scripts/diff-so-fancy
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->

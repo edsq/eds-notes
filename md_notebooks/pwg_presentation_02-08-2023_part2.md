@@ -138,7 +138,7 @@ embed-repo-link "Now modify the {pyproject.toml} file so that the version is [dy
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-simple-diff HEAD~ pyproject.toml | show-code toml
+simple-diff --context 2 HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
@@ -197,6 +197,11 @@ See the [PDM docs on dynamic versioning](https://pdm.fming.dev/latest/pyproject/
 Let's review the project as it exists so far:
 <!-- #endregion -->
 
+```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
+# remove pycache to clean up output
+rm -r src/eeskew_pwg_test_000/__pycache__
+```
+
 ```bash slideshow={"slide_type": "fragment"} trusted=true
 tree
 ```
@@ -210,7 +215,7 @@ pdm build
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### What happened?
+### What did `pdm build` do?
 
 We've created a new directory named `dist`, where these two distribution formats have been placed.
 <!-- #endregion -->
@@ -439,7 +444,7 @@ git-checkpoint
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
-embed-repo-link "First, add a new module and new function to {src/eeskew_pwg_test_000/cli.py}":
+embed-repo-link "First, add a new module, {src/eeskew_pwg_test_000/cli.py}":
 ```
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true tags=["remove-input"]
