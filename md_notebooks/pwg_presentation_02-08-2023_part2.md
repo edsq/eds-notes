@@ -267,7 +267,7 @@ pdm config repository.testpypi.password "<PASTE_YOUR_TOKEN_HERE>"
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Setting up a test-publish PDM script
 
-To publish on PyPI, we could now simply run:
+To publish on TestPyPI, we could now simply run:
 
 ```bash
 pdm publish -r testpypi
