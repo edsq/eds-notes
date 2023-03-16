@@ -2,7 +2,7 @@ import subprocess
 
 
 def simple_diff(
-    file, comparison_commit=None, context=3, show_filename=True, comment_char="#"
+    file, comparison_commit=None, context=3, show_filename=True, comment_fmt="# {}"
 ):
     """Print a simplified git diff that doesn't show lines removed.
 
@@ -18,10 +18,12 @@ def simple_diff(
         example, compare against the parent of HEAD with "HEAD~".
     context : int, optional
         The number of lines of context to show.
-    show_filename : bool
+    show_filename : bool, optional
         Whether to print the filename at the top of the diff as a comment.
-    comment_char : str
-        The character(s) indicating the following line is a comment.
+    comment_fmt : str, optional
+        The comment format to use.  A pair of (empty) curly braces will be substituted
+        by the comment.  For example, showing the comment `"foobar.txt"` with
+        `comment_fmt="# {}"` will produce the comment `"# foobar.txt"`.
     """
     # Get diff output
     # `--unified=0` means zero context lines will be included in each hunk
@@ -84,7 +86,7 @@ def simple_diff(
 
     out_lines = []
     if show_filename:
-        out_lines.append(f"{comment_char} {file}")
+        out_lines.append(comment_fmt.format(file))
 
     if hunks[0][0] > 0:
         # Add ellipsis at beginning

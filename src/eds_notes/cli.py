@@ -22,9 +22,10 @@ def simple_diff_cli():
         action="store_false",
     )
     parser.add_argument(
-        "--comment-char",
-        help="The character(s) indicating the following line is a comment.",
-        default="#",
+        "--comment-fmt",
+        help="The comment format to use.  A pair of (empty) curly braces will be "
+        + "substituted by the comment.",
+        default="# {}",
     )
 
     args = parser.parse_args()
@@ -34,5 +35,5 @@ def simple_diff_cli():
         comparison_commit=args.commit,
         context=args.context,
         show_filename=args.no_show_filename,
-        comment_char=args.comment_char,
+        comment_fmt=args.comment_fmt,
     )
