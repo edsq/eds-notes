@@ -586,7 +586,7 @@ embed-repo-link "Let's update {README.md} to show our utility's usage:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-simple-diff HEAD~ README.md
+simple-diff --comment-fmt '<!-- {} -->' HEAD~ README.md
 ```
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
