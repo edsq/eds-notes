@@ -35,6 +35,7 @@ launch_buttons:
   binderhub_url: ""  # Disable binder button
 
 sphinx:
+  recursive_update: true  # https://github.com/executablebooks/jupyter-book/issues/1964#issuecomment-1474104807
   config:
     nb_merge_streams: true
     nb_render_markdown_format: "myst"
