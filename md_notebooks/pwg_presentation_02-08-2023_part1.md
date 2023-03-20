@@ -468,7 +468,7 @@ We didn't have to re-run `pdm install` to use our new function - this is because
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Add a development dependency
 
-The dependencies listed in the `project.dependencies` section of `pyproject.toml` will all be installed when someone runs `pip install eeskew_pwg_test_project`.  What if we have dependencies we only want in our development environment?
+The dependencies listed in the `project.dependencies` section of `pyproject.toml` will all be installed when someone runs `pip install eeskew-pwg-test-000`.  What if we have dependencies we only want in our development environment?
 
 Let's add `black`, a tool to automatically format our code:
 <!-- #endregion -->
