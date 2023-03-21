@@ -304,13 +304,13 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-VERSION=$(pdm show --version eeskew-pwg-test-000)
+PKG_NAME=$(pdm show --name | sed "s/-/_/g")
+VERSION=$(pdm show --version $PKG_NAME)
 pdm bump patch > /dev/null
-BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)
-DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)
-echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+DEV_VERSION=$(pdm show --version $PKG_NAME).dev$(date +%s)
+echo "__version__ = \"$DEV_VERSION\"" > src/$PKG_NAME/__version__.py
 pdm publish -r testpypi
-echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
 '''
 
 [tool.pdm.dev-dependencies]
@@ -467,13 +467,13 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-VERSION=$(pdm show --version eeskew-pwg-test-000)
+PKG_NAME=$(pdm show --name | sed "s/-/_/g")
+VERSION=$(pdm show --version $PKG_NAME)
 pdm bump patch > /dev/null
-BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)
-DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)
-echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+DEV_VERSION=$(pdm show --version $PKG_NAME).dev$(date +%s)
+echo "__version__ = \"$DEV_VERSION\"" > src/$PKG_NAME/__version__.py
 pdm publish -r testpypi
-echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
 '''
 
 [tool.pdm.dev-dependencies]
@@ -603,13 +603,13 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-VERSION=$(pdm show --version eeskew-pwg-test-000)
+PKG_NAME=$(pdm show --name | sed "s/-/_/g")
+VERSION=$(pdm show --version $PKG_NAME)
 pdm bump patch > /dev/null
-BUMPED_VERSION=$(pdm show --version eeskew-pwg-test-000)
-DEV_VERSION=$BUMPED_VERSION.dev$(date +%s)
-echo "__version__ = \"$DEV_VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+DEV_VERSION=$(pdm show --version $PKG_NAME).dev$(date +%s)
+echo "__version__ = \"$DEV_VERSION\"" > src/$PKG_NAME/__version__.py
 pdm publish -r testpypi
-echo "__version__ = \"$VERSION\"" > src/eeskew_pwg_test_000/__version__.py
+echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
 '''
 
 [tool.pdm.dev-dependencies]
