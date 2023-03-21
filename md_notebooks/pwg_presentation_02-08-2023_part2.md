@@ -359,10 +359,11 @@ A future release of `pdm-bump` will enable this script to be dramatically simpli
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 When we run `pdm run test-publish`, this script:
-1. Gets the current version with `pdm show --version`
-2. Changes the package version to a patch bump of that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
-3. Publishes the package on TestPyPI
-4. Returns the package version to its original value
+1. Gets the package name with `pdm show --name`, replacing dashes (`-`) with underscores (`_`).
+2. Gets the current version with `pdm show --version`.
+3. Changes the package version to a patch bump of that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
+4. Publishes the package on TestPyPI.
+5. Returns the package version to its original value.
 
 Let's run it!
 <!-- #endregion -->
