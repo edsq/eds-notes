@@ -264,6 +264,10 @@ pdm config repository.testpypi.password "<PASTE_YOUR_TOKEN_HERE>"
 ```
 <!-- #endregion -->
 
+:::{seealso}
+See the [PDM docs on configuring repositories for upload](https://pdm.fming.dev/latest/usage/config/#configure-the-repositories-for-upload) for more information.
+:::
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 ### Setting up a test-publish PDM script
 
@@ -278,7 +282,7 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
-See the [PDM docs on publishing to PyPI for more information](https://pdm.fming.dev/latest/usage/publish/).
+See the [PDM docs on publishing to PyPI](https://pdm.fming.dev/latest/usage/publish/) for more information.
 :::
 <!-- #endregion -->
 
@@ -385,6 +389,8 @@ Make a new PDM project, add TestPyPI to the local project indices, then install:
 pdm config --local pypi.test.url https://test.pypi.org/simple/
 pdm add your-package
 ```
+
+See the [PDM docs on configuring indices for install](https://pdm.fming.dev/latest/usage/config/#configure-the-package-indexes) for more information on installing from indices other than PyPI.
 :::
 
 :::{tab-item} venv or conda
