@@ -169,11 +169,19 @@ pdm init --python .venv/bin/python
 For
 
 ```
-Is the project a library that is installable?
-A few more questions will be asked to include a project name and build backend [y/n] (n):
+Would you like to create a virtualenv with <path-to-python>? [y/n] (y):
 ```
 
-select `y`.  Otherwise, all the default options should be good.
+Ensure you select `y`.  Otherwise, PDM will operate in "PEP 582 mode" - see note on this below.
+
+For
+
+```
+Is the project a library that is installable?
+If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n):
+```
+
+select `y`.  Otherwise, all the default options should be good, except where you want to fill in your own information (project description, email, etc).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
