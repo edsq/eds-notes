@@ -224,7 +224,7 @@ The `build-system` section tells the build frontend (e.g. `pip`) what build back
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
-See the [PDM docs on writing `pyproject.toml`](https://pdm.fming.dev/latest/pyproject/pep621/) for more on what can be specified in this file.
+See the [PDM docs on writing `pyproject.toml`](https://pdm.fming.dev/latest/reference/pep621/) for more on what can be specified in this file.
 :::
 <!-- #endregion -->
 
@@ -500,7 +500,7 @@ When we run `pdm install`, by default, PDM will install dependencies from here i
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
-See the [PDM docs on adding development dependencies](https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies) or the [PDM docs on development dependencies in `pyproject.toml`](https://pdm.fming.dev/latest/pyproject/tool-pdm/#development-dependencies) for more information on development dependencies.
+See the [PDM docs on adding development dependencies](https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies) for more information on development dependencies.
 :::
 <!-- #endregion -->
 

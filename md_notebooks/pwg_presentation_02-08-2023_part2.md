@@ -196,7 +196,7 @@ pdm run python -c "import eeskew_pwg_test_000; print(eeskew_pwg_test_000.__versi
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
-See the [PDM docs on dynamic versioning](https://pdm.fming.dev/latest/pyproject/build/#dynamic-versioning) for more information.
+See the [PDM docs on dynamic versioning](https://pdm.fming.dev/latest/reference/build/#dynamic-versioning) for more information.
 :::
 <!-- #endregion -->
 
@@ -278,7 +278,7 @@ Note that you do not need to run `pdm build` first - PDM will build the distribu
 
 <!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
-See the [PDM docs on publishing to PyPI for more information](https://pdm.fming.dev/latest/usage/project/#publish-the-project-to-pypi).
+See the [PDM docs on publishing to PyPI for more information](https://pdm.fming.dev/latest/usage/publish/).
 :::
 <!-- #endregion -->
 
