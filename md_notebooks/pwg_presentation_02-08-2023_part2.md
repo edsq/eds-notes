@@ -45,7 +45,7 @@ cd $tmp_dir/$repo_name
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
-git checkout 0e98acf
+git checkout 7ff4bbc
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true scrolled=true
@@ -95,7 +95,7 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "black>=23.1.0",
+    "black>=23.3.0",
 ]
 
 [project]
@@ -319,7 +319,7 @@ echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "black>=23.1.0",
+    "black>=23.3.0",
 ]
 
 [project]
@@ -485,7 +485,7 @@ echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "black>=23.1.0",
+    "black>=23.3.0",
 ]
 
 [project]
@@ -621,7 +621,7 @@ echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
 
 [tool.pdm.dev-dependencies]
 dev = [
-    "black>=23.1.0",
+    "black>=23.3.0",
 ]
 
 [project]
