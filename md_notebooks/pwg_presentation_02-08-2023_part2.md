@@ -361,6 +361,12 @@ A future release of `pdm-bump` will enable this script to be dramatically simpli
 :::
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "skip"} -->
+:::{seealso}
+See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) for more information on writing PDM scripts.
+:::
+<!-- #endregion -->
+
 <!-- #region slideshow={"slide_type": "subslide"} -->
 When we run `pdm run test-publish`, this script:
 1. Gets the package name with `pdm show --name`, replacing dashes (`-`) with underscores (`_`).
@@ -406,12 +412,6 @@ python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-ur
 
 Be sure not to `pip install` into your system or conda base environment!  First make a new virtual environment using PDM, venv, or conda, and test your install there.
 :::::
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "skip"} -->
-:::{seealso}
-See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) for more information on writing PDM scripts.
-:::
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
