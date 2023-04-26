@@ -80,6 +80,14 @@ A companion repository with the example project created in these notes is availa
 - The [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed
 <!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "fragment"} -->
+The version of PDM these notes use is:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"} trusted=true
+pdm --version
+```
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Set the python version and initialize the project
 
