@@ -8,7 +8,7 @@ docs/_build
 *.ipynb
 *.ipynb-checkpoints/*
 *.swp
-.pdm.toml
+.pdm-python
 !resources/**
 !docs/**/*.ipynb
 repos/_tmp*
