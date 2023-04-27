@@ -297,7 +297,7 @@ If you are publishing on PyPI (*not* TestPyPI), you probably don't want to use t
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed.
+First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed, at least version `0.7.0`.
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
@@ -308,13 +308,12 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-PKG_NAME=$(pdm show --name | sed "s/-/_/g")
-VERSION=$(pdm show --version $PKG_NAME)
-pdm bump patch > /dev/null
-DEV_VERSION=$(pdm show --version $PKG_NAME).dev$(date +%s)
-echo "__version__ = \"$DEV_VERSION\"" > src/$PKG_NAME/__version__.py
-pdm publish -r testpypi
-echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
+PKG_NAME="$(pdm show --name | sed "s/-/_/g")"
+VERSION="$(pdm show --version $PKG_NAME)"
+pdm bump micro > /dev/null &&
+pdm bump to "$(pdm show --version $PKG_NAME).dev$(date +%s)" &&
+pdm publish -r testpypi &&
+pdm bump to "$VERSION"
 '''
 
 [tool.pdm.dev-dependencies]
@@ -371,7 +370,7 @@ See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) f
 When we run `pdm run test-publish`, this script:
 1. Gets the package name with `pdm show --name`, replacing dashes (`-`) with underscores (`_`).
 2. Gets the current version with `pdm show --version`.
-3. Changes the package version to a patch bump of that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
+3. Changes the package version to a micro bump of that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
 4. Publishes the package on TestPyPI.
 5. Returns the package version to its original value.
 
@@ -474,13 +473,12 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-PKG_NAME=$(pdm show --name | sed "s/-/_/g")
-VERSION=$(pdm show --version $PKG_NAME)
-pdm bump patch > /dev/null
-DEV_VERSION=$(pdm show --version $PKG_NAME).dev$(date +%s)
-echo "__version__ = \"$DEV_VERSION\"" > src/$PKG_NAME/__version__.py
-pdm publish -r testpypi
-echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
+PKG_NAME="$(pdm show --name | sed "s/-/_/g")"
+VERSION="$(pdm show --version $PKG_NAME)"
+pdm bump micro > /dev/null &&
+pdm bump to "$(pdm show --version $PKG_NAME).dev$(date +%s)" &&
+pdm publish -r testpypi &&
+pdm bump to "$VERSION"
 '''
 
 [tool.pdm.dev-dependencies]
@@ -610,13 +608,12 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-PKG_NAME=$(pdm show --name | sed "s/-/_/g")
-VERSION=$(pdm show --version $PKG_NAME)
-pdm bump patch > /dev/null
-DEV_VERSION=$(pdm show --version $PKG_NAME).dev$(date +%s)
-echo "__version__ = \"$DEV_VERSION\"" > src/$PKG_NAME/__version__.py
-pdm publish -r testpypi
-echo "__version__ = \"$VERSION\"" > src/$PKG_NAME/__version__.py
+PKG_NAME="$(pdm show --name | sed "s/-/_/g")"
+VERSION="$(pdm show --version $PKG_NAME)"
+pdm bump micro > /dev/null &&
+pdm bump to "$(pdm show --version $PKG_NAME).dev$(date +%s)" &&
+pdm publish -r testpypi &&
+pdm bump to "$VERSION"
 '''
 
 [tool.pdm.dev-dependencies]
