@@ -165,7 +165,7 @@ We can check the version like so:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
-pdm show --version eeskew-pwg-test-000
+pdm show --version
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
@@ -308,10 +308,9 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-PKG_NAME="$(pdm show --name | sed "s/-/_/g")"
-VERSION="$(pdm show --version $PKG_NAME)"
+VERSION="$(pdm show --version)" &&
 pdm bump micro > /dev/null &&
-pdm bump to "$(pdm show --version $PKG_NAME).dev$(date +%s)" &&
+pdm bump to "$(pdm show --version).dev$(date +%s)" &&
 pdm publish -r testpypi &&
 pdm bump to "$VERSION"
 '''
@@ -368,9 +367,9 @@ See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) f
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
 When we run `pdm run test-publish`, this script:
-1. Gets the package name with `pdm show --name`, replacing dashes (`-`) with underscores (`_`).
-2. Gets the current version with `pdm show --version`.
-3. Changes the package version to a micro bump of that version with `.dev{date in seconds}` appended.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
+1. Gets the current version with `pdm show --version`.
+2. Applies a micro bump to the package version, e.g. `0.1.0 -> 0.1.1`.
+3. Appends `.dev{date in seconds}` to the micro bumped version.  This is a [developmental release](https://peps.python.org/pep-0440/#developmental-releases) format.
 4. Publishes the package on TestPyPI.
 5. Returns the package version to its original value.
 
@@ -473,10 +472,9 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-PKG_NAME="$(pdm show --name | sed "s/-/_/g")"
-VERSION="$(pdm show --version $PKG_NAME)"
+VERSION="$(pdm show --version)" &&
 pdm bump micro > /dev/null &&
-pdm bump to "$(pdm show --version $PKG_NAME).dev$(date +%s)" &&
+pdm bump to "$(pdm show --version).dev$(date +%s)" &&
 pdm publish -r testpypi &&
 pdm bump to "$VERSION"
 '''
@@ -608,10 +606,9 @@ version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
 
 [tool.pdm.scripts]
 test-publish.shell = '''\
-PKG_NAME="$(pdm show --name | sed "s/-/_/g")"
-VERSION="$(pdm show --version $PKG_NAME)"
+VERSION="$(pdm show --version)" &&
 pdm bump micro > /dev/null &&
-pdm bump to "$(pdm show --version $PKG_NAME).dev$(date +%s)" &&
+pdm bump to "$(pdm show --version).dev$(date +%s)" &&
 pdm publish -r testpypi &&
 pdm bump to "$VERSION"
 '''
