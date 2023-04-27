@@ -188,7 +188,23 @@ Is the project a library that is installable?
 If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n):
 ```
 
-select `y`.  Otherwise, all the default options should be good, except where you want to fill in your own information (project description, email, etc).
+select `y`.
+
+If you want to use `pdm-bump` in the [test-publish script described in Part 2](pwg_presentation:part2:test_publish_script), you'll need to use the now-deprecated `pdm-pep517` backend, so for:
+
+```
+Which build backend to use?
+0. pdm-backend
+1. setuptools
+2. flit-core
+3. hatchling
+4. pdm-pep517
+Please select (0):
+```
+
+select `4`.
+
+Otherwise, all the default options should be good, except where you want to fill in your own information (project description, email, etc).
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

@@ -272,6 +272,7 @@ See the [PDM docs on configuring repositories for upload](https://pdm.fming.dev/
 :::
 
 <!-- #region slideshow={"slide_type": "subslide"} -->
+(pwg_presentation:part2:test_publish_script)=
 ### Setting up a test-publish PDM script
 
 To publish on TestPyPI, we could now simply run:
@@ -301,6 +302,16 @@ If you are publishing on PyPI (*not* TestPyPI), you probably don't want to use t
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
 First, ensure you have the [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed, at least version `0.7.0`.
+
+Also ensure you are using the `pdm-pep517` backend: check the `[build-system]` table in `pyproject.toml`, which should read:
+
+```toml
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+```
+
+For the time being, this deprecated build backend is required for `pdm-bump` to work with dynamic versioning.
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
