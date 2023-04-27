@@ -372,6 +372,19 @@ add dependencies, and add development dependencies.</p>
 <li><p><a class="reference external" href="https://pdm.fming.dev/latest/">PDM</a> available globally</p></li>
 <li><p>The <a class="reference external" href="https://github.com/carstencodes/pdm-bump">pdm-bump</a> plugin installed</p></li>
 </ul>
+<p>The version of PDM these notes use is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>--version
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">PDM</span>, version <span class=" -Color -Color-Green">2.5.3</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="set-the-python-version-and-initialize-the-project">
 <h2>Set the python version and initialize the project<a class="headerlink" href="#set-the-python-version-and-initialize-the-project" title="Permalink to this headline">#</a></h2>
@@ -413,11 +426,16 @@ Using <code class="docutils literal notranslate"><span class="pre">conda</span><
 <section id="pdm-init-options">
 <h3><code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code> options<a class="headerlink" href="#pdm-init-options" title="Permalink to this headline">#</a></h3>
 <p>For</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Is the project a library that is installable?
-A few more questions will be asked to include a project name and build backend [y/n] (n):
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Would you like to create a virtualenv with &lt;path-to-python&gt;? [y/n] (y):
 </pre></div>
 </div>
-<p>select <code class="docutils literal notranslate"><span class="pre">y</span></code>.  Otherwise, all the default options should be good.</p>
+<p>Ensure you select <code class="docutils literal notranslate"><span class="pre">y</span></code>.  Otherwise, PDM will operate in “PEP 582 mode” - see note on this below.</p>
+<p>For</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Is the project a library that is installable?
+If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n):
+</pre></div>
+</div>
+<p>select <code class="docutils literal notranslate"><span class="pre">y</span></code>.  Otherwise, all the default options should be good, except where you want to fill in your own information (project description, email, etc).</p>
 </section>
 </section>
 <section id="the-pdm-project">
@@ -430,7 +448,7 @@ A few more questions will be asked to include a project name and build backend [
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">.</span>   <span class=" -Color -Color-Bold -Color-Bold-Blue">.git</span>        .pdm.toml        <span class=" -Color -Color-Bold -Color-Bold-Blue">.venv</span>      pyproject.toml
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">.</span>   <span class=" -Color -Color-Bold -Color-Bold-Blue">.git</span>        .pdm-python      <span class=" -Color -Color-Bold -Color-Bold-Blue">.venv</span>      pyproject.toml
 <span class=" -Color -Color-Bold -Color-Bold-Blue">..</span>  .gitignore  .python-version  README.md
 </pre></div>
 </div>
@@ -443,13 +461,13 @@ A few more questions will be asked to include a project name and build backend [
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>PDM supports the draft Python Enhancement Proposal (PEP) <a class="reference external" href="https://peps.python.org/pep-0582/">582</a>.  An alternative to virtual environments, PEP 582 would automatically get dependencies from a <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> directory in the project root, without having to activate a virtualenv.  See the PDM docs on PEP 582 <a class="reference external" href="https://pdm.fming.dev/latest/usage/pep582/">here</a>.  We will not be using PEP 582 mode in this tutorial.</p>
+<p>PDM supports the rejected Python Enhancement Proposal (PEP) <a class="reference external" href="https://peps.python.org/pep-0582/">582</a>.  An alternative to virtual environments, PEP 582 would automatically get dependencies from a <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code> directory in the project root, without having to activate a virtualenv.  See the PDM docs on PEP 582 <a class="reference external" href="https://pdm.fming.dev/latest/usage/pep582/">here</a>.  We will not be using PEP 582 mode in this tutorial.</p>
 </div>
 <section id="the-pyproject-toml-file">
 <h3>The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file<a class="headerlink" href="#the-pyproject-toml-file" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>The central location of our project configuration is <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/1efdf5a51d8e08a89cf4eca801982f230f57a233/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
+<p>The central location of our project configuration is <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/52e0b0893775a6d5881fda9d5de8b154d5588ae3/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -482,7 +500,7 @@ A few more questions will be asked to include a project name and build backend [
 <p>The <code class="docutils literal notranslate"><span class="pre">build-system</span></code> section tells the build frontend (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span></code>) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we’ll see later.  See <a class="reference external" href="https://peps.python.org/pep-0517/">PEP 517</a> for more information.  Here, we’re just using the default PDM backend.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/pep621/">PDM docs on writing <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more on what can be specified in this file.</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/reference/pep621/">PDM docs on writing <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more on what can be specified in this file.</p>
 </div>
 </section>
 </section>
@@ -506,7 +524,7 @@ touch<span class="w"> </span>src/eeskew_pwg_test_000/__init__.py
 <h3>Add a module<a class="headerlink" href="#add-a-module" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s add some code in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/013450d641d36a491e2d462158c14343e829de79/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
+<p>Let’s add some code in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fe7dbabe72819019cb909a4e2656c465009b2d01/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -608,7 +626,8 @@ Installing the project as an editable package...
 <span class="c1"># It is not intended for manual editing.</span>
 
 <span class="k">[metadata]</span>
-<span class="n">lock_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4.1&quot;</span>
+<span class="n">lock_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4.2&quot;</span>
+<span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;default&quot;</span><span class="p">]</span>
 <span class="n">content_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sha256:86165c41f17b4b263a688544a3ebc55eccc1713dd177c40649b2e936dab66751&quot;</span>
 
 <span class="k">[metadata.files]</span>
@@ -633,7 +652,6 @@ Installing the project as an editable package...
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">default</span> dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">cowsay</span>
 <span class=" -Color -Color-Cyan">⠙</span> Fetching hashes for resolved packages...
 🔒 Lock successful
-Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
 Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 ?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
 <span class=" -Color -Color-Bold">Synchronizing working set with lock file</span>: <span class=" -Color -Color-Green">1</span> to add, <span class=" -Color -Color-Yellow">0</span> to update, <span class=" -Color -Color-Red">0</span> to remove
@@ -653,7 +671,7 @@ Installing the project as an editable package...
 <h3>What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">add</span></code> do?<a class="headerlink" href="#what-did-pdm-add-do" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><code class="docutils literal notranslate"><span class="pre">cowsay</span></code> now appears as a dependency in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/638e95033297a58292ae2dfafb024b36907857a9/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cowsay</span></code> now appears as a dependency in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fcc083809724f6472f436beb22d76abfca56342c/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -678,7 +696,7 @@ Installing the project as an editable package...
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>We’ve also updated <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/638e95033297a58292ae2dfafb024b36907857a9/pdm.lock"><code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code></a> to include cowsay:</p>
+<p>We’ve also updated <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fcc083809724f6472f436beb22d76abfca56342c/pdm.lock"><code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code></a> to include cowsay:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -693,7 +711,8 @@ Installing the project as an editable package...
 <span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The famous cowsay for GNU/Linux is now available for python&quot;</span>
 
 <span class="k">[metadata]</span>
-<span class="n">lock_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4.1&quot;</span>
+<span class="n">lock_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4.2&quot;</span>
+<span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;default&quot;</span><span class="p">]</span>
 <span class="n">content_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sha256:a04c8eb9409090bc9acb94e5cec5ef19afdecacb2c169628142af5ca472135f0&quot;</span>
 
 <span class="k">[metadata.files]</span>
@@ -735,7 +754,7 @@ Installing the project as an editable package...
 <h3>Adding more code<a class="headerlink" href="#adding-more-code" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s add a new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/3f089150f47ca45e1adf3d3e4b804332a17878d2/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
+<p>Let’s add a new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/23a1ec1d6970c840e3a801a4b8d5ab3f13f70533/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -794,77 +813,70 @@ Installing the project as an editable package...
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adding packages to <span class=" -Color -Color-Cyan">dev</span> dev-dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">black</span>
-<span class=" -Color -Color-Cyan">⠏</span> Fetching hashes for resolved packages...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">Adding group </span><span class=" -Color -Color-Green">dev</span><span class=" -Color -Color-Blue"> to lockfile</span>
+Adding packages to <span class=" -Color -Color-Cyan">dev</span> dev-dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">black</span>
+<span class=" -Color -Color-Cyan">⠇</span> Fetching hashes for resolved packages...
 🔒 Lock successful
-Changes are written to <span class=" -Color -Color-Green">pdm.lock</span>.
 Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 ?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
 <span class=" -Color -Color-Bold">Synchronizing working set with lock file</span>: <span class=" -Color -Color-Green">6</span> to add, <span class=" -Color -Color-Yellow">0</span> to update, <span class=" -Color -Color-Red">0</span> to remove
 
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...         
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...         
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...         
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...       
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...         
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...       
   <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.1.1</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...         
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...       
+  <span class=" -Color -Color-Cyan">⠋</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.4.0</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
   <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span> successful
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span> successful
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
 
 🎉 All complete!
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.1.0</span>...         
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...          
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">mypy-extensions</span> <span class=" -Color -Color-Yellow">1.0.0</span>...
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.0</span>...       
-  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
+  <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
 
 ?25h
 </pre></div>
@@ -875,7 +887,7 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 <h3>What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">add</span> <span class="pre">-d</span></code> do?<a class="headerlink" href="#what-did-pdm-add-d-do" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>We’ve added a new <code class="docutils literal notranslate"><span class="pre">[dev-dependencies]</span></code> sub-table to the <code class="docutils literal notranslate"><span class="pre">[tool.pdm]</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/430bae70b33faa6724b8732c706cfb1259628926/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, which contains <code class="docutils literal notranslate"><span class="pre">black</span></code>:</p>
+<p>We’ve added a new <code class="docutils literal notranslate"><span class="pre">[dev-dependencies]</span></code> sub-table to the <code class="docutils literal notranslate"><span class="pre">[tool.pdm]</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/ea8ea21fe8bdd22b165912eb42b562368b2058c4/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, which contains <code class="docutils literal notranslate"><span class="pre">black</span></code>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -884,7 +896,7 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 <span class="k">[tool.pdm]</span>
 <span class="k">[tool.pdm.dev-dependencies]</span>
 <span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&quot;black&gt;=23.1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;black&gt;=23.3.0&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="k">[project]</span>
@@ -897,7 +909,7 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 <p>When we run <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">install</span></code>, by default, PDM will install dependencies from here in addition to the dependencies listed in <code class="docutils literal notranslate"><span class="pre">[project.dependencies]</span></code>.  A different tool like <code class="docutils literal notranslate"><span class="pre">pip</span></code>, however, will not.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies">PDM docs on adding development dependencies</a> or the <a class="reference external" href="https://pdm.fming.dev/latest/pyproject/tool-pdm/#development-dependencies">PDM docs on development dependencies in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more information on development dependencies.</p>
+<p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/dependency/#add-development-only-dependencies">PDM docs on adding development dependencies</a> for more information on development dependencies.</p>
 </div>
 <p>The lockfile has also been updated:</p>
 <div class="cell tag_output_scroll docutils container">
@@ -912,7 +924,7 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 
 [[package]]
 name = &quot;black&quot;
-version = &quot;23.1.0&quot;
+version = &quot;23.3.0&quot;
 requires_python = &quot;&gt;=3.7&quot;
 summary = &quot;The uncompromising code formatter.&quot;
 dependencies = [
@@ -951,7 +963,7 @@ summary = &quot;Type system extensions for programs checked with the mypy type c
 
 [[package]]
 name = &quot;packaging&quot;
-version = &quot;23.0&quot;
+version = &quot;23.1&quot;
 requires_python = &quot;&gt;=3.7&quot;
 summary = &quot;Core utilities for Python packages&quot;
 
@@ -963,41 +975,42 @@ summary = &quot;Utility library for gitignore style pattern matching of file pat
 
 [[package]]
 name = &quot;platformdirs&quot;
-version = &quot;3.1.1&quot;
+version = &quot;3.4.0&quot;
 requires_python = &quot;&gt;=3.7&quot;
 summary = &quot;A small Python package for determining appropriate platform-specific dirs, e.g. a \&quot;user data dir\&quot;.&quot;
 
 [metadata]
-lock_version = &quot;4.1&quot;
-content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b847a36f7bbf2&quot;
+lock_version = &quot;4.2&quot;
+groups = [&quot;default&quot;, &quot;dev&quot;]
+content_hash = &quot;sha256:715ad39cb3ddf659e0afedfb18dcade3de83c16696c31ed976bbf46bb61aaa3a&quot;
 
 [metadata.files]
-&quot;black 23.1.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/01/8a/065d0a59c1ebe13186b12a2fa3965a41fc1588828709995e2630004d216e/black-23.1.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:8178318cb74f98bc571eef19068f6ab5613b3e59d4f47771582f04e175570ed8&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/15/11/533355217b1cc4a6df3263048060c1527f733d4720e158de2085293112bb/black-23.1.0.tar.gz&quot;, hash = &quot;sha256:b0bd97bea8903f5a2ba7219257a44e3f1f9d00073d6cc1add68f0beec69692ac&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/18/99/bb1be0ff3a7e912679ad234a3c4884fa7689dfcc4eae85bddb6c04feaa62/black-23.1.0-py3-none-any.whl&quot;, hash = &quot;sha256:7a0f701d314cfa0896b9001df70a530eb2472babb76086344e688829efd97d32&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/20/de/eff8e3ccc22b5c2be1265a9e61f1006d03e194519a3ca2e83dd8483dbbb5/black-23.1.0-cp38-cp38-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:49f7b39e30f326a34b5c9a4213213a6b221d7ae9d58ec70df1c4a307cf2a1580&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/2d/9a/a81bf384a08d8a5e13d97223a60a74ac3c16c0aecdbd85edbc662d158bde/black-23.1.0-cp310-cp310-win_amd64.whl&quot;, hash = &quot;sha256:9afd3f493666a0cd8f8df9a0200c6359ac53940cbde049dcb1a7eb6ee2dd7074&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/32/a7/1d207427b87780c505a41c9430d26362e729954503b8ffba27c4f53a6810/black-23.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:2bf649fda611c8550ca9d7592b69f0637218c2369b7744694c5e4902873b2f3a&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/3d/dc/12dc29bb38b8db68c79b8339de1590fe1ae796858bfa6cf7494eb672be21/black-23.1.0-cp38-cp38-win_amd64.whl&quot;, hash = &quot;sha256:8b70eb40a78dfac24842458476135f9b99ab952dd3f2dab738c1881a9b38b753&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/3e/c0/abc7031d670d211e4e2a063910d587dfcb62ce469631e779b23b66653442/black-23.1.0-cp310-cp310-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:57c18c5165c1dbe291d5306e53fb3988122890e57bd9b3dcb75f967f13411a26&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/43/bc/5232fd6b0fd6d6177140cfb7d8f0f0e06638e2a750122767e265beb91161/black-23.1.0-cp39-cp39-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:a29650759a6a0944e7cca036674655c2f0f63806ddecc45ed40b7b8aa314b651&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/6b/d1/4394e4b0a24ad0f556aca3ab11e27f2e199f03b43f147c31a4befbf62b48/black-23.1.0-cp311-cp311-win_amd64.whl&quot;, hash = &quot;sha256:121ca7f10b4a01fd99951234abdbd97728e1240be89fde18480ffac16503d481&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/77/11/db2ae5bf93af5185086d9b1baf4ce369ca34c3a01835230873aa9163d52d/black-23.1.0-cp39-cp39-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:bb460c8561c8c1bec7824ecbc3ce085eb50005883a6203dcfb0122e95797ee06&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/7e/fe/6c05c3f9255b7b498cfb88faa85b45329f1b7b0ecb444ebdc6b74ffa1457/black-23.1.0-cp311-cp311-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:c1c476bc7b7d021321e7d93dc2cbd78ce103b84d5a4cf97ed535fbc0d6660648&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/96/af/3361b34907efbfd9d55af453488be2282f831d98b7d201248b38d4c44346/black-23.1.0-cp37-cp37m-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:a8471939da5e824b891b25751955be52ee7f8a30a916d570a5ba8e0f2eb2ecad&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/9a/ee/549e8be7f635cabcc3c7c3f2c3b27971dc32735155631b9ef2dcb1bd861f/black-23.1.0-cp311-cp311-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:bfffba28dc52a58f04492181392ee380e95262af14ee01d4bc7bb1b1c6ca8d27&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/a4/ec/934e89820289e6952922fa5965aec0e046ed65da168ffb0515af1e3364e1/black-23.1.0-cp38-cp38-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:a59db0a2094d2259c554676403fa2fac3473ccf1354c1c63eccf7ae65aac8ab6&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/ae/93/1e62fe94ab531bdc3f6cbbbd5b518727277bf40f695777b4097db5da2a38/black-23.1.0-cp39-cp39-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:c91dfc2c2a4e50df0026f88d2215e166616e0c80e86004d0003ece0488db2739&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/b1/7e/c368e9c795387a01bc181d8acbfd178278cc9960c5e7ef1059222a4419f9/black-23.1.0-cp37-cp37m-win_amd64.whl&quot;, hash = &quot;sha256:a436e7881d33acaf2536c46a454bb964a50eff59b21b51c6ccf5a40601fbef24&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/b7/33/8e074fd8b86a1c8668f5493ed28929d87bdccb6aa68c2975b47a02f92287/black-23.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:2a951cc83ab535d248c89f300eccbd625e80ab880fbcfb5ac8afb5f01a258ac9&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/be/f9/11e401323cd5b4e53d138fc880564765466a86acd2d4b50d7c8cdd048c18/black-23.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:e6663f91b6feca5d06f2ccd49a10f254f9298cc1f7f49c46e498a0771b507104&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/c0/1d/8dac412cf5cc4120a438969a4fafefdc3de8fa13d411f317a9f9f1e268a4/black-23.1.0-cp39-cp39-win_amd64.whl&quot;, hash = &quot;sha256:0680d4380db3719ebcfb2613f34e86c8e6d15ffeabcf8ec59355c5e7b85bb555&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/cf/fe/dda4b7eedb9d4dc46e306b814f7838cd9026907fdc889f75eb9f6d47d414/black-23.1.0-cp310-cp310-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:9880d7d419bb7e709b37e28deb5e68a49227713b623c72b2b931028ea65f619b&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/d0/cb/0a38ffdafbb4b3f337adaf1b79aeaf4b8a21ed18835acad6349e46c78c80/black-23.1.0-cp310-cp310-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:b6a92a41ee34b883b359998f0c8e6eb8e99803aa8bf3123bf2b2e6fec505a221&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/dd/19/875b5006e40ea69a4120671f50317100b24732f2b877203722c91bc4eef3/black-23.1.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:162e37d49e93bd6eb6f1afc3e17a3d23a823042530c37c3c42eeeaf026f38468&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/e6/0a/9a5fca4a2ca07d4dbc3b00445c9353f05ea182b000f68c9ad6ba1da87a47/black-23.1.0-cp38-cp38-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:0052dba51dec07ed029ed61b18183942043e00008ec65d5028814afaab9a22fd&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/f1/89/ccc28cb74a66c094b609295b009b5e0350c10b75661d2450eeed2f60ce37/black-23.1.0-cp311-cp311-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:382998821f58e5c8238d3166c492139573325287820963d2f7de4d518bd76958&quot;},
+&quot;black 23.3.0&quot; = [
+    {url = &quot;https://files.pythonhosted.org/packages/06/1e/273d610249f0335afb1ddb03664a03223f4826e3d1a95170a0142cb19fb4/black-23.3.0-cp39-cp39-win_amd64.whl&quot;, hash = &quot;sha256:6b39abdfb402002b8a7d030ccc85cf5afff64ee90fa4c5aebc531e3ad0175ddb&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/12/4b/99c71d1cf1353edd5aff2700b8960f92e9b805c9dab72639b67dbb449d3a/black-23.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:562bd3a70495facf56814293149e51aa1be9931567474993c7942ff7d3533961&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/13/0a/ed8b66c299e896780e4528eed4018f5b084da3b9ba4ee48328550567d866/black-23.3.0-cp38-cp38-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:064101748afa12ad2291c2b91c960be28b817c0c7eaa35bec09cc63aa56493c5&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/13/25/cfa06788d0a936f2445af88f13604b5bcd5c9d050db618c718e6ebe66f74/black-23.3.0-cp39-cp39-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:3238f2aacf827d18d26db07524e44741233ae09a584273aa059066d644ca7b30&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/21/14/d5a2bec5fb15f9118baab7123d344646fac0b1c6939d51c2b05259cd2d9c/black-23.3.0-cp38-cp38-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:714290490c18fb0126baa0fca0a54ee795f7502b44177e1ce7624ba1c00f2331&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/24/eb/2d2d2c27cb64cfd073896f62a952a802cd83cf943a692a2f278525b57ca9/black-23.3.0-cp37-cp37m-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:1d06691f1eb8de91cd1b322f21e3bfc9efe0c7ca1f0e1eb1db44ea367dff656b&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/27/70/07aab2623cfd3789786f17e051487a41d5657258c7b1ef8f780512ffea9c/black-23.3.0-cp310-cp310-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:67de8d0c209eb5b330cce2469503de11bca4085880d62f1628bd9972cc3366b9&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/29/b1/b584fc863c155653963039664a592b3327b002405043b7e761b9b0212337/black-23.3.0-cp310-cp310-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:7c3eb7cea23904399866c55826b31c1f55bbcd3890ce22ff70466b907b6775c2&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/3c/d7/85f3d79f9e543402de2244c4d117793f262149e404ea0168841613c33e07/black-23.3.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:3a150542a204124ed00683f0db1f5cf1c2aaaa9cc3495b7a3b5976fb136090ab&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/3f/0d/81dd4194ce7057c199d4f28e4c2a885082d9d929e7a55c514b23784f7787/black-23.3.0-cp311-cp311-win_amd64.whl&quot;, hash = &quot;sha256:11c410f71b876f961d1de77b9699ad19f939094c3a677323f43d7a29855fe326&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/49/36/15d2122f90ff1cd70f06892ebda777b650218cf84b56b5916a993dc1359a/black-23.3.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:50cb33cac881766a5cd9913e10ff75b1e8eb71babf4c7104f2e9c52da1fb7de2&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/49/d7/f3b7da6c772800f5375aeb050a3dcf682f0bbeb41d313c9c2820d0156e4e/black-23.3.0-cp39-cp39-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:92c543f6854c28a3c7f39f4d9b7694f9a6eb9d3c5e2ece488c327b6e7ea9b266&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/69/49/7e1f0cf585b0d607aad3f971f95982cc4208fc77f92363d632d23021ee57/black-23.3.0-cp311-cp311-macosx_10_16_x86_64.whl&quot;, hash = &quot;sha256:a6f6886c9869d4daae2d1715ce34a19bbc4b95006d20ed785ca00fa03cba312d&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/6d/b4/0f13ab7f5e364795ff82b76b0f9a4c9c50afda6f1e2feeb8b03fdd7ec57d/black-23.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:32daa9783106c28815d05b724238e30718f34155653d4d6e125dc7daec8e260c&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/ad/e7/4642b7f462381799393fbad894ba4b32db00870a797f0616c197b07129a9/black-23.3.0-py3-none-any.whl&quot;, hash = &quot;sha256:ec751418022185b0c1bb7d7736e6933d40bbb14c14a0abcf9123d1b159f98dd4&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/c0/53/42e312c17cfda5c8fc4b6b396a508218807a3fcbb963b318e49d3ddd11d5/black-23.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl&quot;, hash = &quot;sha256:6f3c333ea1dd6771b2d3777482429864f8e258899f6ff05826c3a4fcc5ce3f70&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/ca/44/eb41edd3f558a6139f09eee052dead4a7a464e563b822ddf236f5a8ee286/black-23.3.0-cp37-cp37m-win_amd64.whl&quot;, hash = &quot;sha256:e114420bf26b90d4b9daa597351337762b63039752bdf72bf361364c1aa05925&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/ce/f4/2b0c6ac9e1f8584296747f66dd511898b4ebd51d6510dba118279bff53b6/black-23.3.0-cp38-cp38-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:48f9d345675bb7fbc3dd85821b12487e1b9a75242028adad0333ce36ed2a6d27&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/d1/6e/5810b6992ed70403124c67e8b3f62858a32b35405177553f1a78ed6b6e31/black-23.3.0-cp38-cp38-win_amd64.whl&quot;, hash = &quot;sha256:e198cf27888ad6f4ff331ca1c48ffc038848ea9f031a3b40ba36aced7e22f2c8&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/d6/36/66370f5017b100225ec4950a60caeef60201a10080da57ddb24124453fba/black-23.3.0.tar.gz&quot;, hash = &quot;sha256:1c7b8d606e728a41ea1ccbd7264677e494e87cf630e399262ced92d4a8dac940&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/d7/6f/d3832960a3b646b333b7f0d80d336a3c123012e9d9d5dba4a622b2b6181d/black-23.3.0-cp311-cp311-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:a8a968125d0a6a404842fa1bf0b349a568634f856aa08ffaff40ae0dfa52e7c6&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/db/f4/7908f71cc71da08df1317a3619f002cbf91927fb5d3ffc7723905a2113f7/black-23.3.0-cp310-cp310-macosx_10_16_arm64.whl&quot;, hash = &quot;sha256:0945e13506be58bf7db93ee5853243eb368ace1c08a24c65ce108986eac65915&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/de/b4/76f152c5eb0be5471c22cd18380d31d188930377a1a57969073b89d6615d/black-23.3.0-cp310-cp310-win_amd64.whl&quot;, hash = &quot;sha256:35d1381d7a22cc5b2be2f72c7dfdae4072a3336060635718cc7e1ede24221d6c&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/eb/a5/17b40bfd9b607b69fa726b0b3a473d14b093dcd5191ea1a1dd664eccfee3/black-23.3.0-cp311-cp311-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:c7ab5790333c448903c4b721b59c0d80b11fe5e9803d8703e84dcb8da56fec1b&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/fd/5b/fc2d7922c1a6bb49458d424b5be71d251f2d0dc97be9534e35d171bdc653/black-23.3.0-cp39-cp39-macosx_10_16_universal2.whl&quot;, hash = &quot;sha256:f0bd2f4a58d6666500542b26354978218a9babcdc972722f4bf90779524515f3&quot;},
 ]
 &quot;click 8.1.3&quot; = [
     {url = &quot;https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz&quot;, hash = &quot;sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e&quot;},
@@ -1014,17 +1027,17 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
     {url = &quot;https://files.pythonhosted.org/packages/2a/e2/5d3f6ada4297caebe1a2add3b126fe800c96f56dbe5d1988a2cbe0b267aa/mypy_extensions-1.0.0-py3-none-any.whl&quot;, hash = &quot;sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d&quot;},
     {url = &quot;https://files.pythonhosted.org/packages/98/a4/1ab47638b92648243faf97a5aeb6ea83059cc3624972ab6b8d2316078d3f/mypy_extensions-1.0.0.tar.gz&quot;, hash = &quot;sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782&quot;},
 ]
-&quot;packaging 23.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/47/d5/aca8ff6f49aa5565df1c826e7bf5e85a6df852ee063600c1efa5b932968c/packaging-23.0.tar.gz&quot;, hash = &quot;sha256:b6ad297f8907de0fa2fe1ccbd26fdaf387f5f47c7275fedf8cce89f99446cf97&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/ed/35/a31aed2993e398f6b09a790a181a7927eb14610ee8bbf02dc14d31677f1c/packaging-23.0-py3-none-any.whl&quot;, hash = &quot;sha256:714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2&quot;},
+&quot;packaging 23.1&quot; = [
+    {url = &quot;https://files.pythonhosted.org/packages/ab/c3/57f0601a2d4fe15de7a553c00adbc901425661bf048f2a22dfc500caf121/packaging-23.1-py3-none-any.whl&quot;, hash = &quot;sha256:994793af429502c4ea2ebf6bf664629d07c1a9fe974af92966e4b8d2df7edc61&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz&quot;, hash = &quot;sha256:a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f&quot;},
 ]
 &quot;pathspec 0.11.1&quot; = [
     {url = &quot;https://files.pythonhosted.org/packages/95/60/d93628975242cc515ab2b8f5b2fc831d8be2eff32f5a1be4776d49305d13/pathspec-0.11.1.tar.gz&quot;, hash = &quot;sha256:2798de800fa92780e33acca925945e9a19a133b715067cf165b8866c15a31687&quot;},
     {url = &quot;https://files.pythonhosted.org/packages/be/c8/551a803a6ebb174ec1c124e68b449b98a0961f0b737def601e3c1fbb4cfd/pathspec-0.11.1-py3-none-any.whl&quot;, hash = &quot;sha256:d8af70af76652554bd134c22b3e8a1cc46ed7d91edcdd721ef1a0c51a84a5293&quot;},
 ]
-&quot;platformdirs 3.1.1&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/79/c4/f98a05535344f79699bbd494e56ac9efc986b7a253fe9f4dba7414a7f505/platformdirs-3.1.1.tar.gz&quot;, hash = &quot;sha256:024996549ee88ec1a9aa99ff7f8fc819bb59e2c3477b410d90a16d32d6e707aa&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/7b/e1/593f693096c50411a2bf9571f66bc3be9d0f79a4a50e95aab581458b0e3c/platformdirs-3.1.1-py3-none-any.whl&quot;, hash = &quot;sha256:e5986afb596e4bb5bde29a79ac9061aa955b94fca2399b7aaac4090860920dd8&quot;},
+&quot;platformdirs 3.4.0&quot; = [
+    {url = &quot;https://files.pythonhosted.org/packages/5e/ac/26d3d2a99b5fc84852229fc8470ae612595900f7f52c78468fd3f3a15a27/platformdirs-3.4.0.tar.gz&quot;, hash = &quot;sha256:a5e1536e5ea4b1c238a1364da17ff2993d5bd28e15600c2c8224008aff6bbcad&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/6c/fe/f6001fac1337528c14b353298d38748ee2387db0c262587ff4e7c68b5769/platformdirs-3.4.0-py3-none-any.whl&quot;, hash = &quot;sha256:01437886022decaf285d8972f9526397bfae2ac55480ed372ed6d9eca048870a&quot;},
 ]
 </pre></div>
 </div>
@@ -1043,7 +1056,7 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 <p>We can now run <code class="docutils literal notranslate"><span class="pre">black</span></code> within our environment.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s re-write <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/76c040762eab6d0d3f2b5275471d6fcf72fc6a31/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a> with deliberately poor formatting:</p>
+<p>Let’s re-write <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/2899bbe9d807fb8a4e3e1c2088fe84313c6d3842/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a> with deliberately poor formatting:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1096,7 +1109,7 @@ content_hash = &quot;sha256:62a438f3cf3f36e776dcb27b9168623bf45eb25cc80b4dfb4f4b
 <h3>What did <code class="docutils literal notranslate"><span class="pre">black</span></code> do?<a class="headerlink" href="#what-did-black-do" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><code class="docutils literal notranslate"><span class="pre">black</span></code> has automatically re-formatted <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/461b5ee8725c878cc86a99eddfd86771e9bf21a3/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>, fixing the poor formatting we introduced earlier:</p>
+<p><code class="docutils literal notranslate"><span class="pre">black</span></code> has automatically re-formatted <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/8e4d1b755cd4b7a485b2c8e3341107e98fe9b298/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>, fixing the poor formatting we introduced earlier:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
