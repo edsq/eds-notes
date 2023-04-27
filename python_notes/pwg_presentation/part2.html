@@ -579,7 +579,7 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 </div>
 </section>
 <section id="setting-up-a-test-publish-pdm-script">
-<h3>Setting up a test-publish PDM script<a class="headerlink" href="#setting-up-a-test-publish-pdm-script" title="Permalink to this headline">#</a></h3>
+<span id="pwg-presentation-part2-test-publish-script"></span><h3>Setting up a test-publish PDM script<a class="headerlink" href="#setting-up-a-test-publish-pdm-script" title="Permalink to this headline">#</a></h3>
 <p>To publish on TestPyPI, we could now simply run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>publish<span class="w"> </span>-r<span class="w"> </span>testpypi
 </pre></div>
@@ -595,6 +595,13 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <p>If you are publishing on PyPI (<em>not</em> TestPyPI), you probably don’t want to use this script.  Publishing will be as simple as running <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">bump</span> <span class="pre">{version}</span></code> to increment your package version number (for example, <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">bump</span> <span class="pre">patch</span></code>), and then publishing with <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">publish</span></code> (equivalent to <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">publish</span> <span class="pre">-r</span> <span class="pre">pypyi</span></code>).</p>
 </div>
 <p>First, ensure you have the <a class="reference external" href="https://github.com/carstencodes/pdm-bump">pdm-bump</a> plugin installed, at least version <code class="docutils literal notranslate"><span class="pre">0.7.0</span></code>.</p>
+<p>Also ensure you are using the <code class="docutils literal notranslate"><span class="pre">pdm-pep517</span></code> backend: check the <code class="docutils literal notranslate"><span class="pre">[build-system]</span></code> table in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, which should read:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;pdm-pep517&gt;=1.0&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pdm.pep517.api&quot;</span>
+</pre></div>
+</div>
+<p>For the time being, this deprecated build backend is required for <code class="docutils literal notranslate"><span class="pre">pdm-bump</span></code> to work with dynamic versioning.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p>We add a new PDM script in the <code class="docutils literal notranslate"><span class="pre">tool.pdm.scripts</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/999c1b0799f836b82a8b80329bafbb84f825fa1a/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
@@ -624,10 +631,6 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A future release of <code class="docutils literal notranslate"><span class="pre">pdm-bump</span></code> will enable this script to be dramatically simplified, or even entirely unecessary.  See this <a class="reference external" href="https://github.com/carstencodes/pdm-bump/issues/38#issuecomment-1427082451">GitHub issue</a>.</p>
-</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>See the <a class="reference external" href="https://pdm.fming.dev/latest/usage/scripts/">PDM docs on PDM scripts</a> for more information on writing PDM scripts.</p>
@@ -651,13 +654,13 @@ pdm<span class="w"> </span>config<span class="w"> </span>repository.testpypi.pas
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1682556584.tar.gz
+wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1682559838.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1682556584-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1682556584-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1682556584.tar.gz</span>
+wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1682559838-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1682559838-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1682559838.tar.gz</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -677,17 +680,10 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev168255
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.8/4.8 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.9/3.9 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.0/4.0 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1682556584/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1682559838/
 </pre></div>
 </div>
 </div>
@@ -903,13 +899,13 @@ $ sarcasticow &quot;I&#39;m a sarcastic cow&quot;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building sdist...
 Built sdist at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1682556608.tar.gz
+wg-test-000/dist/eeskew-pwg-test-000-0.1.1.dev1682559862.tar.gz
 Building wheel...
 Built wheel at 
 /Users/Ed/python/eds-notes/repos/_tmp_pwg_presentation_02-08-2023_part2/eeskew-p
-wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1682556608-py3-none-any.whl
-Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1682556608-py3-none-any.whl</span>
-Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1682556608.tar.gz</span>
+wg-test-000/dist/eeskew_pwg_test_000-0.1.1.dev1682559862-py3-none-any.whl
+Uploading <span class=" -Color -Color-Green">eeskew_pwg_test_000-0.1.1.dev1682559862-py3-none-any.whl</span>
+Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev1682559862.tar.gz</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
@@ -929,10 +925,12 @@ Uploading <span class=" -Color -Color-Green">eeskew-pwg-test-000-0.1.1.dev168255
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
  <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
- <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/5.2 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.5/6.5 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
+ <span class=" -Color -Color-Magenta">100%</span> <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.3/5.3 kB</span> • <span class=" -Color -Color-Yellow">00:00</span> • <span class=" -Color -Color-Red">?</span>
 ?25h
 <span class=" -Color -Color-Green">View at:</span>
-https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1682556608/
+https://test.pypi.org/project/eeskew-pwg-test-000/0.1.1.dev1682559862/
 </pre></div>
 </div>
 </div>
