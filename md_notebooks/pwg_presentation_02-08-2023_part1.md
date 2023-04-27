@@ -77,7 +77,6 @@ A companion repository with the example project created in these notes is availa
 
 - The ability to get python executables of different versions, such as with [pyenv](https://github.com/pyenv/pyenv) or [conda](https://docs.conda.io/en/latest/miniconda.html)
 - [PDM](https://pdm.fming.dev/latest/) available globally
-- The [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->

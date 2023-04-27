@@ -76,6 +76,9 @@ A companion repository with the example project created in these notes is availa
 :::
 <!-- #endregion -->
 
+## Additional requirements
+- The [pdm-bump](https://github.com/carstencodes/pdm-bump) plugin installed, at least version `0.7.0`
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Package version
 
