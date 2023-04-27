@@ -368,12 +368,6 @@ simple-diff HEAD~ pyproject.toml | show-code toml
 ```
 
 <!-- #region slideshow={"slide_type": "skip"} -->
-:::{note}
-A future release of `pdm-bump` will enable this script to be dramatically simplified, or even entirely unecessary.  See this [GitHub issue](https://github.com/carstencodes/pdm-bump/issues/38#issuecomment-1427082451).
-:::
-<!-- #endregion -->
-
-<!-- #region slideshow={"slide_type": "skip"} -->
 :::{seealso}
 See the [PDM docs on PDM scripts](https://pdm.fming.dev/latest/usage/scripts/) for more information on writing PDM scripts.
 :::
