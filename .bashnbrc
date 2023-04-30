@@ -19,8 +19,20 @@ $(cat $2)
 \`\`\`" | displayMD
 }
 
-# Checkpoint alias: checks out the next commit, failing if this would change the working tree
-alias git-checkpoint='git add -A && git checkout $(git rev-list --topo-order HEAD...main | tail -1)'
+# git checkpoint: checks out the next commit, failing if this would change the working tree
+git-checkpoint() {
+next_commit="$(git rev-list --topo-order HEAD...main | tail -1)"
+git add -A
+
+if ! git diff --quiet $next_commit; then
+    echo "git-checkpoint error - differences found with next commit:"
+    git diff $next_commit
+    git restore --staged *
+    return 1
+fi
+
+git switch -d $next_commit
+}
 
 # Alias for colored ls
 alias ls="gls --color=always"
