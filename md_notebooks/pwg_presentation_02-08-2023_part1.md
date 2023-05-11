@@ -250,7 +250,7 @@ The `tool.pdm` table is empty, although we'll add things here later on.
 
 The `project` table contains the metadata needed to install our project.  Its values thus far were set by the options we chose while running `pdm init`.
 
-The `build-system` section tells the build frontend (e.g. `pip`) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we'll see later.  See [PEP 517](https://peps.python.org/pep-0517/) for more information.  Here, we're just using the default PDM backend.
+The `build-system` section tells the build frontend (e.g. `pip`) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we'll see later.  See [PEP 517](https://peps.python.org/pep-0517/) for more information.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "skip"} -->
