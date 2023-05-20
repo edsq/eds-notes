@@ -45,7 +45,7 @@ cd $tmp_dir/$repo_name
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
-git checkout ece6354
+git checkout 0ac66eb
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true scrolled=true
