@@ -371,7 +371,20 @@ add dependencies, and add development dependencies.</p>
 <li><p>The ability to get python executables of different versions, such as with <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">conda</a></p></li>
 <li><p><a class="reference external" href="https://pdm.fming.dev/latest/">PDM</a> available globally</p></li>
 </ul>
-<p>The version of PDM these notes use is:</p>
+<p>These notes were last updated:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>date
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sat May 20 13:24:18 PDT 2023
+</pre></div>
+</div>
+</div>
+</div>
+<p>The version of PDM used is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pdm<span class="w"> </span>--version
@@ -379,7 +392,7 @@ add dependencies, and add development dependencies.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">PDM</span>, version <span class=" -Color -Color-Green">2.5.3</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">PDM</span>, version <span class=" -Color -Color-Green">2.6.1</span>
 </pre></div>
 </div>
 </div>
@@ -478,13 +491,12 @@ Please select (0):
 <h3>The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file<a class="headerlink" href="#the-pyproject-toml-file" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>The central location of our project configuration is <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/52e0b0893775a6d5881fda9d5de8b154d5588ae3/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
+<p>The central location of our project configuration is <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/7777b2dd00f0215f1687927d469bbfa61f5ce41c/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyproject.toml</span>
-<span class="k">[tool.pdm]</span>
 
 <span class="k">[project]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;eeskew-pwg-test-000&quot;</span>
@@ -506,9 +518,8 @@ Please select (0):
 </div>
 </div>
 <p>This file is written in <code class="docutils literal notranslate"><span class="pre">.toml</span></code> format, which stands for <a class="reference external" href="https://toml.io/en/">Tom’s Obvious Minimal Language</a>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">tool.pdm</span></code> table is empty, although we’ll add things here later on.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">project</span></code> table contains the metadata needed to install our project.  Its values thus far were set by the options we chose while running <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">init</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">build-system</span></code> section tells the build frontend (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span></code>) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we’ll see later.  See <a class="reference external" href="https://peps.python.org/pep-0517/">PEP 517</a> for more information.  Here, we’re just using the default PDM backend.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">build-system</span></code> section tells the build frontend (e.g. <code class="docutils literal notranslate"><span class="pre">pip</span></code>) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we’ll see later.  See <a class="reference external" href="https://peps.python.org/pep-0517/">PEP 517</a> for more information.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>See the <a class="reference external" href="https://pdm.fming.dev/latest/reference/pep621/">PDM docs on writing <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a> for more on what can be specified in this file.</p>
@@ -535,7 +546,7 @@ touch<span class="w"> </span>src/eeskew_pwg_test_000/__init__.py
 <h3>Add a module<a class="headerlink" href="#add-a-module" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s add some code in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fe7dbabe72819019cb909a4e2656c465009b2d01/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
+<p>Let’s add some code in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/593a86707fd03f8aa1151b501ab3ce997d136c0d/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -638,6 +649,7 @@ Installing the project as an editable package...
 
 <span class="k">[metadata]</span>
 <span class="n">lock_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4.2&quot;</span>
+<span class="n">cross_platform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;default&quot;</span><span class="p">]</span>
 <span class="n">content_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sha256:86165c41f17b4b263a688544a3ebc55eccc1713dd177c40649b2e936dab66751&quot;</span>
 
@@ -682,7 +694,7 @@ Installing the project as an editable package...
 <h3>What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">add</span></code> do?<a class="headerlink" href="#what-did-pdm-add-do" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><code class="docutils literal notranslate"><span class="pre">cowsay</span></code> now appears as a dependency in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fcc083809724f6472f436beb22d76abfca56342c/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cowsay</span></code> now appears as a dependency in <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/4ed403937cd56c2d5e1e343770662c8562575495/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -707,7 +719,7 @@ Installing the project as an editable package...
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>We’ve also updated <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/fcc083809724f6472f436beb22d76abfca56342c/pdm.lock"><code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code></a> to include cowsay:</p>
+<p>We’ve also updated <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/4ed403937cd56c2d5e1e343770662c8562575495/pdm.lock"><code class="docutils literal notranslate"><span class="pre">pdm.lock</span></code></a> to include cowsay:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -723,6 +735,7 @@ Installing the project as an editable package...
 
 <span class="k">[metadata]</span>
 <span class="n">lock_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;4.2&quot;</span>
+<span class="n">cross_platform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;default&quot;</span><span class="p">]</span>
 <span class="n">content_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sha256:a04c8eb9409090bc9acb94e5cec5ef19afdecacb2c169628142af5ca472135f0&quot;</span>
 
@@ -765,7 +778,7 @@ Installing the project as an editable package...
 <h3>Adding more code<a class="headerlink" href="#adding-more-code" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s add a new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/23a1ec1d6970c840e3a801a4b8d5ab3f13f70533/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
+<p>Let’s add a new function to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/28142c0eb732aa2120791415ef97be4dde25bcfd/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -826,7 +839,7 @@ Installing the project as an editable package...
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">Adding group </span><span class=" -Color -Color-Green">dev</span><span class=" -Color -Color-Blue"> to lockfile</span>
 Adding packages to <span class=" -Color -Color-Cyan">dev</span> dev-dependencies: <span class=" -Color -Color-Bold -Color-Bold-Green">black</span>
-<span class=" -Color -Color-Cyan">⠙</span> Fetching hashes for resolved packages...
+<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
 🔒 Lock successful
 Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 ?25l<span class=" -Color -Color-Cyan">⠋</span> Fetching hashes for resolved packages...
@@ -857,12 +870,12 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span> successful
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.5.1</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span>...   
-  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">platformdirs</span> <span class=" -Color -Color-Yellow">3.5.0</span> successful
+  <span class=" -Color -Color-Green">✔</span> Install <span class=" -Color -Color-Bold -Color-Bold-Green">pathspec</span> <span class=" -Color -Color-Yellow">0.11.1</span> successful
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">black</span> <span class=" -Color -Color-Yellow">23.3.0</span>...      
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">click</span> <span class=" -Color -Color-Yellow">8.1.3</span>...       
   <span class=" -Color -Color-Cyan">⠙</span> Installing <span class=" -Color -Color-Bold -Color-Bold-Green">packaging</span> <span class=" -Color -Color-Yellow">23.1</span>...    
@@ -898,21 +911,21 @@ Changes are written to <span class=" -Color -Color-Green">pyproject.toml</span>.
 <h3>What did <code class="docutils literal notranslate"><span class="pre">pdm</span> <span class="pre">add</span> <span class="pre">-d</span></code> do?<a class="headerlink" href="#what-did-pdm-add-d-do" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>We’ve added a new <code class="docutils literal notranslate"><span class="pre">[dev-dependencies]</span></code> sub-table to the <code class="docutils literal notranslate"><span class="pre">[tool.pdm]</span></code> table of <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/05fdbda87e4fd579a12df3e7671936f55a53b2ee/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, which contains <code class="docutils literal notranslate"><span class="pre">black</span></code>:</p>
+<p>We’ve added a new <code class="docutils literal notranslate"><span class="pre">[tool.pdm.dev-dependencies]</span></code> table to <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/38b18c6ea806064fa8ca499306e023b829075b8a/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a>, which contains <code class="docutils literal notranslate"><span class="pre">black</span></code>:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyproject.toml</span>
-<span class="k">[tool.pdm]</span>
+<span class="p">...</span>
+
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;pdm-pep517&gt;=1.0&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pdm.pep517.api&quot;</span>
+
 <span class="k">[tool.pdm.dev-dependencies]</span>
 <span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s">&quot;black&gt;=23.3.0&quot;</span><span class="p">,</span>
 <span class="p">]</span>
-
-<span class="k">[project]</span>
-
-<span class="p">...</span>
 </pre></div>
 </div>
 </div>
@@ -986,12 +999,13 @@ summary = &quot;Utility library for gitignore style pattern matching of file pat
 
 [[package]]
 name = &quot;platformdirs&quot;
-version = &quot;3.5.0&quot;
+version = &quot;3.5.1&quot;
 requires_python = &quot;&gt;=3.7&quot;
 summary = &quot;A small Python package for determining appropriate platform-specific dirs, e.g. a \&quot;user data dir\&quot;.&quot;
 
 [metadata]
 lock_version = &quot;4.2&quot;
+cross_platform = true
 groups = [&quot;default&quot;, &quot;dev&quot;]
 content_hash = &quot;sha256:715ad39cb3ddf659e0afedfb18dcade3de83c16696c31ed976bbf46bb61aaa3a&quot;
 
@@ -1046,9 +1060,9 @@ content_hash = &quot;sha256:715ad39cb3ddf659e0afedfb18dcade3de83c16696c31ed976bb
     {url = &quot;https://files.pythonhosted.org/packages/95/60/d93628975242cc515ab2b8f5b2fc831d8be2eff32f5a1be4776d49305d13/pathspec-0.11.1.tar.gz&quot;, hash = &quot;sha256:2798de800fa92780e33acca925945e9a19a133b715067cf165b8866c15a31687&quot;},
     {url = &quot;https://files.pythonhosted.org/packages/be/c8/551a803a6ebb174ec1c124e68b449b98a0961f0b737def601e3c1fbb4cfd/pathspec-0.11.1-py3-none-any.whl&quot;, hash = &quot;sha256:d8af70af76652554bd134c22b3e8a1cc46ed7d91edcdd721ef1a0c51a84a5293&quot;},
 ]
-&quot;platformdirs 3.5.0&quot; = [
-    {url = &quot;https://files.pythonhosted.org/packages/91/17/3836ffe140abb245726d0e21c5b9b984e2569e7027c20d12e969ec69bd8a/platformdirs-3.5.0.tar.gz&quot;, hash = &quot;sha256:7954a68d0ba23558d753f73437c55f89027cf8f5108c19844d4b82e5af396335&quot;},
-    {url = &quot;https://files.pythonhosted.org/packages/ce/cf/279b73aae00f7ba9d5d7664156ef323ebbf16fb556285bb223ecc45031aa/platformdirs-3.5.0-py3-none-any.whl&quot;, hash = &quot;sha256:47692bc24c1958e8b0f13dd727307cff1db103fca36399f457da8e05f222fdc4&quot;},
+&quot;platformdirs 3.5.1&quot; = [
+    {url = &quot;https://files.pythonhosted.org/packages/89/7e/c6ff9ddcf93b9b36c90d88111c4db354afab7f9a58c7ac3257fa717f1268/platformdirs-3.5.1-py3-none-any.whl&quot;, hash = &quot;sha256:e2378146f1964972c03c085bb5662ae80b2b8c06226c54b2ff4aa9483e8a13a5&quot;},
+    {url = &quot;https://files.pythonhosted.org/packages/9c/0e/ae9ef1049d4b5697e79250c4b2e72796e4152228e67733389868229c92bb/platformdirs-3.5.1.tar.gz&quot;, hash = &quot;sha256:412dae91f52a6f84830f39a8078cecd0e866cb72294a5c66808e74d5e88d251f&quot;},
 ]
 </pre></div>
 </div>
@@ -1067,7 +1081,7 @@ content_hash = &quot;sha256:715ad39cb3ddf659e0afedfb18dcade3de83c16696c31ed976bb
 <p>We can now run <code class="docutils literal notranslate"><span class="pre">black</span></code> within our environment.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>Let’s re-write <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/e9e195ee2ac6276ace2e13e354db26cb02e9c43f/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a> with deliberately poor formatting:</p>
+<p>Let’s re-write <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/0fb6cb10ff691591da9c321a6dbb99b97dec9571/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a> with deliberately poor formatting:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1120,7 +1134,7 @@ content_hash = &quot;sha256:715ad39cb3ddf659e0afedfb18dcade3de83c16696c31ed976bb
 <h3>What did <code class="docutils literal notranslate"><span class="pre">black</span></code> do?<a class="headerlink" href="#what-did-black-do" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><code class="docutils literal notranslate"><span class="pre">black</span></code> has automatically re-formatted <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/6197112cfccec8d9d63fdb962c1fb383f89e83b6/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>, fixing the poor formatting we introduced earlier:</p>
+<p><code class="docutils literal notranslate"><span class="pre">black</span></code> has automatically re-formatted <a class="reference external" href="https://github.com/edsq/eeskew-pwg-test-000/tree/0ac66eb35f03969419059219f8a54abda32790c7/src/eeskew_pwg_test_000/sarcasm.py"><code class="docutils literal notranslate"><span class="pre">src/eeskew_pwg_test_000/sarcasm.py</span></code></a>, fixing the poor formatting we introduced earlier:</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
