@@ -45,7 +45,7 @@ cd $tmp_dir/$repo_name
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start companion repo fresh from the beginning
-git checkout $(git rev-list --topo-order main | tail -1)  # check out first commit
+git switch -d $(git rev-list --topo-order main | tail -1)  # check out first commit
 pdm venv create --force python
 ```
 
