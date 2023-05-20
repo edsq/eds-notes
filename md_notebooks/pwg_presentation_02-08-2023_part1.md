@@ -80,7 +80,15 @@ A companion repository with the example project created in these notes is availa
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "fragment"} -->
-The version of PDM these notes use is:
+These notes were last updated:
+<!-- #endregion -->
+
+```bash slideshow={"slide_type": "fragment"} trusted=true
+date
+```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+The version of PDM used is:
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} trusted=true
