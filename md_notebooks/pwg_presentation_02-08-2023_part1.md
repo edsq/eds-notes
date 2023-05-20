@@ -246,8 +246,6 @@ simple-diff $EMPTY_TREE pyproject.toml | show-code toml
 <!-- #region slideshow={"slide_type": "notes"} -->
 This file is written in `.toml` format, which stands for [Tom's Obvious Minimal Language](https://toml.io/en/).
 
-The `tool.pdm` table is empty, although we'll add things here later on.
-
 The `project` table contains the metadata needed to install our project.  Its values thus far were set by the options we chose while running `pdm init`.
 
 The `build-system` section tells the build frontend (e.g. `pip`) what build backend to use - the build backend is what will actually create the distribution artifacts (wheels and sdists), which we'll see later.  See [PEP 517](https://peps.python.org/pep-0517/) for more information.
@@ -518,7 +516,7 @@ git-checkpoint
 <!-- #endregion -->
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true
-embed-repo-link "We've added a new \`[dev-dependencies]\` sub-table to the \`[tool.pdm]\` table of {pyproject.toml}, which contains \`black\`:"
+embed-repo-link "We've added a new \`[tool.pdm.dev-dependencies]\` table to {pyproject.toml}, which contains \`black\`:"
 ```
 
 ```bash slideshow={"slide_type": "fragment"} tags=["remove-input"] trusted=true

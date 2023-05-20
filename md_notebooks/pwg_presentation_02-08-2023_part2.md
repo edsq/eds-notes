@@ -45,7 +45,7 @@ cd $tmp_dir/$repo_name
 
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # Start at the last checkpoint from Part 1
-git checkout 6197112
+git checkout ece6354
 ```
 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true scrolled=true
@@ -93,13 +93,6 @@ echo '__version__ = "0.1.0"' > src/eeskew_pwg_test_000/__version__.py
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # This cell hidden in presentation and docs
 cat << EOF > pyproject.toml
-[tool.pdm]
-version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
-
-[tool.pdm.dev-dependencies]
-dev = [
-    "black>=23.3.0",
-]
 
 [project]
 name = "eeskew-pwg-test-000"
@@ -118,6 +111,14 @@ dynamic = ["version"]
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
+
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.3.0",
+]
 EOF
 ```
 
@@ -317,22 +318,6 @@ For the time being, this deprecated build backend is required for `pdm-bump` to 
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
-[tool.pdm]
-version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
-
-[tool.pdm.scripts]
-test-publish.shell = '''\
-VERSION="$(pdm show --version)" &&
-pdm bump micro > /dev/null &&
-pdm bump to "$(pdm show --version).dev$(date +%s)" &&
-pdm publish -r testpypi &&
-pdm bump to "$VERSION"
-'''
-
-[tool.pdm.dev-dependencies]
-dev = [
-    "black>=23.3.0",
-]
 
 [project]
 name = "eeskew-pwg-test-000"
@@ -351,6 +336,23 @@ dynamic = ["version"]
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
+
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.scripts]
+test-publish.shell = '''\
+VERSION="$(pdm show --version)" &&
+pdm bump micro > /dev/null &&
+pdm bump to "$(pdm show --version).dev$(date +%s)" &&
+pdm publish -r testpypi &&
+pdm bump to "$VERSION"
+'''
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.3.0",
+]
 EOF
 ```
 
@@ -475,22 +477,6 @@ simple-diff HEAD~ src/eeskew_pwg_test_000/cli.py | show-code python
 ```bash tags=["remove-cell"] slideshow={"slide_type": "skip"} trusted=true
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
-[tool.pdm]
-version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
-
-[tool.pdm.scripts]
-test-publish.shell = '''\
-VERSION="$(pdm show --version)" &&
-pdm bump micro > /dev/null &&
-pdm bump to "$(pdm show --version).dev$(date +%s)" &&
-pdm publish -r testpypi &&
-pdm bump to "$VERSION"
-'''
-
-[tool.pdm.dev-dependencies]
-dev = [
-    "black>=23.3.0",
-]
 
 [project]
 name = "eeskew-pwg-test-000"
@@ -512,6 +498,23 @@ sarcasticow = "eeskew_pwg_test_000.cli:main"
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
+
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.scripts]
+test-publish.shell = '''\
+VERSION="$(pdm show --version)" &&
+pdm bump micro > /dev/null &&
+pdm bump to "$(pdm show --version).dev$(date +%s)" &&
+pdm publish -r testpypi &&
+pdm bump to "$VERSION"
+'''
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.3.0",
+]
 EOF
 ```
 
@@ -609,22 +612,6 @@ We can add relevant URLs in the [`urls` table](https://packaging.python.org/en/l
 ```bash slideshow={"slide_type": "skip"} tags=["remove-cell"] trusted=true
 # This cell hidden in presentation and docs
 cat << "EOF" > pyproject.toml
-[tool.pdm]
-version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
-
-[tool.pdm.scripts]
-test-publish.shell = '''\
-VERSION="$(pdm show --version)" &&
-pdm bump micro > /dev/null &&
-pdm bump to "$(pdm show --version).dev$(date +%s)" &&
-pdm publish -r testpypi &&
-pdm bump to "$VERSION"
-'''
-
-[tool.pdm.dev-dependencies]
-dev = [
-    "black>=23.3.0",
-]
 
 [project]
 name = "eeskew-pwg-test-000"
@@ -650,6 +637,23 @@ sarcasticow = "eeskew_pwg_test_000.cli:main"
 [build-system]
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
+
+[tool.pdm]
+version = { source = "file", path = "src/eeskew_pwg_test_000/__version__.py" }
+
+[tool.pdm.scripts]
+test-publish.shell = '''\
+VERSION="$(pdm show --version)" &&
+pdm bump micro > /dev/null &&
+pdm bump to "$(pdm show --version).dev$(date +%s)" &&
+pdm publish -r testpypi &&
+pdm bump to "$VERSION"
+'''
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.3.0",
+]
 EOF
 ```
 
